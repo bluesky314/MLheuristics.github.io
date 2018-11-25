@@ -15,6 +15,18 @@ Here $\eta$ is called learning rate.
 
 **Figure**: ReLU. [Source](http://neuralnetworksanddeeplearning.com/chap3.html).
 
+///
+
+We are given training pairs $(x^1, y^1), (x^2, y^2), \ldots, (x^n, y^n)$.
+$$ v \rightarrow v' = v -\eta \nabla C = v -\frac{\eta}{n} \sum_{i = 1}^{n} \nabla C_i $$
+
+<span class="marginnote">
+    **Algorithm**: Stochastic Gradient Descent
+</span>
+
+<img src='/images/config.png' height="138">
+
+
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
 The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
