@@ -25,7 +25,7 @@ $$ v \rightarrow v' = v -\eta \nabla C = v -\frac{\eta}{n} \sum_{i = 1}^{n} \nab
 </span>
 
 <img src='/images/config.png' height="138">
-
+![_config.yml]({{ site.baseurl }}/images/404.png)
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
