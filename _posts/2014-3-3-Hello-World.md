@@ -48,7 +48,9 @@ The common symbol for this linear weighted sum in network diagrams is:
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/linearsymbol.png?raw=true" >
 
 **Representation Power**
+
 We can show that a single perceptron, or less formally, a single weighted linear combination can act as a logical gate. In order to do this we include an activation function which in this case is a step function: 
+
 $$ 
 \begin{eqnarray}
   \sigma(z) & = & \left\{ \begin{array}{ll}
@@ -74,3 +76,14 @@ So now our outputs are all exactly as the AND table. The bias is effectively say
 Now consider the OR gate. The OR gate activates when atleast of the features is present. Since the OR gate just has less feature requirement, we can construct an OR gate by reducing the bias. We set b = -0.5.
 
 For a NOT gate, $$x_{1}, x_{2}$$ are negative features as we don't want them, so we give them negative weights of -1 each. Then as we want the case of $$x_{1}, x_{2}$$ = 0 to output 1 , we can set b = +0.5 or any tiny postitive number and it behaves in the same way.
+
+If we pass our outputs from an AND gate to a NOT gate we have effectively created a NAND gate. A NAND gate is considered a universal gate i.e any computation can be computed only using a combination of NAND gates. Hence our single perceptrons can be combined for exactly the same behaviour. (You can playaround with logic gates a bit more at Lesson 2.8 of Udacity's Intro to Deep Learning with Pytorch course for free. ) We considered a simple case of two input features, but with many more features, a combination of perceptrons can form intricate logic conditions for the task at hand. We can construct multiple layers of perceptrons to make more and more elaborate compositions of logical operations in between the inputs. That network would look like: 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/hiddendiag.jpg?raw=true" >
+
+A perceptron in the $$N^{th}$$ layer acts upon all the outputs of the $$N-1^{th}$$ layer. It computes another logical operation on all the operations already computed by the $$N-1^{th}$$ layer, therefore it is able to form a deeper operation with respect to the inputs.
+
+Logical gates are a powerful abstraction to understand the representation power of perceptrons. But as we move to continuous inputs and outputs we can more fully understand how MLPs are used for a range of modern tasks through the lense two important functions: ReLU and Sigmoid. In modern architectures ReLU's are used inplace of step functions and Sigmoid is used on the output of the MLP.
+
+
+
