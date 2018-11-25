@@ -4,37 +4,13 @@ title: You're up and running!
 ---
 
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
-$$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$
 
 This is edited.
 **Figure**: Perceptron Model. [Source](http://neuralnetworksanddeeplearning.com/chap1.html).
-
-**Algorithm**: Stochastic Gradient Descent
-
-Here $\eta$ is called learning rate. 
+ 
 
 **Figure**: ReLU. [Source](http://neuralnetworksanddeeplearning.com/chap3.html).
 
-
-![alt text](https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.3.png?raw=true "Fig2.3")
-
-
-///
-
-We are given training pairs $(x^1, y^1), (x^2, y^2), \ldots, (x^n, y^n)$.
-$$ v \rightarrow v' = v -\eta \nabla C = v -\frac{\eta}{n} \sum_{i = 1}^{n} \nabla C_i $$
-
-<span class="marginnote">
-    **Algorithm**: Stochastic Gradient Descent
-</span>
-
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.3.png?raw=true" width="200" height="200" />
-
-
-
-<img src='/images/config.png' height="138">
-
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
 
 
 **The Single Perceptron:**
@@ -108,6 +84,21 @@ Or more compactly: $$\sigma (z)=max(z,0)$$
 
 Only different from the step function is that it lets positive values remain as themselves. Let us say we have the task of estimation some value, maybe the house price based on various inputs. In this case our output cannot just be 0 or 1 but some number. This regression problem can be solved by finding an appropriate function $$h(x_{1}, x_{2}......x_{n})$$ which outputs the price based on the inputs.
 
-Consider a MLP with one hidden layer with two perceptrons. Each perceptron will output a ReLU function as : 
+Consider a MLP with one hidden layer with two perceptrons and one output node. Each perceptron will output a ReLU function as : 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Reluhidden.png?raw=true" >
+
+The output node will then take a weighted sum of these two functions as suppose : 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" >
+
+By the next short example I hope you will be able to see the power of ReLU in approximating any function : 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" >
+
+This looks alot like $$x^{2}$$ doesnt it? The Universal Approximation Theorem(1) says an MLP with enough ReLU's in one hidden layer can approximate any function to an arbitary degree of accuracy within a bounded region. Boundedness is a very important concept for any machine learning model but we look over it for now. Because we can pick up and place a ReLU anywhere by adjusting the thresholding factor or bias in each perceptron so we can simply stack ReLU functions side by side. In essence, using ReLU gives us the total power to change the gradient of our function at any point by adding a ReLU with the appropriate increase or decrease slope. If we have total control on the gradient, we have total control over what we want our function to look like as we can effectively steer it in any direction at any speed we like. 
+
+**Sigmoid**
+
+
+
