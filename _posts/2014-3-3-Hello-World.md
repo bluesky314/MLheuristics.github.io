@@ -57,7 +57,7 @@ For a NOT gate, $$x_{1}, x_{2}$$ are negative features as we don't want them, so
 
 If we pass our outputs from an AND gate to a NOT gate we have effectively created a NAND gate. A NAND gate is considered a universal gate i.e any computation can be computed only using a combination of NAND gates. Hence our single perceptrons can be combined for exactly the same behaviour. (You can playaround with logic gates a bit more at Lesson 2.8 of Udacity's Intro to Deep Learning with Pytorch course for free. ) We considered a simple case of two input features, but with many more features, a combination of perceptrons can form intricate logic conditions for the task at hand. We can construct multiple layers of perceptrons to make more and more elaborate compositions of logical operations in between the inputs. That network would look like: 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/hiddendiag.jpg?raw=true" width="800" height="400">
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/hiddendiag.jpg?raw=true" width="400" height="200">
 
 A perceptron in the $$N^{th}$$ layer acts upon all the outputs of the $$N-1^{th}$$ layer. It computes another logical operation on all the operations already computed by the $$N-1^{th}$$ layer, therefore it is able to form a deeper operation with respect to the inputs.
 
