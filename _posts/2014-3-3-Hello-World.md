@@ -96,9 +96,48 @@ By the next short example I hope you will be able to see the power of ReLU in ap
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" >
 
-This looks alot like $$x^{2}$$ doesnt it? The Universal Approximation Theorem(1) says an MLP with enough ReLU's in one hidden layer can approximate any function to an arbitary degree of accuracy within a bounded region. Boundedness is a very important concept for any machine learning model but we look over it for now. Because we can pick up and place a ReLU anywhere by adjusting the thresholding factor or bias in each perceptron so we can simply stack ReLU functions side by side. In essence, using ReLU gives us the total power to change the gradient of our function at any point by adding a ReLU with the appropriate increase or decrease slope. If we have total control on the gradient, we have total control over what we want our function to look like as we can effectively steer it in any direction at any speed we like. 
+This looks alot like $$x^{2}$$ doesnt it? The Universal Approximation Theorem(1) says an MLP with enough ReLU's in one hidden layer can approximate any function to an arbitary degree of accuracy within a bounded region. Boundedness is a very important concept for any machine learning model but we look over it for now. Because we can pick up and place a ReLU anywhere by adjusting the thresholding factor or bias in each perceptron, we can simply stack ReLU functions side by side(you may be able to notice the dents in the $$x^{2}$$ plot above where one ReLU just began). In essence, using ReLU gives us the total power to change the gradient of our function at any point by adding a ReLU with the appropriate increase or decrease slope. If we have total control on the gradient, we have total control over what we want our function to look like as we can effectively steer it in any direction at any speed we like.(Quora link)
 
 **Sigmoid**
+
+Sigmoid functions are used on the outputs of MLP's in binary classification problems where we have two possible classes; telling whether an image is of a lion or giraff is such a problem. Sigmoid outputs a value between 0-1 that can be interpreted as the score or probability of one of the classes.
+
+The sigmoid function is defined as:
+$$ \begin{eqnarray} 
+  \sigma(z) = \frac{1}{1+e^{-z}}.
+\end{eqnarray}
+$$
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/sigmoid.png?raw=true" >
+
+We use the sigmoid in place of our step function at the end as instead of just outputting a 0 or 1 it gives us a score for how favorable our desired event is. If we are a little favorable, then we may get 0.55 and very then 0.95. Another great property is the sigmoid is differentiable, this will be useful for backpropagation(2).
+
+If a class has a probability higher than 0.5 we pick that class. For our desired class : 
+
+$$\frac{1}{1+e^{-z}} >0.5$$
+
+$$e^{-z}>1$$
+
+$$z>0$$
+
+i.e z=0 is the equation of the decision boundary line/curve where input features show equal evidence of either class. 
+Proof: 
+
+Say, we are camping in the jungle and hear some footsteps at night. We want to classify if its a bear or a lion. By the sounds on the floor we estimate the weight of the animal and once we see it's silhouette we can estimate the height.  So we have features weight and height as $$x_{1}, x_{2}$$. For a given weight bears are taller than lions. Our model will give us the probability of being a lion since we will have to run much faster if it is. The decision boundry sepearing the classes can be given by some linear function : 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/lineaerdecision.png?raw=true" >
+
+$$2x_{1}-5=x_{2}$$ is the boundry function i.e $$2x_{1}-5-x_{2}=0$$ 
+Our decision function then becomes sig() s.t sig>0.5 -class 1, vice versa
+
+Consider a point on the line as shown in the right hand side image. If we enter $$x_{1}, x_{2}$$ at the point then our boundry equation will output zero and hence our decision function will output 0.5 - inconclusive
+
+If we go upwards, as $$x_{2}$$ has a negative weight in the boundry equation, our boundry equation will become smaller causing the sigmoid function to fall below 0.5 indicating its probably not a lion therefore its a bear;  and the opposite will happen in case we move downwards.
+
+Generally speaking, moving in either direction from the decision boundry with respect to a variable will cause the boundary equation to either increase or decrease from zero depending on the sign of the variable. This will cause the decision function to no longer be indecisive. This same thing will apply if we had stacked a bunch of relu functions like relu1+relu2.....=y yielding relu1+relu2.....-y=0 as the boundary function
+
+This decision boundary is usually a non-linear boundary. What is and why is it non-linear?  [take e.g x-y>0, others]
+
 
 
 
