@@ -40,6 +40,7 @@ Next you can update your site name, avatar and other options using the _config.y
 **The Single Perceptron:**
 
 A single perceptron is just a weighted linear combination of input features. Suppose we have inputs $$x_{1}, x_{2}......x_{n}$$ and corrosponding weights $$w_{1}, w_{2}......w_{n}$$. Then the dot product of these two vectors represented by: 
+
 $$\sum\limits_{i=0}^{n}{x_{i}w_{i}}+b$$ 
 
 We can think of the weights as the degrees of importance attached to each input feature. If more favourable features are present then the dot product will be higher. Therefore the linear combination gives us a score for what we are looking for. The bias term acts as a threshold, we shall see this more further.
@@ -61,13 +62,14 @@ $$
 $$
 
 So our perceptron can now be written as:
+
 $$Output=\sigma (\sum\limits_{i=0}^{n}{x_{i}w_{i}}+b )$$
 
 (and table)
 Let us consider two inputs features $$x_{1}, x_{2}$$ which can either be 0 or 1 indicating absense or presence. The AND gate outputs a 1 if both inputs are 1 and 0 in all other cases. Our job is to find $$w_{1}, w_{2}$$ and b so that our perceptron behaves the same way. As $$x_{1}, x_{2}$$ are desireable features we start by giving them positive weights of $$w_{1}, w_{2}$$=1.By playing around a bit we observe:
 
 1. $$x_{1}, x_{2}$$=1 $$\Rightarrow $$ Output = 2
-2. Either if $$x_{1}, x_{2}$$=1 $$\Rightarrow $$ Output = 1
+2. Either $$x_{1}, x_{2}$$=1 $$\Rightarrow $$ Output = 1
 
 But since we want the second sum to be negative so that our step function can reduce it to 0, we make use of the perceptrons's thresholding factor and set b = -1.5
 
@@ -79,11 +81,33 @@ For a NOT gate, $$x_{1}, x_{2}$$ are negative features as we don't want them, so
 
 If we pass our outputs from an AND gate to a NOT gate we have effectively created a NAND gate. A NAND gate is considered a universal gate i.e any computation can be computed only using a combination of NAND gates. Hence our single perceptrons can be combined for exactly the same behaviour. (You can playaround with logic gates a bit more at Lesson 2.8 of Udacity's Intro to Deep Learning with Pytorch course for free. ) We considered a simple case of two input features, but with many more features, a combination of perceptrons can form intricate logic conditions for the task at hand. We can construct multiple layers of perceptrons to make more and more elaborate compositions of logical operations in between the inputs. That network would look like: 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/hiddendiag.jpg?raw=true" width="400" height="400">
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/hiddendiag.jpg?raw=true" width="800" height="400">
 
 A perceptron in the $$N^{th}$$ layer acts upon all the outputs of the $$N-1^{th}$$ layer. It computes another logical operation on all the operations already computed by the $$N-1^{th}$$ layer, therefore it is able to form a deeper operation with respect to the inputs.
 
-Logical gates are a powerful abstraction to understand the representation power of perceptrons. But as we move to continuous inputs and outputs we can more fully understand how MLPs are used for a range of modern tasks through the lense two important functions: ReLU and Sigmoid. In modern architectures ReLU's are used inplace of step functions and Sigmoid is used on the output of the MLP.
+Logical gates are a powerful abstraction to understand the representation power of perceptrons. We shall see more examples of it below. But as we move to continuous inputs and outputs we can more fully understand how MLPs are used for a range of modern tasks through the lense two important functions: ReLU and Sigmoid. In modern architectures ReLU's are used inplace of step functions and Sigmoid is used on the output of the MLP.
 
 
+**Relu**
 
+Usually in MLP's, ReLU's are used instead of the step function. A ReLU is defined as :
+
+
+$$ 
+\begin{eqnarray}
+  \sigma(z) & = & \left\{ \begin{array}{ll}
+      0 & \mbox{if } z \leq 0 \\
+      z & \mbox{if } z > 0
+      \end{array} \right.
+\end{eqnarray}
+$$
+
+Or more compactly: $$\sigma (z)=max(z,0)$$
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relu2.png?raw=true" >
+
+Only different from the step function is that it lets positive values remain as themselves. Let us say we have the task of estimation some value, maybe the house price based on various inputs. In this case our output cannot just be 0 or 1 but some number. This regression problem can be solved by finding an appropriate function $$h(x_{1}, x_{2}......x_{n})$$ which outputs the price based on the inputs.
+
+Consider a MLP with one hidden layer with two perceptrons. Each perceptron will output a ReLU function as : 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Reluhidden.png?raw=true" >
