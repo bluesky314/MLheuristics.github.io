@@ -7,6 +7,13 @@ Next you can update your site name, avatar and other options using the _config.y
 $$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$
 
 This is edited.
+**Figure**: Perceptron Model. [Source](http://neuralnetworksanddeeplearning.com/chap1.html).
+
+**Algorithm**: Stochastic Gradient Descent
+
+Here $\eta$ is called learning rate. 
+
+**Figure**: ReLU. [Source](http://neuralnetworksanddeeplearning.com/chap3.html).
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
