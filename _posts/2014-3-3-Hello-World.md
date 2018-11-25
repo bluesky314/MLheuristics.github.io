@@ -80,7 +80,8 @@ $$
 
 Or more compactly: $$\sigma (z)=max(z,0)$$
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relu2.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Relu2.png?raw=true" >
+
 
 Only different from the step function is that it lets positive values remain as themselves. Let us say we have the task of estimation some value, maybe the house price based on various inputs. In this case our output cannot just be 0 or 1 but some number. This regression problem can be solved by finding an appropriate function $$h(x_{1}, x_{2}......x_{n})$$ which outputs the price based on the inputs.
 
@@ -90,7 +91,7 @@ Consider a MLP with one hidden layer with two perceptrons and one output node. E
 
 The output node will then take a weighted sum of these two functions as suppose : 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" width="318" height="236" >
 
 By the next short example I hope you will be able to see the power of ReLU in approximating any function : 
 
