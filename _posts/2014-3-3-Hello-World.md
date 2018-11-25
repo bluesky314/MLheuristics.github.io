@@ -4,6 +4,9 @@ title: You're up and running!
 ---
 
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+$$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$
+
+This is edited.
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
