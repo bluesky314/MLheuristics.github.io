@@ -24,6 +24,11 @@ $$ v \rightarrow v' = v -\eta \nabla C = v -\frac{\eta}{n} \sum_{i = 1}^{n} \nab
     **Algorithm**: Stochastic Gradient Descent
 </span>
 
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+
 <img src='/images/config.png' height="138">
 ![_config.yml]({{ site.baseurl }}/images/404.png)
 
