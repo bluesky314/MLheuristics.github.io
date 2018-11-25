@@ -97,7 +97,7 @@ By the next plot I hope you will be able to see the power of ReLU in approximati
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" width="250" height="186 >
 
-This looks alot like $$x^{2}$$ doesnt it? The Universal Approximation Theorem(1) says an MLP with enough ReLU's in one hidden layer can approximate any function to an arbitary degree of accuracy within a bounded region. Boundedness is a very important concept for any machine learning model but we look over it for now. Because we can pick up and place a ReLU anywhere by adjusting the thresholding factor or bias in each perceptron, we can simply stack ReLU functions side by side(you may be able to notice the dents in the $$x^{2}$$ plot above where one ReLU just began). In essence, using ReLU gives us the total power to change the gradient of our function at any point by adding a ReLU with the appropriate increase or decrease slope. If we have total control on the gradient, we have total control over what we want our function to look like as we can effectively steer it in any direction at any speed we like.(Quora link)
+This looks alot like $$x^{2}$$ doesnt it? The Universal Approximation Theorem(1) says an MLP with enough ReLU's in one hidden layer can approximate any function to an arbitary degree of accuracy within a bounded region. Boundedness is a very important concept for any machine learning model but we look over it for now. Because we can pick up and place a ReLU anywhere by adjusting the thresholding factor or bias in each perceptron, we can simply stack ReLU functions side by side(you may be able to notice the dents in the $$x^{2}$$ plot above where one ReLU just began). In essence, using ReLU gives us the total power to change the gradient of our function at any point by adding a ReLU with the appropriate increase or decrease slope. If we have total control on the gradient, we have total control over what we want our function to look like as we can effectively steer it in any direction at any speed we like from any point onwards.(Quora link)
 
 Suppose we have one hidden units with 4 perceptrons. How could we solve : 
 
@@ -143,20 +143,31 @@ $$e^{-z}>1$$
 $$z>0$$
 
 i.e z=0 is the equation of the decision boundary line/curve where input features show equal evidence of either class. 
-Proof: 
+**Proof**: 
 
-Say, we are camping in the jungle and hear some footsteps at night. We want to classify if its a bear or a lion. By the sounds on the floor we estimate the weight of the animal and once we see it's silhouette we can estimate the height.  So we have features weight and height as $$x_{1}, x_{2}$$. For a given weight bears are taller than lions. Our model will give us the probability of being a lion since we will have to run much faster if it is. The decision boundry sepearing the classes can be given by some linear function : 
+Say, we are camping in the jungle and hear some footsteps at night. We want to classify if its a bear or a lion. By the sounds on the floor we estimate the weight of the animal and once we see it's silhouette we can estimate the height.  So we have features weight and height as $$x_{1}, x_{2}$$. For a given weight bears are taller than lions. Our model will give us the probability of being a lion since we will have to run much faster if it is. 
+
+*Onto the math:* Suppose the decision boundry seperating the classes can be given by some linear function : 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/lineaerdecision.png?raw=true" >
 
-$$2x_{1}-5=x_{2}$$ is the boundry function i.e $$2x_{1}-5-x_{2}=0$$ 
-Our decision function then becomes sig() s.t sig>0.5 -class 1, vice versa
+$$2x_{1}-5=x_{2}$$ is the boundry function i.e $$2x_{1}-5-x_{2}=0$$. Our model must output 0.5 for the entire line. 
+For this to be true:
+
+$$\frac{1}{1+e^{-z}} = 0.5$$
+
+$$e^{-z}=1$$
+
+$$z=0$$
+
+$$z=2x_{1}-5-x_{2}$$
+
 
 Consider a point on the line as shown in the right hand side image. If we enter $$x_{1}, x_{2}$$ at the point then our boundry equation will output zero and hence our decision function will output 0.5 - inconclusive
 
-If we go upwards, as $$x_{2}$$ has a negative weight in the boundry equation, our boundry equation will become smaller causing the sigmoid function to fall below 0.5 indicating its probably not a lion therefore its a bear;  and the opposite will happen in case we move downwards.
+If we go upwards, as $$x_{2}$$ has a negative weight in the boundry equation, our boundry equation will become smaller causing the sigmoid function to fall below 0.5 indicating its probably not a lion therefore its a bear;  and the opposite will happen in case we move downwards. 
 
-Generally speaking, moving in either direction from the decision boundry with respect to a variable will cause the boundary equation to either increase or decrease from zero depending on the sign of the variable. This will cause the decision function to no longer be indecisive. This same thing will apply if we had stacked a bunch of relu functions like in our $$x_{2}$$ example where $$relu(x_{1}-1)+relu(2x_{1}-2)+......-x_{2}=0$$ was the boundary function. 
+Generally speaking, moving in either direction from the decision boundry with respect to a variable will cause the boundary equation to either increase or decrease from zero depending on the sign of the variable. This will cause the decision function to no longer be indecisive. The sigmoid function searches for what combination of the input features display equal evidence to  both classes, by that it knows which are the positive and negative features towards any class, and then when features tilt in a direction it knows which class to pick. This same thing will apply if we had stacked a bunch of relu functions like in our $$x_{2}$$ example with $$relu(x_{1}-1)+relu(2x_{1}-2)+......-x_{2}=0$$ now being the boundary function. 
 
 **Key point:** Arbitrarily complex functions can be created by stacking ReLUs side by side. Then the sigmoid turns these into a decision boundry and gives scores/probabilites for how close or far away points are from the boundry. To map more and more complex functions, we would need to have more terms in our boundary equation to create very non-linear functions with the ReLU's. Hence, easily separable data requires less perceptrons than more complicated data. 
 
