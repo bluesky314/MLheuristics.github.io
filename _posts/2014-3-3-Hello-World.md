@@ -1,9 +1,9 @@
 ---
 layout: post
-title: You're up and running!
+title: The Perception of the Perceptron
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+
 
 This is edited.
 **Figure**: Perceptron Model. [Source](http://neuralnetworksanddeeplearning.com/chap1.html).
@@ -91,11 +91,11 @@ Consider a MLP with one hidden layer with two perceptrons and one output node. E
 
 The output node will then take a weighted sum of these two functions as suppose : 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" width="250" height="186" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" width="500" height="366" >
 
 By the next plot I hope you will be able to see the power of ReLU in approximating any function : 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" width="250" height="186 >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" width="500" height="366 >
 
 This looks alot like $$x^{2}$$ doesnt it? The Universal Approximation Theorem(1) says an MLP with enough ReLU's in one hidden layer can approximate any function to an arbitary degree of accuracy within a bounded region. Boundedness is a very important concept for any machine learning model but we look over it for now. Because we can pick up and place a ReLU anywhere by adjusting the thresholding factor or bias in each perceptron, we can simply stack ReLU functions side by side(you may be able to notice the dents in the $$x^{2}$$ plot above where one ReLU just began). In essence, using ReLU gives us the total power to change the gradient of our function at any point by adding a ReLU with the appropriate increase or decrease slope. If we have total control on the gradient, we have total control over what we want our function to look like as we can effectively steer it in any direction at any speed we like from any point onwards.(Quora link)
 
