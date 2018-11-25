@@ -91,13 +91,34 @@ Consider a MLP with one hidden layer with two perceptrons and one output node. E
 
 The output node will then take a weighted sum of these two functions as suppose : 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" width="318" height="236" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" width="250" height="186" >
 
-By the next short example I hope you will be able to see the power of ReLU in approximating any function : 
+By the next plot I hope you will be able to see the power of ReLU in approximating any function : 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" width="250" height="186 >
 
 This looks alot like $$x^{2}$$ doesnt it? The Universal Approximation Theorem(1) says an MLP with enough ReLU's in one hidden layer can approximate any function to an arbitary degree of accuracy within a bounded region. Boundedness is a very important concept for any machine learning model but we look over it for now. Because we can pick up and place a ReLU anywhere by adjusting the thresholding factor or bias in each perceptron, we can simply stack ReLU functions side by side(you may be able to notice the dents in the $$x^{2}$$ plot above where one ReLU just began). In essence, using ReLU gives us the total power to change the gradient of our function at any point by adding a ReLU with the appropriate increase or decrease slope. If we have total control on the gradient, we have total control over what we want our function to look like as we can effectively steer it in any direction at any speed we like.(Quora link)
+
+Suppose we have one hidden units with 4 perceptrons. How could we solve : 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.png?raw=true" >
+
+Pause to figure it out. You know enough! Or scroll down just a bit for a hint.
+
+2 pair of neurons each would combine to form : 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/ORplots.png?raw=true" >
+
+And then ? Pause again to figure it out....
+
+Then we simply pass this into an OR gate at the final node and our classes have been distinguised!
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.1.png?raw=true" >
+
+Using the abstraction of logic gates in this example made it extremely easy to see how our model could divide the data and what it would do in the end. We can apply this same abstraction to senerios where we have many more features to reason what our network is doing. For example, in a CNN the decision node in a dog detector may look something like: Nose AND (Pointy Ears OR Sharp Ears) AND Eyes AND Tail NOT (Glasses OR Clothes).
+
+
+
 
 **Sigmoid**
 
@@ -135,7 +156,9 @@ Consider a point on the line as shown in the right hand side image. If we enter 
 
 If we go upwards, as $$x_{2}$$ has a negative weight in the boundry equation, our boundry equation will become smaller causing the sigmoid function to fall below 0.5 indicating its probably not a lion therefore its a bear;  and the opposite will happen in case we move downwards.
 
-Generally speaking, moving in either direction from the decision boundry with respect to a variable will cause the boundary equation to either increase or decrease from zero depending on the sign of the variable. This will cause the decision function to no longer be indecisive. This same thing will apply if we had stacked a bunch of relu functions like relu1+relu2.....=y yielding relu1+relu2.....-y=0 as the boundary function
+Generally speaking, moving in either direction from the decision boundry with respect to a variable will cause the boundary equation to either increase or decrease from zero depending on the sign of the variable. This will cause the decision function to no longer be indecisive. This same thing will apply if we had stacked a bunch of relu functions like in our $$x_{2}$$ example where $$relu(x_{1}-1)+relu(2x_{1}-2)+......-x_{2}=0$$ was the boundary function. 
+
+**Key point:** Arbitrarily complex functions can be created by stacking ReLUs side by side. Then the sigmoid turns these into a decision boundry and gives scores/probabilites for how close or far away points are from the boundry. To map more and more complex functions, we would need to have more terms in our boundary equation to create very non-linear functions with the ReLU's. Hence, easily separable data requires less perceptrons than more complicated data. 
 
 This decision boundary is usually a non-linear boundary. What is and why is it non-linear?  [take e.g x-y>0, others]
 
