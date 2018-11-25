@@ -29,6 +29,10 @@ Inline-style:
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 
+![alt text](https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.3.png "Fig2.3")
+
+
+
 <img src='/images/config.png' height="138">
 ![_config.yml]({{ site.baseurl }}/images/404.png)
 
