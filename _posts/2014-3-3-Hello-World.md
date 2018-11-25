@@ -15,6 +15,10 @@ Here $\eta$ is called learning rate.
 
 **Figure**: ReLU. [Source](http://neuralnetworksanddeeplearning.com/chap3.html).
 
+
+![alt text](https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.3.png?raw=true "Fig2.3")
+
+
 ///
 
 We are given training pairs $(x^1, y^1), (x^2, y^2), \ldots, (x^n, y^n)$.
