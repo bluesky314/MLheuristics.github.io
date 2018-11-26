@@ -41,8 +41,14 @@ So our perceptron can now be written as:
 
 $$Output=\sigma (\sum\limits_{i=0}^{n}{x_{i}w_{i}}+b )$$
 
-(and table)
-Let us consider two inputs features $$x_{1}, x_{2}$$ which can either be 0 or 1 indicating absense or presence. The AND gate outputs a 1 if both inputs are 1 and 0 in all other cases. Our job is to find $$w_{1}, w_{2}$$ and b so that our perceptron behaves the same way. As $$x_{1}, x_{2}$$ are desireable features we start by giving them positive weights of $$w_{1}, w_{2}$$=1.By playing around a bit we observe:
+
+Let us consider two inputs features $$x_{1}, x_{2}$$ which can either be 0 or 1 indicating absense or presence. The AND gate outputs a 1 if both inputs are 1 and 0 in all other cases. Our job is to find $$w_{1}, w_{2}$$ and b so that our perceptron behaves the same way. 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/AND.png?raw=true" width="200" height="200">
+
+The perceptron looks like ; $$w_{1}x_{1}+w_{2}x_{2}+b$$
+
+As $$x_{1}, x_{2}$$ are desireable features we start by giving them positive weights of $$w_{1}, w_{2}$$=1.By playing around a bit we observe:
 
 1. $$x_{1}, x_{2}$$=1 $$\Rightarrow $$ Output = 2
 2. Either $$x_{1}, x_{2}$$=1 $$\Rightarrow $$ Output = 1
@@ -51,9 +57,11 @@ But since we want the second sum to be negative so that our step function can re
 
 So now our outputs are all exactly as the AND table. The bias is effectively saying "Some of the features I am looking for are present but not enough". The whole concept of thresholding can be summed up by the previous line. 
 
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/OR.png?raw=true" width="200" height="200">
+
 Now consider the OR gate. The OR gate activates when atleast of the features is present. Since the OR gate just has less feature requirement, we can construct an OR gate by reducing the bias. We set b = -0.5.
 
-For a NOT gate, $$x_{1}, x_{2}$$ are negative features as we don't want them, so we give them negative weights of -1 each. Then as we want the case of $$x_{1}, x_{2}$$ = 0 to output 1 , we can set b = +0.5 or any tiny postitive number and it behaves in the same way.
+A NOT gate simply takes an input, $$x_{1}$$ and inverses it. 0 become 1 and 1 becomes 0. This can be done as $$-x_{1}+1$$
 
 If we pass our outputs from an AND gate to a NOT gate we have effectively created a NAND gate. A NAND gate is considered a universal gate i.e any computation can be computed only using a combination of NAND gates. Hence our single perceptrons can be combined for exactly the same behaviour. (You can playaround with logic gates a bit more at Lesson 2.8 of Udacity's Intro to Deep Learning with Pytorch course for free. ) We considered a simple case of two input features, but with many more features, a combination of perceptrons can form intricate logic conditions for the task at hand. We can construct multiple layers of perceptrons to make more and more elaborate compositions of logical operations in between the inputs. That network would look like: 
 
@@ -113,7 +121,7 @@ And then ? Pause again to figure it out....
 
 Then we simply pass this into an OR gate at the final node and our classes have been distinguised!
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.1.png?raw=true" width="500" height="366 >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.1.png?raw=true" width="500" height="366" >
 
 Lets look at two more examples: 
 
@@ -125,7 +133,7 @@ Have a look at this example from [TensorFlow Playground](https://playground.tens
  
  In [this example] ( https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=7,7&seed=0.22727&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false).
  
- <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="500" height="366 >
+ <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="500" height="366" >
  
 Here we see the power of more than one layer. The first layer, as it is only appling a single ReLU function, is able to spereate the space with only one line at each perceptron. But the next perceptrons takes all the inputs of the first layer each to form more intricate patterns( hover over the perceptrons to see). The first layer is optimized to give the best inputs into the next layer. 
 
@@ -134,7 +142,7 @@ Using the abstraction of logic gates in these examples made it extremely easy to
 Think about any such intricate logic, no matter how convoluted, and MLP's can mimick it. Each layer will create operations which will help the next layer create better operations in a pyramid like fasion to solve any intricate problem. Thats pretty powerful ! But what makes MLPs even more powerful is that not only can they apply these logical operations on features but they can construct their own features in the hidden layers on which to apply their operations on!  Woof ! Let that sink in for a bit.  
 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.1.png?raw=true" width="500" height="366 >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.1.png?raw=true" width="500" height="366" >
 
 
 
