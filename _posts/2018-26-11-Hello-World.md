@@ -2,7 +2,7 @@
 layout: post
 title: The Perception of the Perceptron
 ---
-Understanding the inner workings of Neural Networks
+Understanding the Inner Workings of Neural Networks
 
 ---
 
