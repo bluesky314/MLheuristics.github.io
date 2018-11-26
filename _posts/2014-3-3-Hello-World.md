@@ -3,14 +3,10 @@ layout: post
 title: The Perception of the Perceptron
 ---
 
+---
 
 
-This is edited.
-**Figure**: Perceptron Model. [Source](http://neuralnetworksanddeeplearning.com/chap1.html).
- 
-
-**Figure**: ReLU. [Source](http://neuralnetworksanddeeplearning.com/chap3.html).
-
+In this post we shall understand how neural networks or Multi-Layer Perceptrons(MLPs) make sense of input features and repurpose them to solve the task at hand. We will use the powerful abstraction of logical operators to make networks more intuitive and easily interpretable. Everything in this post can be applied to more complex use cases and higher dimensional feature spaces.
 
 
 **The Single Perceptron:**
@@ -19,14 +15,17 @@ A single perceptron is just a weighted linear combination of input features. Sup
 
 $$\sum\limits_{i=0}^{n}{x_{i}w_{i}}+b$$ 
 
-We can think of the weights as the degrees of importance attached to each input feature. If more favourable features are present then the dot product will be higher. Therefore the linear combination gives us a score for what we are looking for. The bias term acts as a threshold, we shall see this more further.
+We can think of the weights as the *degrees of importance* attached to each input feature. If more favourable features are present then the dot product will be higher. Therefore the linear combination gives us a score for what we are looking for. The bias term acts as a *threshold*, we shall see this more further.
 
 The common symbol for this linear weighted sum in network diagrams is:
+
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/linearsymbol.png?raw=true" >
 
-**Representation Power**
 
-We can show that a single perceptron, or less formally, a single weighted linear combination can act as a logical gate. In order to do this we include an activation function which in this case is a step function: 
+
+##Representation Power
+
+We can show that a single perceptron, or less formally, a single weighted linear combination can act as a logical gate. In order to do this we include an activation function, which in this case is the step function: 
 
 $$ 
 \begin{eqnarray}
@@ -42,11 +41,13 @@ So our perceptron can now be written as:
 $$Output=\sigma (\sum\limits_{i=0}^{n}{x_{i}w_{i}}+b )$$
 
 
+**The AND Gate**
 Let us consider two inputs features $$x_{1}, x_{2}$$ which can either be 0 or 1 indicating absense or presence. The AND gate outputs a 1 if both inputs are 1 and 0 in all other cases. Our job is to find $$w_{1}, w_{2}$$ and b so that our perceptron behaves the same way. 
 
+The AND Gate looks like:
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/AND.png?raw=true" width="100" height="100">
 
-The perceptron looks like ; $$w_{1}x_{1}+w_{2}x_{2}+b$$
+The perceptron looks like : $$\sigma(w_{1}x_{1}+w_{2}x_{2}+b)$$
 
 As $$x_{1}, x_{2}$$ are desireable features we start by giving them positive weights of $$w_{1}, w_{2}$$=1.By playing around a bit we observe:
 
@@ -57,6 +58,7 @@ But since we want the second sum to be negative so that our step function can re
 
 So now our outputs are all exactly as the AND table. The bias is effectively saying "Some of the features I am looking for are present but not enough". The whole concept of thresholding can be summed up by the previous line. 
 
+**The OR Gate**
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/OR.png?raw=true" width="100" height="100">
 
 Now consider the OR gate. The OR gate activates when atleast of the features is present. Since the OR gate just has less feature requirement, we can construct an OR gate by reducing the bias. We set b = -0.5.
@@ -129,11 +131,11 @@ Have a look at this example from [TensorFlow Playground](https://playground.tens
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFplaygroundc.png?raw=true" width="850" height="300" >
                                                                                                                                 
- Just click play and you'll see a solution being formed. Running it twice yields two different solutions. In the first one, it cornered the Blue region from three sides and applied an AND gate to all three perceptrons. In the sencond it did something a bit different, and found an inverse region to apply a NOT gate to.
+ Just click play and you'll see a solution being formed. The network forms a different solution each time depending upon how the weights are initialized. In the first one, 3 perceptrons corner the Blue region from three sides and the final node(not explicitly shown) applies an AND gate to all the three. The sencond found an inverse region to apply a NOT gate to. The sign of the weights can be made out from the color of the connections shown and the weights can be seen by clicking each perceptron.
  
- In [this example](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=7,7&seed=0.22727&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false).
+ In [this example](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=7,7&seed=0.22727&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false):
  
- <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="1000" height="300" >
+ <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="1000" height="370" >
  
 Here we see the power of more than one layer. The first layer, as it is only appling a single ReLU function, is able to spereate the space with only one line at each perceptron. But the next perceptrons takes all the inputs of the first layer each to form more intricate patterns( hover over the perceptrons to see). The first layer is optimized to give the best inputs into the next layer. 
 
