@@ -127,23 +127,19 @@ Lets look at two more examples:
 
 Have a look at this example from [TensorFlow Playground](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.69844&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false). 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFplaygroundc.png?raw=true" width="366" height="366" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFplaygroundc.png?raw=true" width="850" height="500" >
                                                                                                                                 
  Just click play and you'll see a solution being formed. Running it twice yields two different solutions. In the first one, it cornered the Blue region from three sides and applied an AND gate to all three perceptrons. In the sencond it did something a bit different, and found an inverse region to apply a NOT gate to.
  
  In [this example](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=7,7&seed=0.22727&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false).
  
- <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="500" height="100" >
+ <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="1000" height="500" >
  
 Here we see the power of more than one layer. The first layer, as it is only appling a single ReLU function, is able to spereate the space with only one line at each perceptron. But the next perceptrons takes all the inputs of the first layer each to form more intricate patterns( hover over the perceptrons to see). The first layer is optimized to give the best inputs into the next layer. 
 
 Using the abstraction of logic gates in these examples made it extremely easy to see how our model could divide the data and what it would do in the end. We can apply this same abstraction to senerios where we have many more features to reason what our network is doing. For example, in a CNN the decision node in a dog detector may look something like: Nose AND (Pointy Ears OR Sharp Ears) AND Eyes AND Tail NOT (Glasses OR Clothes). In fact, these decisions are not stricty binary, but continous as each sub-operation in a single logical operator contributes some score(based on its weights) to the logical operator. So we get an output of how much the pattern being looked for is persent or absent. If it is present in enough amounts we say the perceptron is 'firing'.
 
 Think about any such intricate logic, no matter how convoluted, and MLP's can mimick it. Each layer will create operations which will help the next layer create better operations in a pyramid like fasion to solve any intricate problem. Thats pretty powerful ! But what makes MLPs even more powerful is that not only can they apply these logical operations on features but they can construct their own features in the hidden layers on which to apply their operations on!  Woof ! Let that sink in for a bit.  
-
-
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.1.png?raw=true" width="500" height="366" >
-
 
 
 **Sigmoid**
