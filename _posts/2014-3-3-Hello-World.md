@@ -127,13 +127,13 @@ Lets look at two more examples:
 
 Have a look at this example from [TensorFlow Playground](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.69844&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false). 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFplaygroundc.png?raw=true" width="850" height="500" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFplaygroundc.png?raw=true" width="850" height="300" >
                                                                                                                                 
  Just click play and you'll see a solution being formed. Running it twice yields two different solutions. In the first one, it cornered the Blue region from three sides and applied an AND gate to all three perceptrons. In the sencond it did something a bit different, and found an inverse region to apply a NOT gate to.
  
  In [this example](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=7,7&seed=0.22727&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false).
  
- <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="1000" height="500" >
+ <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="1000" height="300" >
  
 Here we see the power of more than one layer. The first layer, as it is only appling a single ReLU function, is able to spereate the space with only one line at each perceptron. But the next perceptrons takes all the inputs of the first layer each to form more intricate patterns( hover over the perceptrons to see). The first layer is optimized to give the best inputs into the next layer. 
 
