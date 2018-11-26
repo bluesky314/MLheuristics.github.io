@@ -44,7 +44,7 @@ $$Output=\sigma (\sum\limits_{i=0}^{n}{x_{i}w_{i}}+b )$$
 
 Let us consider two inputs features $$x_{1}, x_{2}$$ which can either be 0 or 1 indicating absense or presence. The AND gate outputs a 1 if both inputs are 1 and 0 in all other cases. Our job is to find $$w_{1}, w_{2}$$ and b so that our perceptron behaves the same way. 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/AND.png?raw=true" width="200" height="200">
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/AND.png?raw=true" width="100" height="100">
 
 The perceptron looks like ; $$w_{1}x_{1}+w_{2}x_{2}+b$$
 
@@ -57,7 +57,7 @@ But since we want the second sum to be negative so that our step function can re
 
 So now our outputs are all exactly as the AND table. The bias is effectively saying "Some of the features I am looking for are present but not enough". The whole concept of thresholding can be summed up by the previous line. 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/OR.png?raw=true" width="200" height="200">
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/OR.png?raw=true" width="100" height="100">
 
 Now consider the OR gate. The OR gate activates when atleast of the features is present. Since the OR gate just has less feature requirement, we can construct an OR gate by reducing the bias. We set b = -0.5.
 
@@ -99,17 +99,17 @@ Consider a MLP with one hidden layer with two perceptrons and one output node. E
 
 The output node will then take a weighted sum of these two functions as suppose : 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" width="500" height="366" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/relusum.png?raw=true" width="333" height="243" >
 
 By the next plot I hope you will be able to see the power of ReLU in approximating any function : 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" width="500" height="366" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/x**2.png?raw=true" width="333" height="243" >
 
 This looks alot like $$x^{2}$$ doesnt it? The Universal Approximation Theorem(1) says an MLP with enough ReLU's in one hidden layer can approximate any function to an arbitary degree of accuracy within a bounded region. Boundedness is a very important concept for any machine learning model but we look over it for now. Because we can pick up and place a ReLU anywhere by adjusting the thresholding factor or bias in each perceptron, we can simply stack ReLU functions side by side(you may be able to notice the dents in the $$x^{2}$$ plot above where one ReLU just began). In essence, using ReLU gives us the total power to change the gradient of our function at any point by adding a ReLU with the appropriate increase or decrease slope. If we have total control on the gradient, we have total control over what we want our function to look like as we can effectively steer it in any direction at any speed we like from any point onwards.(Quora link)
 
 Suppose we have one hidden units with 4 perceptrons. How could we solve : 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.png?raw=true" width="500" height="366 >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.png?raw=true" width="366" height="366" >
 
 Pause to figure it out. You know enough! Or scroll down just a bit for a hint.
 
@@ -121,19 +121,19 @@ And then ? Pause again to figure it out....
 
 Then we simply pass this into an OR gate at the final node and our classes have been distinguised!
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.1.png?raw=true" width="500" height="366" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Fig2.1.png?raw=true" width="366" height="366" >
 
 Lets look at two more examples: 
 
 Have a look at this example from [TensorFlow Playground](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.69844&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false). 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFplaygroundc.png?raw=true" width="500" height="366 >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFplaygroundc.png?raw=true" width="366" height="366" >
                                                                                                                                 
  Just click play and you'll see a solution being formed. Running it twice yields two different solutions. In the first one, it cornered the Blue region from three sides and applied an AND gate to all three perceptrons. In the sencond it did something a bit different, and found an inverse region to apply a NOT gate to.
  
- In [this example] ( https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=7,7&seed=0.22727&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false).
+ In [this example](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=7,7&seed=0.22727&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false).
  
- <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="500" height="366" >
+ <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/TFsprial.png?raw=true" width="500" height="100" >
  
 Here we see the power of more than one layer. The first layer, as it is only appling a single ReLU function, is able to spereate the space with only one line at each perceptron. But the next perceptrons takes all the inputs of the first layer each to form more intricate patterns( hover over the perceptrons to see). The first layer is optimized to give the best inputs into the next layer. 
 
