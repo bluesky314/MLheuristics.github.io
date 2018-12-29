@@ -1,13 +1,14 @@
 ---
 layout: post
-title: A brief Introduction to SSIM: Structural Similarity Index
+title: SSIM: Structural Similarity Index
 ---
+
 A brief Introduction to SSIM: Structural Similarity Index
 
 ---
 This is a blog on SSIM that I had written some time back and saved as a pdf. You can find the blog [here](https://drive.google.com/file/d/1rM3fMJ45F-bVYSz7dL8y1_mBDChIrs8g/view?usp=sharing)
 
-I will briefly introduce the importance of the topic here: 
+I will briefly introduce the importance of the topic: 
 
 The SSIM index is used for measuring the similarity between two images. The SSIM
 predicts image quality based on an initial uncompressed or distortion-free image as reference. It
