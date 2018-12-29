@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Perception of the Perceptron
+title: Understanding the Perceptron
 ---
 Understanding the Inner Workings of Neural Networks
 
