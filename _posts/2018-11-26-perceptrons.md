@@ -186,7 +186,7 @@ $$e^{-z}>1$$
 
 $$z>0$$
 
-i.e z=0 is the equation of the decision boundary line/curve where input features show equal evidence of either class. Now as $$z$$ is the output of the neural network it must be greater than 0. 
+i.e $$z=0$$ is the equation of the decision boundary line/curve where input features show equal evidence of either class. Now as $$z$$ is the output of the neural network it must be greater than $$0$$. 
 
 We can show that for a single perceptron this means the sigmoid creates a line dividing the examples.
 
@@ -198,7 +198,7 @@ Say, we are camping in the jungle and hear some footsteps at night. We want to c
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/lineaerdecision.png?raw=true" >
 
-We set the sigmoid out equal to 0.5:
+We set the sigmoid out equal to $$0.5$$:
 
 $$\frac{1}{1+e^{-z}} = 0.5$$
 
@@ -212,7 +212,7 @@ $$z=ax_{1}+bx_{2}+c$$
 
 And hence the decision boundry here is a linear line. But in more complex cases it could be a wigly line or any curve or any hyper-curve represented by z i.e the neural network. And if the network can learn arbitrarily complex fnctions then the decision can be arbitrarily complex.
 
-Consider a point on the line as shown in the right hand side image. If we enter $$x_{1}, x_{2}$$ at the point then our boundary equation will output zero and hence our decision function will output 0.5 - inconclusive. 
+Consider a point on the line as shown in the right hand side image. If we enter $$x_{1}, x_{2}$$ at the point then our boundary equation will output zero and hence our decision function will output $$0.5$$ - inconclusive. 
 If we go upwards, as $$x_{2}$$ has a negative weight in the boundary equation, our boundary equation will become smaller causing the sigmoid function to fall below 0.5 indicating its probably not a lion therefore its a bear;  and the opposite will happen in case we move downwards. 
 
 Generally speaking, moving in either direction from the decision boundary with respect to a variable will cause the boundary equation to either increase or decrease from zero depending on the *sign* of the variable. This will cause the decision function to no longer be indecisive. The sigmoid function searches for what combination of the input features display equal evidence to  both classes, by that it knows which are the positive and negative features towards any class, and then when features tilt in a direction it knows which class to pick. This same thing will apply if we had stacked a bunch of ReLU functions like in our $$x^{2}$$ example with $$relu(x_{1}-1)+relu(2x_{1}-2)+......-x_{2}=0$$ now being the boundary function. 
