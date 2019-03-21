@@ -135,8 +135,11 @@ In both, two ReLUs have seperated the space seperately according to their own cr
 And then ? Pause to try and figure it out....
 
 .
+
 .
+
 .
+
 
 Then we simply pass this into an OR gate at the final node and our classes have been distinguished!
 
@@ -163,7 +166,7 @@ Think about any such intricate logic, no matter how convoluted, and MLP's can mi
 
 ## Sigmoid
 
-Sigmoid functions are used on the outputs of MLP's in binary classification problems where we have two possible classes; telling whether an image is of a lion or giraffe is such a problem. Sigmoid outputs a value between 0-1 that can be interpreted as the *score or probability* of one of the classes.
+It is important to have a sense about how the sigmoid function works. Sigmoid functions are used on the outputs of MLP's in binary classification problems where we have two possible classes; telling whether an image is of a lion or giraffe is such a problem. Sigmoid outputs a value between 0-1 that can be interpreted as the *score or probability* of one of the classes.
 
 The sigmoid function is defined as:
 $$ \begin{eqnarray} 
@@ -173,9 +176,9 @@ $$
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/sigmoid.png?raw=true" >
 
-We use the sigmoid in place of our step function at the end as instead of just outputting a 0 or 1 it gives us a score for how favorable our desired event is. If we are a little favorable, then we may get 0.55 and very then 0.95. Another great property is the sigmoid is differentiable, this will be useful for backpropagation(2).
+We use the sigmoid in place of our step function at the end as instead of just outputting a 0 or 1 it gives us a score for how favorable our desired event is. If we are a little favorable, then we may get 0.55 and very then 0.95. Another great property is the sigmoid is differentiable, this will be useful for optimizing the network.
 
-If a class has a probability higher than 0.5 we pick that class. For our desired class : 
+If a class has a probability higher than 0.5 we pick that class. We pass in the network output $$z$$ into the sigmoid function and see what must it satisfy for class 1 to be selected(as opposed to class 0) : 
 
 $$\frac{1}{1+e^{-z}} >0.5$$
 
@@ -183,7 +186,10 @@ $$e^{-z}>1$$
 
 $$z>0$$
 
-i.e z=0 is the equation of the decision boundary line/curve where input features show equal evidence of either class. 
+i.e z=0 is the equation of the decision boundary line/curve where input features show equal evidence of either class. Now as $$z$$ is the output of the neural network it must be greater than 0. 
+
+We can show that for a single perceptron this means the sigmoid creates a line dividing the examples.
+
 **Proof**: 
 
 Say, we are camping in the jungle and hear some footsteps at night. We want to classify if its a bear or a lion. By the sounds on the floor we estimate the weight of the animal and once we see it's silhouette we can estimate the height.  So we have features weight and height as $$x_{1}, x_{2}$$. For a given weight, bears are taller than lions. Our model will give us the probability of being a lion since we will have to run much faster if it is. 
@@ -192,8 +198,7 @@ Say, we are camping in the jungle and hear some footsteps at night. We want to c
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/lineaerdecision.png?raw=true" >
 
-$$2x_{1}-5=x_{2}$$ is the boundary function i.e $$2x_{1}-5-x_{2}=0$$. Our model must output 0.5 for the entire line. 
-For this to be true:
+We set the sigmoid out equal to 0.5:
 
 $$\frac{1}{1+e^{-z}} = 0.5$$
 
@@ -201,11 +206,13 @@ $$e^{-z}=1$$
 
 $$z=0$$
 
-$$z=2x_{1}-5-x_{2}$$
+and since the output of a perceptron is some linear function:
 
+$$z=ax_{1}+bx_{2}+c$$
 
-Consider a point on the line as shown in the right hand side image. If we enter $$x_{1}, x_{2}$$ at the point then our boundary equation will output zero and hence our decision function will output 0.5 - inconclusive
+And hence the decision boundry here is a linear line. But in more complex cases it could be a wigly line or any curve or any hyper-curve represented by z i.e the neural network. And if the network can learn arbitrarily complex fnctions then the decision can be arbitrarily complex.
 
+Consider a point on the line as shown in the right hand side image. If we enter $$x_{1}, x_{2}$$ at the point then our boundary equation will output zero and hence our decision function will output 0.5 - inconclusive. 
 If we go upwards, as $$x_{2}$$ has a negative weight in the boundary equation, our boundary equation will become smaller causing the sigmoid function to fall below 0.5 indicating its probably not a lion therefore its a bear;  and the opposite will happen in case we move downwards. 
 
 Generally speaking, moving in either direction from the decision boundary with respect to a variable will cause the boundary equation to either increase or decrease from zero depending on the *sign* of the variable. This will cause the decision function to no longer be indecisive. The sigmoid function searches for what combination of the input features display equal evidence to  both classes, by that it knows which are the positive and negative features towards any class, and then when features tilt in a direction it knows which class to pick. This same thing will apply if we had stacked a bunch of ReLU functions like in our $$x^{2}$$ example with $$relu(x_{1}-1)+relu(2x_{1}-2)+......-x_{2}=0$$ now being the boundary function. 
