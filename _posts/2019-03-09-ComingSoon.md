@@ -59,7 +59,7 @@ $
 
 The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability 
 
-$p(\theta | \mathcal{D}_A)$ 
+$p(\theta | D_{A})$ 
 
 This conditional probability can tell us which parameters are important in solving task A.
 
@@ -85,7 +85,7 @@ $
 
  ## Memory Aware Synapses
 
-The approach here is different by one key aspect put sucillently as "Like other model-based approaches,
+The approach here is different by one key aspect put sucillently in the paper as "Like other model-based approaches,
 we estimate an importance weight for each parameter in the network. Yet in our case,
 these importance weights approximate the sensitivity of the learned function to a param-
 eter change rather than a measure of the (inverse of) parameter uncertainty, as in [12], or
@@ -98,6 +98,16 @@ Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ .
 
 g_{ijk}=\frac{\partial F(x)}{\partial \theta_{ijk}}
 
-Then we take the average over all data points D as : 
+To get the importance of very parameter, we take the average of its derivative over the entire dataset:
 
 \Omega _{ijk} = \frac{1}{N} \sum_{D=1}^{N} g_{ijk}(x_{D} )
+
+This represents the average importance of each parameter. The higher \Omega _{ijk} is the higher the importance of that parameter.
+
+-- squared form
+
+Now when task B has to be learnt we have an addition to the loss, a regularizer that penalizes changes to parameters that are deemed important for previous tasks:
+
+L_{B}= Loss +  \lambda\sum\limits_{ij}\Omega_{ij}(\Theta_{ij}-\Theta_{ij}^{*})^{2}
+
+Where Loss is the general loss function we are using and the second is our new regularization term.
