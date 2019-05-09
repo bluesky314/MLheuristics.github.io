@@ -77,3 +77,23 @@ $
 \mathcal{L}(\theta) = \mathcal{L}_B(\theta) + \sum\limits_{i} \frac{\lambda}{2} F_i (\theta_i - \theta_{A,i}^*)^2
 \end{align}
 $
+
+
+ ## Memory Aware Synapses
+
+The approach here is different by one key aspect put sucillently as "Like other model-based approaches,
+we estimate an importance weight for each parameter in the network. Yet in our case,
+these importance weights approximate the sensitivity of the learned function to a param-
+eter change rather than a measure of the (inverse of) parameter uncertainty, as in [12], or
+the sensitivity of the loss to a parameter change, as in [39] (see Figure 2). As it does not
+depend on the ground truth labels, our approach allows computing the importance us-
+ing any available data (unlabeled) which in turn allows for an adaptation to user-specific
+settings."
+
+Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\theta_{ijk}$
+
+g_{ijk}=\frac{\partial F(x)}{\partial \theta_{ijk}}
+
+Then we take the average over all data points D as : 
+
+\Omega _{ijk} = \frac{1}{N} \sum_{D=1}^{N} g_{ijk}(x_{D} )
