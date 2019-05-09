@@ -57,7 +57,7 @@ $
 \end{align}
 $
 
-The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A)$. <b>This conditional probability can tell us which parameters are important in solving task A.
+The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A)$. This conditional probability can tell us which parameters are important in solving task A.
 
    
 Tell us the the weights thetaB will reach are influenced by thetaA. I.e the network is more likely to setlle on weights closer to thetaA in weight space. However, the abstract representations learnt are very sensitive to magnitude changes to the weights, esepecillay given that all the weights are changing. So even though we have a natural inclination to end up closer to thetaA in weight space, it is still too far in representation space.  
