@@ -59,7 +59,7 @@ $
 
 The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability 
 
-$$p(\theta | D_{A})$$ c 
+#theta|D_a
 
 This conditional probability can tell us which parameters are important in solving task A.
 
