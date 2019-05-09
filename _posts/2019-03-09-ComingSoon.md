@@ -35,3 +35,13 @@ The two problems listed here are what the three papers hope to tackle:
 
 
  ## Elastic weight consolidation
+The following theoretical explanation is not vital to understanding the ... but is good to know. 
+
+ $
+ \begin{align}
+ p(\theta | \mathcal{D}) &= \frac{p(\mathcal{D} | \theta) p(\theta)}{p(\mathcal{D})}
+ \end{align}
+ $
+ 
+Tell us the the weights thetaB will reach are influenced by thetaA. I.e the network is more likely to setlle on weights closer to thetaA in weight space. However, the abstract representations learnt are very sensitive to such changes, esepecillay given that all the weights are changing. So even though we have a natural inclination to end up closer to thetaA in weight space, it is still too far in representation space.  
+
