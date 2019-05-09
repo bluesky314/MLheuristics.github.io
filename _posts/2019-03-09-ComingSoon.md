@@ -36,12 +36,44 @@ The two problems listed here are what the three papers hope to tackle:
 
  ## Elastic weight consolidation
 The following theoretical explanation is not vital to understanding the ... but is good to know. 
+It's important to understand what training a network means from a probabilistic perspective. Supposing we have some data $\mathcal{D}$, we'd like to find the most probable parameters given the data, which is expressed as $p(\theta | \mathcal{D})$. What does this mean in our context? Lets say there was only one optimal solution $\Theta _{1}$ then $p(\theta = \Theta _{1} | \mathcal{D}) =1 $ <b> as every time we train our network we would converge to the same weights.
 
+Now say there were multiple optimas, $\Theta _{1}$ ..... $\Theta _{k}$. <b> Some of these would be more probabal that others due th factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 given D.
+
+
+We can calculate this conditional probability using Bayes' rule:
+
+Bayes theorem states:
  $
  \begin{align}
  p(\theta | \mathcal{D}) &= \frac{p(\mathcal{D} | \theta) p(\theta)}{p(\mathcal{D})}
  \end{align}
  $
  
+After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D})$. This becomes our new initilization for task B (just as in the simplier cases above)
+$
+\begin{align}
+\log p(\theta | \mathcal{D}) &= \log p(\mathcal{D}_B | \theta) + \log p(\theta | \mathcal{D}_A) - \log p(\mathcal{D}_B)\\
+\end{align}
+$
+
+The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A)$. <b>This conditional probability can tell us which parameters are important in solving task A.
+
+   
 Tell us the the weights thetaB will reach are influenced by thetaA. I.e the network is more likely to setlle on weights closer to thetaA in weight space. However, the abstract representations learnt are very sensitive to magnitude changes to the weights, esepecillay given that all the weights are changing. So even though we have a natural inclination to end up closer to thetaA in weight space, it is still too far in representation space.  
 
+Next, what is Mackay's work on Laplace approximation and how is it relevant here? I skimmed the paper and this is what I suspect is the answer. 
+
+Rather than numerically approximating the posterior distribituion, we model it as a multivariate normal distribution using $\theta_A^*$  <b> as the means. What about the variance? We're going to specify the variance for each variable as <a href="https://en.wikipedia.org/wiki/Precision_(statistics)">precision</a>, the reciprocal of the variance. 
+ Why is this? 
+ Let $\theta_A_ijk^*$ be the i'th layer, j'th neuron and k'th weight. 
+ Let's take two gaussians having the same mean. Each reprenting two of the ijk'th weights. If a weight is very important, it will have low variance, i.e the network will not continually alter it or pull it rapidy back when it does. A weight with higher variance means that there are more multiple suitable values for the weight. Thus the variance can be used to measure the importance of the weight. Weights with high importance have low variance and vice versa.
+ 
+ 
+The Fisher information matrix $F$. <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher information</a> is "a way of measuring the amout of information that an observable random variable X carries about an unknown parameter $\theta$ upon which the probability of X depends." This is very close to the inverse variance of $\theta$ . The Fisher information matrix is much more feasible to calculate than numerical approximation, which makes it a useful tool.
+
+$
+\begin{align}
+\mathcal{L}(\theta) = \mathcal{L}_B(\theta) + \sum\limits_{i} \frac{\lambda}{2} F_i (\theta_i - \theta_{A,i}^*)^2
+\end{align}
+$
