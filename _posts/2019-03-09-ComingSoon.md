@@ -67,7 +67,9 @@ If we can appreciate these two major problems then we are already halfway done i
 The following theoretical explanation is not vital to understanding the proposed solution but is good to know. 
 It's important to understand what training a network means from a probabilistic perspective. Supposing we have some data $\mathcal{D}$, we'd like to find the most probable parameters given the data, which is expressed as $p(\theta | \mathcal{D})$. What does this mean? Lets say there was only one optimal solution $\Theta _{1}$ then $p(\theta = \Theta _{1} | \mathcal{D}) =1 $ ,as every time we train our network we would converge to the same weights, and 0 for all others $\Theta$s.
 
-Now say there were multiple optimas, $\Theta _{1}$ ..... $\Theta _{k}$. Some of these would be more probable that others due to factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 and hard to access weights a lower probability that the rest. In short: $p(\theta | \mathcal{D})$ means what fraction of the times I would reach that theta if I were to train my network an infinite number of times.
+Now say there were multiple optimas, $\Theta _1 ..... \Theta _k$. Some of these would be more probable that others due to factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 and hard to access weights a lower probability that the rest. 
+
+In short: $p(\theta | \mathcal{D})$ means what fraction of the times I would reach that theta if I were to train my network an infinite number of times.
 
 
 We can calculate this conditional probability using Bayes' rule:
@@ -96,20 +98,16 @@ $
 \end{align}
 $
 
-The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A)$. This is esentially the initilization of the network before we train on task B
+The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A). This is essentially the initilization of the network before we train on task B.
 
 #theta|D_a
 
 #This conditional probability can tell us which parameters are important in solving task A.
 
    
-Having this as our initilization tells us the weights $\Theta$ will reach are influenced by $\Theta_A$. I.e the network is more likely to setlle on weights closer to $\Theta_A$ in weight space. However, the abstract representations these weights represent are very sensitive to magnitude changes to the weights. So even though we have a natural inclination to end up closer to the solution of Task A in weight space, it is still too far in representation space.  
+Having this as our initilization tells us the weights $\Theta$ will finally reach are influenced by $\Theta_A$. The network is more likely to settle on weights closer to $\Theta_A$ in weight space. However, the abstract representations these weights represent are very sensitive to magnitude changes to the weights. So even though we have a natural inclination to end up closer to the solution of Task A in weight space, it is still too far in representation space. This posterior has all the information about what the network learnt from task A. 
 
-Next, what is Mackay's work on Laplace approximation and how is it relevant here? I skimmed the paper and this is what I suspect is the answer. 
-
--why posterior is intractable
-
-Rather than numerically approximating the posterior distribituion, we model it as a multivariate normal distribution using $\theta_A^*$  as the means. What about the variance? We're going to specify the variance for each variable as <a href="https://en.wikipedia.org/wiki/Precision_(statistics)">precision</a>, the reciprocal of the variance. 
+The posterior $p(\theta | \mathcal{D}_A)$ is intractable i.e very difficult to compute thus we use an approximation. Rather than numerically approximating the posterior distribituion, we approximate it as a multivariate normal distribution using $\theta_A^*$  as the means. For the variance? We're going to specify the variance for each variable as <a href="https://en.wikipedia.org/wiki/Precision_(statistics)">precision</a>, the reciprocal of the variance. 
  Why is this? 
  
  <div id="container">
@@ -123,16 +121,20 @@ Rather than numerically approximating the posterior distribituion, we model it a
  
 The Fisher information matrix $F$. <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher information</a> is "a way of measuring the amout of information that an observable random variable X carries about an unknown parameter $\theta$ upon which the probability of X depends." This is very close to the inverse variance of $\theta_{ij}^*$ . The Fisher information matrix is much more feasible to calculate than numerical approximation, which makes it a useful tool.
 
+So, as we want to penalize changes to these important weights, we add this new term in our loss function which penalizes changes to weights according to their computed importance : 
+
+<center>
 $
 \begin{align}
 \mathcal{L}(\theta) = \mathcal{L}_B(\theta) + \sum\limits_{i} \frac{\lambda}{2} F_i (\theta_i - \theta_{A,i}^*)^2
 \end{align}
 $
+</center>
 
 
  ## Memory Aware Synapses
 
-The approach here is different by one key aspect put sucillently in the paper as "Like other model-based approaches,
+The approach here is different by one key aspect put succinctly in the paper as "Like other model-based approaches,
 we estimate an importance weight for each parameter in the network. Yet in our case,
 these importance weights approximate the sensitivity of the learned function to a param-
 eter change rather than a measure of the (inverse of) parameter uncertainty, as in [12], or
@@ -141,7 +143,10 @@ depend on the ground truth labels, our approach allows computing the importance 
 ing any available data (unlabeled) which in turn allows for an adaptation to user-specific
 settings."
 
-Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\theta_{ijk}$
+The larger philosophy is the same as the first paper: We train our initial model and identify critical weights crucial for each class. Accordingly, we assign a weight to each neuron propotional to it's level of importance. Later, when we introduce new classes we penalise changes to the neurons depeding upon their given weight. 
+
+Let $$\Omega_{ij}$$ denote the weight given to the i'th neuron in the j'th layer and let to the old and new proposed weights be denoted by $$\Theta_{ij}$$ and $$\Theta_{ij^{*}}$$. Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\theta_{ij}$
+
 
 g_{ijk}=\frac{\partial F(x)}{\partial \theta_{ijk}}
 
