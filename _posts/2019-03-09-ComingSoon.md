@@ -154,7 +154,7 @@ $g_{ij} = \frac{\partial F(x)}{\partial \Theta_{ij}}$
 
 To get the importance of very parameter, we take the average of its derivative over the entire dataset:
 
-$\Omega _{ijk} = \frac{1}{N} \sum_{D=1}^{N} g_{ijk} x_{D} $
+$\Omega_{ijk} = \frac{1}{N} \sum_{D=1}^{N} g_{ijk} x_{D} $
 
 This represents the average importance of each parameter. The higher \Omega _{ijk} is the higher the importance of that parameter.
 
