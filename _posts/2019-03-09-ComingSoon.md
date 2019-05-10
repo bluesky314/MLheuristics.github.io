@@ -13,48 +13,61 @@ Selfless Sequential Learning: https://arxiv.org/abs/1806.05421
 
 ---
 
-We humans are able to continually learn from experience and improve our performance on a task even if the information we learn from is spaced out in time or some of it is never shown again to us. Like when we learnt the english language, we no longer have to revise the rules of grammer as they have become solidified into our memory and we just keep learning more semantically complex words/phrases as we grow.(Link to second paper) We would like our neural networks to engage in such a learning process as well where its learning is compounding continually. However, the key of this process is that we must not forget what we learnt before. And this is where neural networks are know to fail. Usually, we deploy our neural network and freeze its weights. But if we did'nt freeze them and made them able to learn from new data out in the field, the network would learn the new information but would start erasing what it learnt before by overwritting the weights. This is what is called 'catostopic forgetting'. 
+##We humans are able to continually learn from experience and improve our performance on a task even if the information we learn from is spaced out in time or some of it is never shown again to us. Like when we learnt the english language, we no longer have to revise the rules of grammer as they have become solidified into our memory and we just keep learning more semantically complex words/phrases as we grow.(Link to second paper) We would like our neural networks to engage in such a learning process as well where its learning is compounding continually. However, the key of this process is that we must not forget what we learnt before. And this is where neural networks are know to fail. Usually, we deploy our neural network and freeze its weights. But if we did'nt freeze them and made them able to learn from new data out in the field, the network would learn the new information but would start erasing what it learnt before by overwritting the weights. This is what is called 'catostopic forgetting'. 
+
+This blog is on sequential learning and how we can get neural networks to continue training once deployed in the wild under a variety of different constraints. This is a very practical and interesting concept that our models will have to eventually incorporate if we want to increase the adaptation ability of our networks. This is a crucial issues of deploying neural networks that is often ignored in research communities. Understanding how disentangled representations affect learning is something I have been looking into since.
+
+Sequential learning, also referred to as continual, incremental, or lifelong learning (LLL), studies the problem of learning a sequence of tasks, one at a time, without access to the training data of previous or future tasks. Our main objective is : How do we add new classes to a model that is already trained on some finite number of classes?
 
 
-Continual Learning is the task of continuing the learning process in neural networks even when the data it was intially trained on is no longer available.
-taskA,taskB
+<div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/icvpig/image13.png?raw=true" width="900" height="466" >
+    <center>Incremental Learning rules</center>
+</div>
 
+
+
+**First lets break down why this is difficult : **
+
+There are several naive approaches. One would be to simply add nodes for the extra classes in the softmax layer and train the model as the classes come. However this leads to the problem of ‘catastrophic forgetting’ where the network erases representations it learned for classes earlier in favor of the newer classes.  Another approach following this would be fix the feature layers and only train the classifier at the end. However the model then may not pickup on essential features which it does not have the appropriate filters for as the early filters are fixed. This is problematic when the class differences get small such as among household objects. Another approach would be just to train several model again and again or have separate models for new and old classes; the problems in both approaches can be easily inferred. 
+
+Our network tries to learn some optimal weights $\theta$. $\theta$ lives in some N-dimensional space where N is the number of parameters in the model. Now in this space we know that they are multiple $\theta$s that would give us a similar loss. The larger we make the space of $\theta$s i.e N, the more number of optimal $\theta$'s there will be. Simply because I can take any optimal $\theta$ from the smaller space, and arrange it in many more ways in this larger space. We shall see a illustration of this below.  there are  $\theta_A^*$
  
- Our network tries to learn some optimal weights $\theta$. $\theta$ lives in some N-dimensional space where N is the number of parameters in the model. Now in this space we know that they are multiple $\theta$s that would give us a similar loss. The larger we make the space of $\theta$s i.e N, the more number of optimal $\theta$'s there will be. Simply because I can take any optimal $\theta$ from the smaller space, and arrange it in many more ways in this larger space. We shall see a illustration of this below.  there are  $\theta_A^*$
  
-Think of weights as dimensions.
-
-Let us consider a system of only two weights for simlicity. Lets say that we have two tasks A and B. A's optimal weights are (2,2) and B's are (8,10). Now if I merge dataset A and B and try to learn (2,2) and (8,10) at the same time I would end up at around the average of the two (5,6) as that minimizes the average loss. Now say, I add two more weights to my model. If my first two weights learn (2,2), the third and fourth can learn (8,10) (this is not exactly how it would happen but enough to get the basic idea). So the two extra dimensions, gives the network more freedom to accomidate both representations. The fact that representation power increases as number of parameters increase is no suprise but key point here is how that is related to the networks inclination to erase representations it has previously learnt. In the first example it would **have to** erase what was learnt and in the second it **may not**. 
+Let us consider a system of only two weights for simplicity. Lets say that we have two tasks A and B. A's optimal weights are (2,2) and B's are (8,10). Now if I merge dataset A and B and try to learn (2,2) and (8,10) at the same time we would end up at around the average of the two (5,6) as that minimizes the average loss. Now say, I add two more weights to my model. If my first two weights learn (2,2), the third and fourth can learn (8,10) (this is not exactly how it would happen but enough to get the basic idea). So the two extra dimensions, gives the network more freedom to accomidate both representations. The fact that representation power increases as number of parameters increase is no suprise but key point here is how that is related to the networks inclination to erase representations it has previously learnt. In the first example it would **have to** erase what was learnt and in the second it **may not**. 
  
- Now consider if I was training them in sequence.
+ Now consider if I was training them in sequence:
  
  <div id="container">
     <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/cont1.png?raw=true" width="550" height="466" >
-    <center> Task A</center>
+    <center> First Task A</center>
 </div>
+
 
 <div id="container">
     <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/cont2.png?raw=true" width="550" height="466" >
-    <center> Task B</center>
+    <center> Then Task B</center>
 </div>
 
  
- If I had only two weights and were to train on A first and then on B, the my weights would change from (2,2) to (8,10). But what if were to add two weights now and continue training? In that case, the network has no incentive to keep the earlier weights as the new gradients are calculated for all and the parameters and they will be repourposed altering the earlier representation learnt. Therefore the parameters are repourposed even though there is enough space to accomidate the new representations. This brings us to our first challenge : How to prevent the network from erasing representations when it does'nt have to?
+ If I had only two paramaters and were to train on A first and then on B, then my paramaters would change from (2,2) to (8,10). But what if were to add two paramaters now and continue training? In that case, the network has no incentive to keep the earlier paramaters as the new gradients are calculated for all parameters and the earlier ones will be repourposed altering their representations. Therefore the parameters are repourposed even though there is enough space to accommodate the new representations. This brings us to our first challenge : How to prevent the network from erasing representations of tsask A when it does'nt have to?
  
- The second challenge is a bit more subtle and related to *how* a network encapusulates the representations it has learnt. By this I mean does it learn dense or sparse representations. In the above example we say that even if the representations could be learnt using two paramteres, the network will still break that computation into smaller chunks and distribute it among all available parameters. This means a neural network naturally learns a sparse representation.( Check out one of ICLR 2019's <a href="https://venturebeat.com/2019/05/06/mit-csail-details-technique-that-shrinks-the-size-of-neural-networks-without-compromising-accuracy/">best paper</a> for an interesting follow up on this. ) If we could get the network to learn more dense representations that this would reduce the need to erase previous representations.
+ The second challenge is a bit more subtle and related to *how* a network encapusulates the representations it has learnt. By this I mean does it learn dense or sparse representations. In the above example we say that even if the representations could be learnt using two paramteres, the network will still break that computation into smaller chunks and distribute it among all available parameters. This means a neural network naturally learns a sparse representation.(Check out one of ICLR 2019's <a href="https://venturebeat.com/2019/05/06/mit-csail-details-technique-that-shrinks-the-size-of-neural-networks-without-compromising-accuracy/">best paper</a> for an interesting follow up on this) If we could get the network to learn more dense representations that this would reduce the need to erase previous representations.
  
- And if the optimal weights were (8,10) then for four it would be (4,4,6,2) or such as the network is forced to learn a **distributed representation** vs a compact one by design.
+- And if the optimal weights were (8,10) then for four it would be (4,4,6,2) or such as the network is forced to learn a **distributed representation** vs a compact one by design.
 
-The two problems listed here are what the three papers hope to tackle:
+So the two major problems of continual learning are:
 1) Knowing which weights are important and which to change
-2) learning a more compact representation if possible
+2) Learnin g a more dense representation if possible
 
+If we can appreciate these two major problems then we are already halfway done in understanding these three papers. 
 
  ## Elastic weight consolidation
-The following theoretical explanation is not vital to understanding the ... but is good to know. 
-It's important to understand what training a network means from a probabilistic perspective. Supposing we have some data $\mathcal{D}$, we'd like to find the most probable parameters given the data, which is expressed as $p(\theta | \mathcal{D})$. What does this mean in our context? Lets say there was only one optimal solution $\Theta _{1}$ then $p(\theta = \Theta _{1} | \mathcal{D}) =1 $ <b> as every time we train our network we would converge to the same weights.
+ 
+The following theoretical explanation is not vital to understanding the proposed solution but is good to know. 
+It's important to understand what training a network means from a probabilistic perspective. Supposing we have some data $\mathcal{D}$, we'd like to find the most probable parameters given the data, which is expressed as $p(\theta | \mathcal{D})$. What does this mean? Lets say there was only one optimal solution $\Theta _{1}$ then $p(\theta = \Theta _{1} | \mathcal{D}) =1 $ ,as every time we train our network we would converge to the same weights, and 0 for all others $\Theta$s.
 
-Now say there were multiple optimas, $\Theta _{1}$ ..... $\Theta _{k}$. <b> Some of these would be more probabal that others due th factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 given D.
+Now say there were multiple optimas, $\Theta _{1}$ ..... $\Theta _{k}$. Some of these would be more probable that others due to factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 and hard to access weights a lower probability that the rest. In short: $p(\theta | \mathcal{D})$ means what fraction of the times I would reach that theta if I were to train my network an infinite number of times.
 
 
 We can calculate this conditional probability using Bayes' rule:
@@ -66,21 +79,31 @@ Bayes theorem states:
  \end{align}
  $
  
-After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D})$. This becomes our new initilization for task B (just as in the simplier cases above)
+ Applying logs on both sides: 
+ <center>
+ $
+ \begin{align}
+ \log p(\theta | \mathcal{D}) &= \log p(\mathcal{D} | \theta) + \log p(\theta) - \log p(\mathcal{D})
+ \end{align}
+ $
+ </center>
+          
+          
+After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$. This kbecomes our new initilization for task B (just as in the simplier cases above)
 $
 \begin{align}
 \log p(\theta | \mathcal{D}) &= \log p(\mathcal{D}_B | \theta) + \log p(\theta | \mathcal{D}_A) - \log p(\mathcal{D}_B)\\
 \end{align}
 $
 
-The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability 
+The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A)$. This is esentially the initilization of the network before we train on task B
 
 #theta|D_a
 
-This conditional probability can tell us which parameters are important in solving task A.
+#This conditional probability can tell us which parameters are important in solving task A.
 
    
-Tell us the the weights thetaB will reach are influenced by thetaA. I.e the network is more likely to setlle on weights closer to thetaA in weight space. However, the abstract representations learnt are very sensitive to magnitude changes to the weights, esepecillay given that all the weights are changing. So even though we have a natural inclination to end up closer to thetaA in weight space, it is still too far in representation space.  
+Having this as our initilization tells us the weights $\Theta$ will reach are influenced by $\Theta_A$. I.e the network is more likely to setlle on weights closer to $\Theta_A$ in weight space. However, the abstract representations these weights represent are very sensitive to magnitude changes to the weights. So even though we have a natural inclination to end up closer to the solution of Task A in weight space, it is still too far in representation space.  
 
 Next, what is Mackay's work on Laplace approximation and how is it relevant here? I skimmed the paper and this is what I suspect is the answer. 
 
@@ -94,11 +117,11 @@ Rather than numerically approximating the posterior distribituion, we model it a
     <center> Two Gaussians with difference variances</center>
 </div>
  
- Let $\theta_Aij^*$ be the paramater in the i'th layer and j'th neuron.
+ Let $\theta_{ij}^*$ be the paramater in the i'th layer and j'th neuron.
  Let's take two gaussians having the same mean. Each reprenting two different parameters. If a weight is very important, it will have low variance, i.e the network will not continually alter it or pull it rapidy back when it does. A weight with higher variance means that there are more multiple suitable values for the weight. Thus the variance can be used to measure the importance of the weight. Weights with high importance have low variance and vice versa.
  
  
-The Fisher information matrix $F$. <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher information</a> is "a way of measuring the amout of information that an observable random variable X carries about an unknown parameter $\theta$ upon which the probability of X depends." This is very close to the inverse variance of $\theta$ . The Fisher information matrix is much more feasible to calculate than numerical approximation, which makes it a useful tool.
+The Fisher information matrix $F$. <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher information</a> is "a way of measuring the amout of information that an observable random variable X carries about an unknown parameter $\theta$ upon which the probability of X depends." This is very close to the inverse variance of $\theta_{ij}^*$ . The Fisher information matrix is much more feasible to calculate than numerical approximation, which makes it a useful tool.
 
 $
 \begin{align}
