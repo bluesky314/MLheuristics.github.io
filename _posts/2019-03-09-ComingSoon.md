@@ -59,6 +59,12 @@ $
 
 The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability 
 
+$
+\begin{align}
+\log p(\theta | \mathcal{D}) &= \log p(\mathcal{D}_B | \theta) + \log p(\theta | \mathcal{D}_A) - \log p(\mathcal{D}_B)\\
+\end{align}
+$
+
 #theta|D_a
 
 This conditional probability can tell us which parameters are important in solving task A.
@@ -68,9 +74,12 @@ Tell us the the weights thetaB will reach are influenced by thetaA. I.e the netw
 
 Next, what is Mackay's work on Laplace approximation and how is it relevant here? I skimmed the paper and this is what I suspect is the answer. 
 
-Rather than numerically approximating the posterior distribituion, we model it as a multivariate normal distribution using $\theta_{A}^*$  as the means. What about the variance? We're going to specify the variance for each variable as <a href="https://en.wikipedia.org/wiki/Precision_(statistics)">precision</a>, the reciprocal of the variance. 
+-why posterior is intractable
+
+Rather than numerically approximating the posterior distribituion, we model it as a multivariate normal distribution using $\theta_A^*$  as the means. What about the variance? We're going to specify the variance for each variable as <a href="https://en.wikipedia.org/wiki/Precision_(statistics)">precision</a>, the reciprocal of the variance. 
  Why is this? 
- Let $\theta_A_{ijk}^{*}$ be the i'th layer, j'th neuron and k'th weight. 
+ 
+ Let $\theta_A_{ijk}^*$ be the i'th layer, j'th neuron and k'th weight. 
  Let's take two gaussians having the same mean. Each reprenting two of the ijk'th weights. If a weight is very important, it will have low variance, i.e the network will not continually alter it or pull it rapidy back when it does. A weight with higher variance means that there are more multiple suitable values for the weight. Thus the variance can be used to measure the importance of the weight. Weights with high importance have low variance and vice versa.
  
  
