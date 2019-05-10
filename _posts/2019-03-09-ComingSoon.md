@@ -147,10 +147,10 @@ settings."
 
 The larger philosophy is the same as the first paper: We train our initial model and identify critical weights crucial for each class. Accordingly, we assign a weight to each neuron propotional to it's level of importance. Later, when we introduce new classes we penalise changes to the neurons depeding upon their given weight. 
 
-Let $$\Omega_{ij}$$ denote the weight given to the i'th neuron in the j'th layer and let to the old and new proposed weights be denoted by $$\Theta_{ij}$$ and $$\Theta_{ij^{*}}$$. Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\theta_{ij}$
+Let $$\Omega_{ij}$$ denote the weight given to the i'th neuron in the j'th layer and let to the old and new proposed weights be denoted by $$\Theta_{ij}$$ and $$\Theta_{ij^{*}}$$. Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\Theta_{ij}$
 
 
-g_ij = \frac{\partial F(x)}{\partial \theta_ij}
+g_ij = \frac{\partial F(x)}{\partial \Theta_ij}
 
 To get the importance of very parameter, we take the average of its derivative over the entire dataset:
 
