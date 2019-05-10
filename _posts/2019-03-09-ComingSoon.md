@@ -128,7 +128,7 @@ $
 $
 
 
- ## Memory Aware Synapses
+ ## Memory Aware Synapses ##
  
  <div id="container">
     <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/icvpig/image8.png?raw=true" width="900" height="466" >
@@ -156,7 +156,7 @@ To get the importance of very parameter, we take the average of its derivative o
 
 $\Omega_{ijk} = \frac{1}{N} \sum_{D=1}^{N} \left \| g_{ijk} (x_{D}) \right \| $
 
-This represents the average importance of each parameter. The higher \Omega _{ijk} is the higher the importance of that parameter.
+This represents the average importance of each parameter. The higher $\Omega _{ij}$ is the higher the importance of that parameter.
 
 -- squared form
 
@@ -167,7 +167,7 @@ $L_{B}= Loss +  \lambda\sum\limits_{ij}\Omega_{ij}(\Theta_{ij}-\Theta_{ij}^{*})^
 The weights are found by the effect that changing them has on the loss. $$\frac{dL}{dw_{ij}}$$, is computed for each parameter and then the avgerage is taken over all points in *our* dataset. By our dataset I mean the one in which we expect our model to perform on. This is important as if we are using a model pretrained on ImageNet and dont require knowledge of certain casses then the model can forget those classes by associating a low cost to changing weights associated with those classes. This act of penalizing changes to important weights is called **Weight Consolidaion**.
 
 
-**Self-less Sequential Learning**
+## Self-less Sequential Learning ##
 
 
 <div id="container">
