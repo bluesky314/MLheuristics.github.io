@@ -121,13 +121,11 @@ The Fisher information matrix $F$. <a href="https://en.wikipedia.org/wiki/Fisher
 
 So, as we want to penalize changes to these important weights, we add this new term in our loss function which penalizes changes to weights according to their computed importance : 
 
-<center>
 $
 \begin{align}
 \mathcal{L}(\theta) = \mathcal{L}_B(\theta) + \sum\limits_{i} \frac{\lambda}{2} F_i (\theta_i - \theta_{A,i}^*)^2
 \end{align}
 $
-</center>
 
 
  ## Memory Aware Synapses
