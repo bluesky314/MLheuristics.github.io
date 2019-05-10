@@ -27,7 +27,23 @@ Think of weights as dimensions.
 Let us consider a system of only two weights for simlicity. Lets say that we have two tasks A and B. A's optimal weights are (2,2) and B's are (8,10). Now if I merge dataset A and B and try to learn (2,2) and (8,10) at the same time I would end up at around the average of the two (5,6) as that minimizes the average loss. Now say, I add two more weights to my model. If my first two weights learn (2,2), the third and fourth can learn (8,10) (this is not exactly how it would happen but enough to get the basic idea). So the two extra dimensions, gives the network more freedom to accomidate both representations. The fact that representation power increases as number of parameters increase is no suprise but key point here is how that is related to the networks inclination to erase representations it has previously learnt. In the first example it would **have to** erase what was learnt and in the second it **may not**. 
  
  Now consider if I was training them in sequence.
- If I had only two weights and were to train on A first and then on B, the my weights would change from (2,2) to (8,10). But what if were to add two weights now and continue trainning? In that case, the network has no incentive to keep the earlier weights as the new gradients are calculated for all and the neurons will be repourposed altering the earlier representation learnt. These neurons are repourposed even though there is enough space to accomidate the new representations. And if the optimal weights were (8,10) then for four it would be (4,4,6,2) or such as the network is forced to learn a **distributed representation** vs a compact one by design.
+ 
+ <div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/cont1.png?raw=true" width="550" height="466" >
+    <center> Task A</center>
+</div>
+
+<div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/cont2.png?raw=true" width="550" height="466" >
+    <center> Task B</center>
+</div>
+
+ 
+ If I had only two weights and were to train on A first and then on B, the my weights would change from (2,2) to (8,10). But what if were to add two weights now and continue training? In that case, the network has no incentive to keep the earlier weights as the new gradients are calculated for all and the parameters and they will be repourposed altering the earlier representation learnt. Therefore the parameters are repourposed even though there is enough space to accomidate the new representations. This brings us to our first challenge : How to prevent the network from erasing representations when it does'nt have to?
+ 
+ The second challenge is a bit more subtle and related to *how* a network encapusulates the representations it has learnt. By this I mean does it learn dense or sparse representations. In the above example we say that even if the representations could be learnt using two paramteres, the network will still break that computation into smaller chunks and distribute it among all available parameters. This means a neural network naturally learns a sparse representation.( Check out one of ICLR 2019's <a href="https://venturebeat.com/2019/05/06/mit-csail-details-technique-that-shrinks-the-size-of-neural-networks-without-compromising-accuracy/">best paper</a> for an interesting follow up on this. ) If we could get the network to learn more dense representations that this would reduce the need to erase previous representations.
+ 
+ And if the optimal weights were (8,10) then for four it would be (4,4,6,2) or such as the network is forced to learn a **distributed representation** vs a compact one by design.
 
 The two problems listed here are what the three papers hope to tackle:
 1) Knowing which weights are important and which to change
@@ -72,6 +88,11 @@ Next, what is Mackay's work on Laplace approximation and how is it relevant here
 
 Rather than numerically approximating the posterior distribituion, we model it as a multivariate normal distribution using $\theta_A^*$  as the means. What about the variance? We're going to specify the variance for each variable as <a href="https://en.wikipedia.org/wiki/Precision_(statistics)">precision</a>, the reciprocal of the variance. 
  Why is this? 
+ 
+ <div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/normal_density_plot_2.png?raw=true" width="550" height="466" >
+    <center> Two Gaussians with difference variances</center>
+</div>
  
  Let $\theta_Aij^*$ be the paramater in the i'th layer and j'th neuron.
  Let's take two gaussians having the same mean. Each reprenting two different parameters. If a weight is very important, it will have low variance, i.e the network will not continually alter it or pull it rapidy back when it does. A weight with higher variance means that there are more multiple suitable values for the weight. Thus the variance can be used to measure the importance of the weight. Weights with high importance have low variance and vice versa.
