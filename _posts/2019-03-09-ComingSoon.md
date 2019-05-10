@@ -131,12 +131,18 @@ $
 
 
  ## Memory Aware Synapses
+ 
+ <div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/icvpig/image8.png?raw=true" width="900" height="466" >
+    <center>Weight Consolidation - finding a balance between task A and B</center>
+</div>
+
 
 The approach here is different by one key aspect put succinctly in the paper as "Like other model-based approaches,
 we estimate an importance weight for each parameter in the network. Yet in our case,
 these importance weights approximate the sensitivity of the learned function to a param-
 eter change rather than a measure of the (inverse of) parameter uncertainty, as in [12], or
-the sensitivity of the loss to a parameter change, as in [39] (see Figure 2). As it does not
+the sensitivity of the loss to a parameter change, as in [39]. As it does not
 depend on the ground truth labels, our approach allows computing the importance us-
 ing any available data (unlabeled) which in turn allows for an adaptation to user-specific
 settings."
@@ -160,4 +166,19 @@ Now when task B has to be learnt we have an addition to the loss, a regularizer 
 
 L_{B}= Loss +  \lambda\sum\limits_{ij}\Omega_{ij}(\Theta_{ij}-\Theta_{ij}^{*})^{2}
 
-Where Loss is the general loss function we are using and the second is our new regularization term.
+The weights are found by the effect that changing them has on the loss. $$\frac{dL}{dw_{ij}}$$, is computed for each parameter and then the avgerage is taken over all points in *our* dataset. By our dataset I mean the one in which we expect our model to perform on. This is important as if we are using a model pretrained on ImageNet and dont require knowledge of certain casses then the model can forget those classes by associating a low cost to changing weights associated with those classes. This act of penalizing changes to important weights is called **Weight Consolidaion**.
+
+
+**Self-less Sequential Learning**
+
+
+<div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/icvpig/image6.png?raw=true" width="900" height="466" >
+    <center>Weight consolidation along with corelation penalization</center>
+</div>
+
+Our motivation here is to encourage model sparsity, i.e even if our model is of large size the information required for the target is concentrated within few neurons rather than being distributed all over. This will help us repurpose the other neurons when more classes are entered. Learning a disentangled representation is more powerful and less vulnerable to catastrophic interference. In fact if we make neurons individually representative, then the need to overwrite and forgot past classes decreases. Changing few neurons in a tanged representation would mess up the different tasks each contributes to. 
+
+They achieve this by, firsty penalising changes to important weights as last time, and local penalization of correlated weights. For in depth details please check out their paper, but briefly : they impose a soft form of constraint that caps the number of highly activated neurons per layer. Firstly, the index of the activation maps are kept fixed( as always) and around the neighbourhood of each neurons, say m indexes to the right and left, we penalise neurons if they are jointly activated. So within every 2m indexes, we try to have only one neuron activation. This limits the number of high activations to N/2m per layer where N is the number of neurons in the layer.  This forces the network to have few neurons of high activation per layer any time an example is passed through, making each neuron learn a dense representation for the target.
+
+Here we have an interesting association with [Hebbian Learning](https://en.wikipedia.org/wiki/Hebbian_theory)in the brain. For more reading about why disentangled representation help with overfitting please see this interesting paper “Reducing Overfitting in Deep Networks by Decorrelating Representations”
