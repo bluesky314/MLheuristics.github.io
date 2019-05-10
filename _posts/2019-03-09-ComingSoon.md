@@ -98,7 +98,7 @@ $
 \end{align}
 $
 
-The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\Theta | \mathcal{D}_A). 
+The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\Theta | \mathcal{D}_A)$. 
 
 This is essentially the initilization of the network before we train on task B.
 
