@@ -69,7 +69,7 @@ It's important to understand what training a network means from a probabilistic 
 
 Now say there were multiple optimas, $$\Theta_1 ..... \Theta_k$$. Some of these would be more probable that others due to factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 and hard to access weights a lower probability that the rest. 
 
-In short: $p(\theta | \mathcal{D})$  means what fraction of the times I would reach that theta if I were to train my network an infinite number of times.
+In short: $p(\Theta | \mathcal{D})$  means what fraction of the times I would reach that theta if I were to train my network an infinite number of times.
 
 
 We can calculate this conditional probability using Bayes' rule:
