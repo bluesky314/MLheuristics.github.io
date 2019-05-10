@@ -150,11 +150,11 @@ The larger philosophy is the same as the first paper: We train our initial model
 Let $$\Omega_{ij}$$ denote the weight given to the i'th neuron in the j'th layer and let to the old and new proposed weights be denoted by $$\Theta_{ij}$$ and $$\Theta_{ij^{*}}$$. Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\Theta_{ij}$
 
 
-$g_ij = \frac{\partial F(x)}{\partial \Theta_ij}$
+$g_{ij} = \frac{\partial F(x)}{\partial \Theta_{ij}}$
 
 To get the importance of very parameter, we take the average of its derivative over the entire dataset:
 
-$\Omega _{ijk} = \frac{1}{N} \sum_{D=1}^{N} g_{ijk}(x_{D} )$
+$\Omega _{ijk} = \frac{1}{N} \sum_{D=1}^{N} g_{ijk} x_{D} $
 
 This represents the average importance of each parameter. The higher \Omega _{ijk} is the higher the importance of that parameter.
 
