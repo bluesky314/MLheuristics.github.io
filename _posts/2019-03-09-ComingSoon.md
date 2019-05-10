@@ -123,7 +123,7 @@ So, as we want to penalize changes to these important weights, we add this new t
 
 $
 \begin{align}
-\mathcal{L}(\theta) = \mathcal{L}_B(\theta) + \sum\limits_{i} \frac{\lambda}{2} F_i (\theta_i - \theta_{A,i}^*)^2
+\mathcal{L}(\Theta) = \mathcal{L}_B(\Theta) + \sum\limits_{i} \frac{\lambda}{2} F_i (\Theta_i - \Theta_{A,i}^*)^2
 \end{align}
 $
 
