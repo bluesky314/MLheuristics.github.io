@@ -67,9 +67,9 @@ If we can appreciate these two major problems then we are already halfway done i
 The following theoretical explanation is not vital to understanding the proposed solution but is good to know. 
 It's important to understand what training a network means from a probabilistic perspective. Supposing we have some data $\mathcal{D}$, we'd like to find the most probable parameters given the data, which is expressed as $p(\theta | \mathcal{D})$. What does this mean? Lets say there was only one optimal solution $\Theta _{1}$ then $p(\theta = \Theta _{1} | \mathcal{D}) =1 $ ,as every time we train our network we would converge to the same weights, and 0 for all others $\Theta$s.
 
-Now say there were multiple optimas, $\Theta _1 ..... \Theta _k$. Some of these would be more probable that others due to factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 and hard to access weights a lower probability that the rest. 
+Now say there were multiple optimas, $$\Theta_1 ..... \Theta_k$$. Some of these would be more probable that others due to factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 and hard to access weights a lower probability that the rest. 
 
-In short: $p(\theta | \mathcal{D})$ means what fraction of the times I would reach that theta if I were to train my network an infinite number of times.
+In short: $p(\theta | \mathcal{D})$  means what fraction of the times I would reach that theta if I were to train my network an infinite number of times.
 
 
 We can calculate this conditional probability using Bayes' rule:
