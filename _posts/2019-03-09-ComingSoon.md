@@ -94,11 +94,11 @@ Bayes theorem states:
 After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$. This kbecomes our new initilization for task B (just as in the simplier cases above)
 $
 \begin{align}
-\log p(\theta | \mathcal{D}) &= \log p(\mathcal{D}_B | \theta) + \log p(\theta | \mathcal{D}_A) - \log p(\mathcal{D}_B)\\
+\log p(\theta | \mathcal{D}) &= \log p(\mathcal{D}_B | \Theta) + \log p(\Theta | \mathcal{D}_A) - \log p(\mathcal{D}_B)\\
 \end{align}
 $
 
-The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A). 
+The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\Theta | \mathcal{D}_A). 
 
 This is essentially the initilization of the network before we train on task B.
 
