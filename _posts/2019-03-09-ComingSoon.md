@@ -98,11 +98,9 @@ $
 \end{align}
 $
 
-The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A). This is essentially the initilization of the network before we train on task B.
+The left side gives us the distribution of theta of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A). 
 
-#theta|D_a
-
-#This conditional probability can tell us which parameters are important in solving task A.
+This is essentially the initilization of the network before we train on task B.
 
    
 Having this as our initilization tells us the weights $\Theta$ will finally reach are influenced by $\Theta_A$. The network is more likely to settle on weights closer to $\Theta_A$ in weight space. However, the abstract representations these weights represent are very sensitive to magnitude changes to the weights. So even though we have a natural inclination to end up closer to the solution of Task A in weight space, it is still too far in representation space. This posterior has all the information about what the network learnt from task A. 
@@ -148,7 +146,7 @@ The larger philosophy is the same as the first paper: We train our initial model
 Let $$\Omega_{ij}$$ denote the weight given to the i'th neuron in the j'th layer and let to the old and new proposed weights be denoted by $$\Theta_{ij}$$ and $$\Theta_{ij^{*}}$$. Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\theta_{ij}$
 
 
-g_{ijk}=\frac{\partial F(x)}{\partial \theta_{ijk}}
+g_ij = \frac{\partial F(x)}{\partial \theta_ij}
 
 To get the importance of very parameter, we take the average of its derivative over the entire dataset:
 
