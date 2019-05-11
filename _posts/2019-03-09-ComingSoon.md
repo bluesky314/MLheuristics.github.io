@@ -142,7 +142,7 @@ L(\Theta) = L_B(\Theta) + \sum_{i} \frac{\lambda}{2} F_i (\Theta_i - \Theta_{A,i
 \end{align}
 $
 
----To be complete : Sensisity of high dimensional weight space to magnitude changes (Low and high Deepak)
+---To be complete : Sensisity of high dimensional weight space to magnitude changes (Low and high Deepak) . Fishers function - magnitute taken or derivate of network?
 
  ## Memory Aware Synapses ##
  
