@@ -13,11 +13,21 @@ Selfless Sequential Learning: https://arxiv.org/abs/1806.05421
 
 ---
 
-##We humans are able to continually learn from experience and improve our performance on a task even if the information we learn from is spaced out in time or some of it is never shown again to us. Like when we learnt the english language, we no longer have to revise the rules of grammer as they have become solidified into our memory and we just keep learning more semantically complex words/phrases as we grow.(Link to second paper) We would like our neural networks to engage in such a learning process as well where its learning is compounding continually. However, the key of this process is that we must not forget what we learnt before. And this is where neural networks are know to fail. Usually, we deploy our neural network and freeze its weights. But if we did'nt freeze them and made them able to learn from new data out in the field, the network would learn the new information but would start erasing what it learnt before by overwritting the weights. This is what is called 'catostopic forgetting'. 
-
-This blog is on sequential learning and how we can get neural networks to continue training once deployed in the wild under a variety of different constraints. This is a very practical and interesting concept that our models will have to eventually incorporate if we want to increase the adaptation ability of our networks. This is a crucial issues of deploying neural networks that is often ignored in research communities. Understanding how disentangled representations affect learning is something I have been looking into since.
-
 Sequential learning, also referred to as continual, incremental, or lifelong learning (LLL), studies the problem of learning a sequence of tasks, one at a time, without access to the training data of previous or future tasks. Our main objective is : How do we add new classes to a model that is already trained on some finite number of classes?
+
+Humans are able to continually learn from experience and improve their performance on a task even if the information is spaced out or some of it is never shown again. Like learning a language, we no longer have to revise the rules of grammer as they have become solidified into our memory and we just keep learning more semantically complex words/phrases as we grow. 
+
+In particular, some computational theories of  neroplasticity indicate that once a set of neurons learns some information and that information is deemed as important, those neurons are then inhibited from growing or learning new information. The process durably encodes the information by rendering a proportion of synapses less plastic and therefore stable over long time periods. So the brain must not only encode information but also an importance factor to dictate future learnability.
+
+For our neural networks, the key is then to not forget what it learnt before. And this is where they fail miserablly. Usually, we deploy our neural networks and freeze its weights. But if we did'nt freeze them and made them able to learn from new data then the network would start erasing what it learnt before by overwritting the weights. This is what is called 'catostopic forgetting'. 
+
+This blog covers three recent papers on sequential learning:
+
+1) Overcoming catastrophic forgetting in neural networks by Kirkpatrick et al of DeepMind
+2) Memory Aware Synapses: Learning what (not) to forget by Tuytelaars et al 
+3) Selfless Sequential Learning by Tuytelaars et al
+
+#This blog is meant for those getting
 
 
 <div id="container">
@@ -27,7 +37,7 @@ Sequential learning, also referred to as continual, incremental, or lifelong lea
 
 
 
-**First lets break down why this is difficult : **
+**First lets break down why this is difficult:**
 
 There are several naive approaches. One would be to simply add nodes for the extra classes in the softmax layer and train the model as the classes come. However this leads to the problem of ‘catastrophic forgetting’ where the network erases representations it learned for classes earlier in favor of the newer classes.  Another approach following this would be fix the feature layers and only train the classifier at the end. However the model then may not pickup on essential features which it does not have the appropriate filters for as the early filters are fixed. This is problematic when the class differences get small such as among household objects. Another approach would be just to train several model again and again or have separate models for new and old classes; the problems in both approaches can be easily inferred. 
 
