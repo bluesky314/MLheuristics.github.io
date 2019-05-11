@@ -72,7 +72,7 @@ So the two major problems of continual learning are:
 
 If we can appreciate these two major problems then we are already halfway done in understanding these three papers. 
 
- ## Elastic weight consolidation
+ ***Eastic weight consolidation***
  
 The following theoretical explanation is not vital to understanding the proposed solution but is good to know. 
 It's important to understand what training a network means from a probabilistic perspective. Supposing we have some data $\mathcal{D}$, we'd like to find the most probable parameters given the data, which is expressed as $p(\theta | \mathcal{D})$. What does this mean? Lets say there was only one optimal solution $\Theta _{1}$ then $p(\theta = \Theta _{1} | \mathcal{D}) =1 $ ,as every time we train our network we would converge to the same weights, and 0 for all others $\Theta$s.
@@ -101,7 +101,7 @@ Bayes theorem states:
  </center>
           
           
-After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$. This kbecomes our new initilization for task B (just as in the simplier cases above)
+After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$. This becomes our new initilization for task B. So p(\theta) in now $p(\theta | \mathcal{D}_A)$ as this is our prior conception about what the weights in task B should be like.
 $
 \begin{align}
 \log p(\theta | \mathcal{D}) &= \log p(\mathcal{D}_B | \Theta) + \log p(\Theta | \mathcal{D}_A) - \log p(\mathcal{D}_B)\\
@@ -113,9 +113,9 @@ The left side gives us the distribution of theta of training task A and then B. 
 This is essentially the initilization of the network before we train on task B.
 
 
-Having this as our initilization tells us the weights $\Theta$ will finally reach are influenced by $\Theta_A$. The network is more likely to settle on weights closer to $\Theta_A$ in weight space. However, the abstract representations these weights represent are very sensitive to magnitude changes to the weights. So even though we have a natural inclination to end up closer to the solution of Task A in weight space, it is still too far in representation space. This posterior has all the information about what the network learnt from task A. 
+Having this as our initilization tells us the weights $\Theta$ will finally reach are influenced by $\Theta_A$. The network is more likely to settle on weights closer to $\Theta_A$ in weight space. However, the abstract representations these weights represent are variably sensitive to magnitude changes to the weights. So even though we have a natural inclination to end up closer to the solution of Task A in weight space compared to random initilization, it is still too far in representation space. This posterior has all the information about what the network learnt from task A. 
 
-The posterior $p(\theta | \mathcal{D}_A)$ is intractable i.e very difficult to compute thus we use an approximation. Rather than numerically approximating the posterior distribituion, we approximate it as a multivariate normal distribution using $\theta_A^*$  as the means. For the variance? We're going to specify the variance for each variable as <a href="https://en.wikipedia.org/wiki/Precision_(statistics)">precision</a>, the reciprocal of the variance. 
+The posterior $p(\theta | \mathcal{D}_A)$ is intractable i.e very difficult to compute thus we use an approximation(Incomplete: Why) Rather than numerically approximating the posterior distribituion, we approximate it as a multivariate normal distribution using $\theta_A^*$  as the means. Approximating the posterior of distributions using a multivariate normal in bayesian statitics is extremely common and know to be accurate. What about the variances for normal? We're going to specify the variance for each variable as <a href="https://en.wikipedia.org/wiki/Precision_(statistics)">precision</a>, the reciprocal of the variance. 
  Why is this? 
  
  <div id="container">
@@ -123,20 +123,26 @@ The posterior $p(\theta | \mathcal{D}_A)$ is intractable i.e very difficult to c
     <center> Two Gaussians with difference variances</center>
 </div>
  
- Let $\theta_{ij}^*$ be the paramater in the i'th layer and j'th neuron.
- Let's take two gaussians having the same mean. Each reprenting two different parameters. If a weight is very important, it will have low variance, i.e the network will not continually alter it or pull it rapidy back when it does. A weight with higher variance means that there are more multiple suitable values for the weight. Thus the variance can be used to measure the importance of the weight. Weights with high importance have low variance and vice versa.
+ This boils down to the heart of how we will compute our importance factor for each weight. Let $\theta_{ij}^*$ be the paramater in the i'th layer and j'th neuron.
+ Let's take two gaussians having the same mean. Each reprenting two different parameters. After I have trained on Task A, features which are of common use to Task B 
  
+ For consider only the variance of a weight while training Task A: If a weight is very important, it will have low variance, i.e the network will not change alter it or pull it rapidy back when it does. This means that that weight has learned general features important for the entire dataset. A weight with higher variance means that there are more multiple suitable values for the weight. This means that weight is more specialised for certain classes, thats why the weight is changed by the classes it does not represent and pulled back by the classes it does. Thus the variance can be used to measure the importance of the weight. The lower the variance, the more 'robust' the feature is i.e more classes use that and thus it is essential for mainiting performance. On the contrary if I were to remove some non-robust weight, only a few samples would be affected. (This is called Uncertainty Quantification) Weights with high importance have low variance and vice versa.
  
-The Fisher information matrix $F$. <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher information</a> is "a way of measuring the amout of information that an observable random variable X carries about an unknown parameter $\theta$ upon which the probability of X depends." This is very close to the inverse variance of $\theta_{ij}^*$ . The Fisher information matrix is much more feasible to calculate than numerical approximation, which makes it a useful tool.
+Now take our case at hand. After training task A we got some fixed $\theta_A^*$. Once we start training on Task B we start getting some updated $\Theta_i$. But we don't want to just directly go there as it will mess up our learning on task A. So we calculate the Fisher information matrix $F$. <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher information</a> which essentially 
+
+Weights which are changed less mean the serve task A and task B well i.e they represent common features. Which ones that change more represented very specific features to task A. These will be altered to suit task B. This is a compramise we must make and a decrease in accuracy is expected when going from task A to B.
+
+This is very close to the inverse variance of $\theta_{ij}^*$ . The Fisher information matrix is much more feasible to calculate than numerical approximation, which makes it a useful tool.
 
 So, as we want to penalize changes to these important weights, we add this new term in our loss function which penalizes changes to weights according to their computed importance : 
 
 $
 \begin{align}
-\mathcal{L}(\Theta) = \mathcal{L}_B(\Theta) + \sum_{i} \frac{\lambda}{2} F_i (\Theta_i - \Theta_{A,i}^*)^2
+L(\Theta) = L_B(\Theta) + \sum_{i} \frac{\lambda}{2} F_i (\Theta_i - \Theta_{A,i}^*)^2
 \end{align}
 $
 
+---To be complete : Sensisity of high dimensional weight space to magnitude changes (Low and high Deepak)
 
  ## Memory Aware Synapses ##
  
