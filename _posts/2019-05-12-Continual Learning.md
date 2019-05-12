@@ -3,6 +3,9 @@ layout: post
 title: Continual Learning
 ---
 
+An introduction to continal learning and overview of three recent research papers in the field.
+
+
 
 Sequential learning, also referred to as continual, incremental, or lifelong learning (LLL), studies the problem of learning a sequence of tasks, one at a time, without access to the training data of previous or future tasks. Our main objective is : How do we add new classes to a model that is already trained on some finite number of classes?
 
