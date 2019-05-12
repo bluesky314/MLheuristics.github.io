@@ -16,9 +16,9 @@ This blog is meant for anyone starting research in continual learning or anyone 
 
 1) Overcoming catastrophic forgetting in neural networks by Kirkpatrick et al of DeepMind
 
-2) Memory Aware Synapses: Learning what (not) to forget by Tuytelaars et al with FaceBook A.I
+2) Memory Aware Synapses: Learning what (not) to forget by Tuytelaars et al with Facebook A.I
 
-3) Selfless Sequential Learning by Tuytelaars et al with FaceBook A.I
+3) Selfless Sequential Learning by Tuytelaars et al with Facebook A.I
 
 
 
