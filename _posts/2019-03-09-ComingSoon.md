@@ -4,11 +4,11 @@ title: Coming Soon
 ---
 Blogpost on 3 recent continual learning covering :
 
-Overcoming catastrophic forgetting problem by weight consolidation and long-term memory : https://arxiv.org/abs/1805.07441
+[Overcoming catastrophic forgetting problem by weight consolidation and long-term memory](https://arxiv.org/abs/1805.07441)
 
-Memory Aware Synapses - Learning what (not) to forget : https://arxiv.org/abs/1711.09601
+[Memory Aware Synapses - Learning what (not) to forget]https://arxiv.org/abs/1711.09601)
 
-Selfless Sequential Learning: https://arxiv.org/abs/1806.05421
+[Selfless Sequential Learning](https://arxiv.org/abs/1806.05421)
  
 
 ---
@@ -173,26 +173,32 @@ depend on the ground truth labels, our approach allows computing the importance 
 ing any available data (unlabeled) which in turn allows for an adaptation to user-specific
 settings."
 
-The larger philosophy is the same as the first paper: We train our initial model and identify critical weights crucial for each class. Accordingly, we assign a weight to each neuron propotional to it's level of importance. Later, when we introduce new classes we penalise changes to the neurons depeding upon their given weight. 
+The larger philosophy is the same as the first paper: 
 
-Let $$\Omega_{ij}$$ denote the weight given to the i'th neuron in the j'th layer and let to the old and new proposed weights be denoted by $$\Theta_{ij}$$ and $$\Theta_{ij^{*}}$$. Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\Theta_{ij}$
+1)We train our initial model and identify critical weights crucial for each class. 
+
+2)Accordingly, we assign a weight to each neuron propotional to it's level of importance. 
+
+3)Later, when we introduce new classes we penalise changes to the neurons depeding upon their given weight. 
+
+Let $$\Omega_{ij}$$ denote the importance factor given to the i'th neuron in the j'th layer and let to the old and new proposed weights be denoted by $$\Theta_{ij}$$(end of task A) and $$\Theta_{ij^{*}}$$. Our model is the function F that maps $x_{i}$ to $y_{i}$ by $F(x_{i}) = y_{i}$ . The importance of any one weight can be measured by how much changing it will change the output. This is nothing by the derivative of F with respect to $\Theta_{ij}$
 
 
 $g_{ij} = \frac{\partial F(x)}{\partial \Theta_{ij}}$
 
 To get the importance of very parameter, we take the average of its derivative over the entire dataset:
 
-$\Omega_{ijk} = \frac{1}{N} \sum_{D=1}^{N} \left \| g_{ijk} (x_{D}) \right \| $
+$\Omega_{ijk} = \frac{1}{N} \sum_{D=1}^{N} \left \| g_{ij} (x_{D}) \right \| $
 
 This represents the average importance of each parameter. The higher $\Omega _{ij}$ is the higher the importance of that parameter.
 
--- squared form
+(To be complete: vectorized form)
 
 Now when task B has to be learnt we have an addition to the loss, a regularizer that penalizes changes to parameters that are deemed important for previous tasks:
 
-$L_{B}= Loss +  \lambda\sum\limits_{ij}\Omega_{ij}(\Theta_{ij}-\Theta_{ij}^{*})^{2}$
+$L_{B}= L_n(\Theta) +  \lambda\sum\limits_{ij}\Omega_{ij}(\Theta_{ij}-\Theta_{ij}^{*})^{2}$
 
-The weights are found by the effect that changing them has on the loss. $$\frac{dL}{dw_{ij}}$$, is computed for each parameter and then the avgerage is taken over all points in *our* dataset. By our dataset I mean the one in which we expect our model to perform on. This is important as if we are using a model pretrained on ImageNet and dont require knowledge of certain casses then the model can forget those classes by associating a low cost to changing weights associated with those classes. This act of penalizing changes to important weights is called **Weight Consolidaion**.
+$g_{ij}$ is computed for each parameter and then the avgerage is taken over all points in *our new validation* dataset i.e if we used a pretrained model as task A and we don't require certain classes during deployment then the model can forget those classes by associating a low cost to changing weights associated with those classes. This act of penalizing changes to important weights is called **Weight Consolidaion**.
 
 
 ## Self-less Sequential Learning ##
@@ -203,7 +209,7 @@ The weights are found by the effect that changing them has on the loss. $$\frac{
     <center>Weight consolidation along with corelation penalization</center>
 </div>
 
-Our motivation here is to encourage model sparsity, i.e even if our model is of large size the representation required for the target is concentrated within few neurons rather than being distributed all over. This will help us repurpose the other paramaters when more classes are entered as these paramaters will get a low degree of importance by either of the above two techniques. Learning a disentangled representation is more powerful and less vulnerable to catastrophic interference. If we make neurons individually representative, then the need to overwrite and forgot past classes decreases. Changing few neurons in a tanged representation would mess up the different tasks each contributes to. 
+Our motivation here is to encourage model sparsity, i.e even if our model is of large size, the representation required for the target should be concentrated within few paramaters rather than being distributed all over. This will help us repurpose the other paramaters when more classes are entered as these paramaters will get a low degree of importance by either of the above two techniques. Learning a disentangled representation is more powerful and less vulnerable to catastrophic interference. If we make neurons individually representative, then the need to overwrite and forgot past classes decreases. Changing few neurons in a tanged representation would also mess up the different tasks each contributes to. 
 
 Authors achieve this by, firsty penalising changes to important weights as last time, and local penalization of correlated weights. The paper goes into a lot of detail but I will try to put the main idea briefly : 
 
@@ -211,4 +217,9 @@ For an input image, we would like only a few paramaters to be active in any laye
 
 So they impose a soft form of this constraint that caps the number of highly activated neurons per layer. Firstly, the index of the activation maps are kept fixed(as always) and if around a neighbourhood of a neuron, say m indexes to the right and left, there is joint activation then we penalise this in the loss. So within every 2m indexes, we try to have only one activation. This limits the number of high activations to N/2m per layer where N is the number of neurons in the layer. Here m is a hyperparamter. This forces the network to have few neurons of high activation per layer any time an example is passed through, making each neuron learn a dense representation for the target. 
 
-Here we have an interesting association with [Hebbian Learning](https://en.wikipedia.org/wiki/Hebbian_theory)in the brain. For more reading about why disentangled representation help with overfitting please see this interesting paper “Reducing Overfitting in Deep Networks by Decorrelating Representations”
+The authors point out an association with [Hebbian Learning](https://en.wikipedia.org/wiki/Hebbian_theory) in the brain. For more reading about why disentangled representation help with overfitting please see this interesting paper [Reducing Overfitting in Deep Networks by Decorrelating Representations](https://arxiv.org/abs/1511.06068)”
+
+
+## Conclusion
+
+I have provided a good overview of these techniques. For more details please check out the papers. These methods are currently tested on small datasets and are not ready for large scale deployment. We infered this in our experiments as well. The combined model will not do better than any model trained soley on task A or B but the idea is to strike a balance for the situation we are in. The codes of all these papers are publically available. 
