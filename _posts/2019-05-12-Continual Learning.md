@@ -38,7 +38,7 @@ There are several naive approaches.
 
 - Another approach following this would be fix the feature layers and only train the classifier at the end. However the model then may not pickup on essential features which it does not have the appropriate filters for as the early filters are fixed. This is problematic when the class differences get small such as among household objects. 
 
--Another approach would be just to train several model again and again or have separate models for new and old classes; the problems in both approaches can be easily inferred. 
+- Another approach would be just to train several model again and again or have separate models for new and old classes; the problems in both approaches can be easily inferred. 
 
 Our network tries to learn some optimal weights $\theta$. $\theta$ lives in some N-dimensional space where N is the number of parameters in the model. Now in this space we know that they are multiple $\theta$s that would give us a similar loss. The larger we make the space of $\theta$s i.e N, the more number of optimal $\theta$'s there will be. One way is because I can take any optimal $\theta$ from the smaller space, and arrange it in many more ways in this larger space or just break down the computation of one parameter into more. 
  
@@ -89,13 +89,12 @@ Bayes theorem states:
  $
  
  Applying logs on both sides: 
- <center>
+ 
  $
  \begin{align}
  \log p(\theta | \mathcal{D}) &= \log p(\mathcal{D} | \theta) + \log p(\theta) - \log p(\mathcal{D})
  \end{align}
  $
- </center>
           
  
 After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$. This becomes our new initilization for task B. So $p(\theta)$ in now $p(\theta | \mathcal{D}_A)$ as this is our starting points of the paramaters in task B:
