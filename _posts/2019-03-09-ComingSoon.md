@@ -87,12 +87,10 @@ It's important to understand what training a network means from a probabilistic 
 
 Now say there were multiple optimas, $$\Theta_1 ..... \Theta_k$$. Some of these would be more probable that others due to factors like our initialization and how easily they are accessible in weight space. Unfeasible weights will have a probability of 0 and hard to access weights a lower probability than the easier ones.  
 
-In short: $p(\theta | \mathcal{D})$ represents what fraction of the times I would reach that theta if I were to train my network an infinite number of times.
-
-
 We can calculate this conditional probability using Bayes' rule:
 
 Bayes theorem states:
+
  $
  \begin{align}
  p(\theta | \mathcal{D}) &= \frac{p(\mathcal{D} | \theta) p(\theta)}{p(\mathcal{D})}
@@ -108,15 +106,16 @@ Bayes theorem states:
  $
  </center>
           
-          
-After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$. This becomes our new initilization for task B. So $p(\theta)$ in now $p(\theta | \mathcal{D}_A)$ as this is our starting points of the paramaters in task B.
+ 
+After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$. This becomes our new initilization for task B. So $p(\theta)$ in now $p(\theta | \mathcal{D}_A)$ as this is our starting points of the paramaters in task B:
+
 $
 \begin{align}
 \log p(\theta | \mathcal{D}) &= \log p(\mathcal{D}_B | \Theta) + \log p(\Theta | \mathcal{D}_A) - \log p(\mathcal{D}_B)\\
 \end{align}
 $
 
-The left side, being the final output of task B, gives us the distribution of $p(\theta)$ of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A)$. 
+The left side, being the final output of task B, gives us the distribution of $p(\Theta)$ of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\Theta | \mathcal{D}_A)$. 
 
 
 <div id="container">
@@ -135,8 +134,7 @@ The posterior $p(\theta | \mathcal{D}_A)$ is intractable i.e very difficult to c
     <center> Two Gaussians with difference variances</center>
 </div>
  
- This boils down to the heart of how we will compute our importance factor for each paramater. Let $\theta_{ij}^*$ be the paramater in the i'th layer and j'th neuron.
- Let's take two gaussians having the same mean. Each reprenting two different parameters. After I have trained on Task A, features which are of common use to Task B 
+ This boils down to the heart of how we will compute our importance factor for each paramater. Let $\theta_{ij}$ be the paramater in the i'th layer and j'th neuron. Let's take two gaussians having the same mean, each representing two different parameters as shown above.
  
  First consider only the variance of a paramater while training Task A: If a paramater is very important, it will have low variance, i.e the network will not change alter it or pull it rapidy back when it does. This means that that paramater has learned general features important for the entire dataset. A paramater with higher variance means that tit is often getting nudged around. This means that the paramater is more specialised for certain classes, thats why the paramater is changed by the classes it does not represent and pulled back by the classes it does. Thus the variance can be used to measure the importance of the paramater. The lower the variance, the more 'robust' the feature is i.e more classes use that and thus it is essential for mainiting performance. On the contrary if I were to remove some non-robust paramater, only a few samples would be affected (this is called uncertainty quantification). Paramaters with high importance have low variance and vice versa.
  
@@ -156,7 +154,7 @@ where $L_n(\Theta)$ is just our previous loss and the sum is over all paramaters
 
 ---To be complete : Sensisity of high dimensional paramaters space to magnitude changes (Low and high CE loss movement Deepak) . Fishers function - magnitute taken or derivate of network?
 
- ## Memory Aware Synapses ##
+ ***Memory Aware Synapses***
  
  <div id="container">
     <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/icvpig/image8.png?raw=true" width="900" height="466" >
@@ -217,7 +215,7 @@ For an input image, we would like only a few paramaters to be active in any laye
 
 So they impose a soft form of this constraint that caps the number of highly activated neurons per layer. Firstly, the index of the activation maps are kept fixed(as always) and if around a neighbourhood of a neuron, say m indexes to the right and left, there is joint activation then we penalise this in the loss. So within every 2m indexes, we try to have only one activation. This limits the number of high activations to N/2m per layer where N is the number of neurons in the layer. Here m is a hyperparamter. This forces the network to have few neurons of high activation per layer any time an example is passed through, making each neuron learn a dense representation for the target. 
 
-The authors point out an association with [Hebbian Learning](https://en.wikipedia.org/wiki/Hebbian_theory) in the brain. For more reading about why disentangled representation help with overfitting please see this interesting paper [Reducing Overfitting in Deep Networks by Decorrelating Representations](https://arxiv.org/abs/1511.06068)”
+The authors point out an association with [Hebbian Learning](https://en.wikipedia.org/wiki/Hebbian_theory) in the brain. For more reading about why disentangled representation help with overfitting please see this interesting paper [Reducing Overfitting in Deep Networks by Decorrelating Representations](https://arxiv.org/abs/1511.06068)
 
 
 ## Conclusion
