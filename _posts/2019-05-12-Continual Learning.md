@@ -100,7 +100,7 @@ Bayes theorem states:
  $
           
  
-After we train on task A, the distribution of the weights will follow $p(\Theta | D_A)$ as this is our starting points of the paramaters in task B:
+After we train on task A, the distribution of the weights will follow the distribution of $\Theta|D_A$ as this is our starting points of the paramaters in task B:
 
 $
 \begin{align}
@@ -108,7 +108,7 @@ $
 \end{align}
 $
 
-The left side, being the final output of task B, gives us the final distribution from training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\Theta | D_A)$
+The left side, being the final output of task B, gives us the final distribution from training task A and then B. All the information learned when solving task A is contained in the conditional distribution of $\Theta|D_A$
 
 
 <div id="container">
