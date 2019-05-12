@@ -212,4 +212,3 @@ The authors point out an association with [Hebbian Learning](https://en.wikipedi
 
 I have provided a good overview of these techniques. For more details please check out the papers. These methods are currently tested on small datasets and are not ready for large scale deployment. We infered this in our experiments as well. The combined model will not do better than any model trained soley on task A or B but the idea is to strike a balance for the situation we are in. The codes of all these papers are publically available. 
 
-(To be complete: mention implications for medical and general)
