@@ -17,11 +17,11 @@ For our neural networks, the key is then to not forget what it learnt before. An
 
 This blog is meant for anyone starting research in continual learning or anyone wanting a solid introduction to the area. This blog covers a summary of three recent papers so the reader gets familiar with approaches in the field:
 
-1) Overcoming catastrophic forgetting in neural networks by Kirkpatrick et al of DeepMind
+1) [Overcoming catastrophic forgetting in neural networks](https://arxiv.org/abs/1612.00796) by Kirkpatrick et al of DeepMind
 
-2) Memory Aware Synapses: Learning what (not) to forget by Tuytelaars et al with Facebook A.I
+2) [Memory Aware Synapses: Learning what (not) to forget](https://arxiv.org/abs/1711.09601) by Tuytelaars et al with Facebook A.I
 
-3) Selfless Sequential Learning by Tuytelaars et al with Facebook A.I
+3) [Selfless Sequential Learning](https://arxiv.org/abs/1806.05421) by Tuytelaars et al with Facebook A.I
 
 
 
@@ -100,7 +100,7 @@ Bayes theorem states:
  $
           
  
-After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$. This becomes our new initilization for task B. So $p(\theta)$ in now $p(\theta | \mathcal{D}_A)$ as this is our starting points of the paramaters in task B:
+After we train on task A, the distribution of the weights will follow $p(\theta | \mathcal{D}_A)$ as this is our starting points of the paramaters in task B:
 
 $
 \begin{align}
@@ -108,7 +108,7 @@ $
 \end{align}
 $
 
-The left side, being the final output of task B, gives us the distribution of $p(\Theta)$ of training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\Theta | \mathcal{D}_A)$. 
+The left side, being the final output of task B, gives us the final distribution from training task A and then B. All the information learned when solving task A is contained in the conditional probability $p(\theta | \mathcal{D}_A)$
 
 
 <div id="container">
