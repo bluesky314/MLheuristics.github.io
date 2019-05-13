@@ -29,7 +29,7 @@ Option 3 would have : 2 * 2 * 2 = 8 ways
 </div>
 
  <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/forkingdata.png?raw=true" width="550" height="466" >
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/forkingdata.png?raw=true" width="900" height="466" >
     <center> First Task A</center>
 </div>
 
