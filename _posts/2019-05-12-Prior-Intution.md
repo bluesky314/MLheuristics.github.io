@@ -25,7 +25,7 @@ The way to count the Option 2 below would be 1 * 3 * 1= 3 ways
 Option 3 would have : 2 * 2 * 2 = 8 ways
 
  <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/count2.png?raw=true" width="200" height="200" >
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/count2.png?raw=true" width="30" height="10" >
 </div>
 
  <div id="container">
