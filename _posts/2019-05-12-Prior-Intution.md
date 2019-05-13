@@ -1,9 +1,9 @@
 ---
 layout: post
-title: An Intuitive way to see Priors in Bayesian Analysis
+title: An Intuitive way to see Priors 
 ---
 
-An intuitive illustration of a prior from Richard McElreath's Statistical Rethinking
+An intuitive illustration of a prior from McElreath's Statistical Rethinking
 
 
 Bayesian inference is really just counting and comparing of possibilities
@@ -25,7 +25,7 @@ The way to count the Option 2 below would be 1 * 3 * 1= 3 ways
 Option 3 would have : 2 * 2 * 2 = 8 ways
 
  <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/count.png?raw=true" width="100" height="100" >
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/count2.png?raw=true" width="200" height="200" >
 </div>
 
  <div id="container">
