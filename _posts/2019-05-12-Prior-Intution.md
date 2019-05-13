@@ -1,9 +1,9 @@
 ---
 layout: post
-title: An Intuitive way to see Priors 
+title: Coming Soon: An Intuitive way to see Priors 
 ---
 
-An intuitive illustration of a prior from McElreath's Statistical Rethinking
+An intuitive illustration of a prior from McElreath's Statistical Rethinking and more intutions of Bayesian analysis
 
 
 Bayesian inference is really just counting and comparing of possibilities
