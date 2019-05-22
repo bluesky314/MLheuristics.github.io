@@ -3,7 +3,7 @@ layout: post
 title: An Intuitive way to see Priors 
 ---
 
-An intuitive illustration of a prior from McElreath's Statistical Rethinking and more intutions of Bayesian analysis
+An intuitive illustration of a prior from McElreath's Statistical Rethinking.
 
 
 Bayesian inference is really just counting operation over all possibilities that events can branch out to. In order to make good inference about what actually happened, it helps to consider everything that could have happened and weigh each one against the other. A Bayesian analysis is a garden of forking data, in which alternative sequences of events are cultivated. 
