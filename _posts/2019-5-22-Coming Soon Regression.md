@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Intutions from Linear Regression
+title: Coming Soon Intutions from Linear Regression
 ---
 Insights from linear regression to carry forward
 
