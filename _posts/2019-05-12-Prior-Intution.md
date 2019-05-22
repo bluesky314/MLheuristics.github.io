@@ -58,7 +58,7 @@ Now suppose we had picked our bag from another 'meta-bag'. And say in this meta-
 
  
 <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/tableprior.png?raw=true" width="400" height="270" >
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/tableprior.png?raw=true" width="480" height="270" >
  'Meta-bag'-ness
 </div>
 
