@@ -23,7 +23,7 @@ We know there are four total marbles in the bag, but we don’t know how many ar
 We can think of probability operations as counting operations i.e each multiplication or addition of any distribution or function essentially is a way to recount the happenings of certain events. 
 
  <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/count2.png?raw=true" width="450" height="30" >
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/count2.png?raw=true" width="600" height="30" >
 </div>
 
 I will denote blue marbles as B and black as B. Say we draw 3 balls randomly for the bag.
@@ -36,16 +36,18 @@ Likewise Option 3 would have : 2 * 2 * 2 = 8 ways
 
   <div id="container">
     <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/priorcount.png?raw=true" width="300" height="180" >
-    <center> Counts for BWB </center>
+Counts for BWB
 </div>
+
+
 
 Convince yourself that for the observation of BWBB, the counts would be as follows. We will continue with this example.
 
 
  
 <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/4marbles.png?raw=true" width="300" height="180" >
-    <center> Counts for BWBB </center>
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/4marbles.png?raw=true" width="250" height="150" >
+Counts for BWBB
 </div>
 
 
@@ -56,8 +58,8 @@ Now suppose we had picked our bag from another 'meta-bag'. And say in this meta-
 
  
 <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/tableprior.png?raw=true" width="300" height="180" >
-    <center> 'Meta-bag'-ness </center>
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/tableprior.png?raw=true" width="400" height="270" >
+ 'Meta-bag'-ness
 </div>
 
 
