@@ -50,11 +50,16 @@ Convince yourself that for the observation of BWBB, the counts would be as follo
 
 
 ## Prior
-So for each option, the more number of ways it makes the data observed possible, the higher its chance of being the true option (you may observe that option 2 and 3 are very close in the first example but become quite different in the second!)
+So for each option, the more number of ways it makes the data observed possible, the higher its chance of being the true option. So now option 3 is clearly the most likley. (you may observe that option 2 and 3 were very close in the first example but have now become quite different! Why would this happen? )
 
-Now suppose we had picked our bag from another 'meta-bag'. And say in this meta-bag there are different number of bags belonging to each option. Say there were two option 2 bags. So now the total number of ways option 2 would be the source of BWBB would be 2 into 16. We do this for each bag to get an updated number of ways each option makes the data possible.
+Now suppose we had picked our bag from another 'meta-bag'. And say in this meta-bag there are different number of bags belonging to each option. Say there were two option 2 bags. So now the total number of ways option 2 would be the source of BWBB would be 2 into 16. We do this for each bag to get an updated number of ways each option makes the data possible. The number in our 'meta-bag' is given as Factory Counts below.
 
---img
+ 
+<div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/tableprior.png?raw=true" width="300" height="180" >
+    <center> 'Meta-bag'-ness </center>
+</div>
+
 
 So now we see the Option 3 has surpassed 4 as there are more ways it could be the source. So we would say Option 3 is most likely. The number of each in the 'meta-bag' altered the number of ways something could happen due to an option by making the option more or less prevelant that the others. This is what is called as a prior. In this case it happened to be a hardened fact but a belief would act in the same way. A belief based on good judgment estimates the the frequence of a option in a sea of options before an observation is made. That is why it is critial for beliefs/priors to be made before or be independant of any observation.
 
