@@ -25,6 +25,12 @@ Assumptions of OLS
 
 Our objective for linear regression is to estimate some paramaters $\beta$ of the model which represent the importance of effect of a variable on our target.  OLS is guarentted to be the best minimum variance unbiased estimator of $\beta$ given its assumptions. 
 
+ <div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Linear-reg/BLUE.png?raw=true" width="900" height="366" >
+    <center> Parameter distribution</center>
+</div>
+ 
+
 Above we see that there is some true $\beta^p$ that exists. Now every time we sample a dataset from the population we will get a different estimate as $\hat{\beta}$. According to OLS: $E[\hat{\beta}]=\beta$ and among any other estimator it has the smallest variance, i.e it on average closer to the true value(this is called BLUE).
 Our parameters or importances have to be unbiased. I.e from many samples, our procedure is able to get the true degree of importance and when its wrong it is due to random fluctuations in sampling and not due to systemic error in model definition. OLS gives us the best procedure to determine this line given the assumptions.
 
@@ -78,7 +84,7 @@ $y= \beta _{0} + \rho (x - \bar{x}) \frac{\sigma _{y}}{\sigma _{x}}$
 
 which is :
 
-$y= \beta _{0} + \rho x_{z} \sigma _{y}$
+$y= \beta_{0} + \rho x_{z} \sigma _{y}$
 
 and as the intercept absorbs the mean:
 
@@ -92,7 +98,7 @@ $\sigma _{y}$ - y's standard deviation
 
 Lets see what $\rho x_{z}$ represent: $x_{z}$ represents how much x has moved away from its standard deviation so $\rho x_{z}$ represents how much y has moved away from its standard deviation.
 Then $\rho x_{z} \sigma _{y}$ represents the total magnitude change in y from its mean.
-The $sigma _{y}$ is essentially a scaling term to unnormalise our measures.
+The $\sigma _{y}$ is essentially a scaling term to unnormalise our measures.
 
 Thus we see that linear regression is modelling the relation between the variances between variables. The mean of variable and its standard deviation are only shifting and scaling factors. 
 
