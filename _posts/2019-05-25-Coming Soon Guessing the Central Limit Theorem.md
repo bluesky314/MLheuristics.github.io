@@ -3,7 +3,7 @@ layout: post
 title: Comming Soon Guessing the Central Limit Theorem
 ---
 
-An attempt to make properties of the Guassian Distribution intuitive
+Making the foundations of the Guassian Distribution more intuitive
 
 Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it 
 out of a magic hat. 
