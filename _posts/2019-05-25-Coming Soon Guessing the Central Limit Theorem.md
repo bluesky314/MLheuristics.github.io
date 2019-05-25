@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Guessing the Central Limit Theorem
+title: Comming Soon Guessing the Central Limit Theorem
 ---
 
 An attempt to make properties of the Guassian Distribution intuitive
