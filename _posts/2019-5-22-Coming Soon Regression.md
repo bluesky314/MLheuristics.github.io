@@ -13,7 +13,7 @@ read if one does not already know the material. Understanding linearity greatly 
 Geometric derivation
 
 Here is a great set of videos for learning about linear regression and the geometric intution of OLS: https://www.youtube.com/watch?v=oWuhZuLOEFY, in fact
-all of Ben's videos are great and we are lucky to have him on YouTube. He has made a ton of videos around the topic.
+all of Ben's videos are great and we(atleast I) are lucky to have him on YouTube. He has made a ton of videos around the topic.
 
 I will use his material to explain the simpler geometric derviation:
 
@@ -23,8 +23,22 @@ on the plane that is as close to Y as possible. To find this point, we drop a pe
 
 Assumptions of OLS
 
-Here is a great list of assumptions along with examples:http://r-statistics.co/Assumptions-of-Linear-Regression.html
+Our objective for linear regression is to estimate some paramaters $\beta$ of the model which represent the importance of effect of a variable on our target.  OLS is guarentted to be the best minimum variance unbiased estimator of $\beta$ given its assumptions. 
 
+Above we see that there is some true $\beta^p$ that exists. Now every time we sample a dataset from the population we will get a different estimate as $\hat{\beta}$. According to OLS: $E[\hat{\beta}]=\beta$ and among any other estimator it has the smallest variance, i.e it on average closer to the true value(this is called BLUE).
+Our parameters or importances have to be unbiased. I.e from many samples, our procedure is able to get the true degree of importance and when its wrong it is due to random fluctuations in sampling and not due to systemic error in model definition. OLS gives us the best procedure to determine this line given the assumptions.
+
+Here is a great list of assumptions along with examples:http://r-statistics.co/Assumptions-of-Linear-Regression.html and :https://en.wikipedia.org/wiki/Linear_regression#Assumptions
+
+The need for these is that we not only want our model to do well, but also the importances to be reflective of real relationships. Under some conditions unimportant variables can falsely seem to be related to the target or their effects can be exaggerated or masked. 
+
+I will just briefly touch upon a few assumptions:
+
+Multi-colinearity: https://stats.stackexchange.com/questions/1149/is-there-an-intuitive-explanation-why-multicollinearity-is-a-problem-in-linear-r
+
+Omitted variable bias - 
+https://statisticsbyjim.com/regression/confounding-variables-bias/
+Omitted variables can also create a false relation. If X1 is binary Africa or not. And Y is intelligence. It may be the case that as Africa has low education, X1 is given a negative coefficient as being from Africa is now negatively related to intelligence. But the true cause is intelligence not being from Africa. Education is correlated to Africa and Africa is falsely given a importance.
 
 In case of single variable linear regression we can dervie the expression of the output analytically. 
 
@@ -60,15 +74,29 @@ So corelation coefficent effectively models how one's deviation affects the othe
 between x and y but what are those $\sigma _{y} and \sigma _{x}$ terms doing there then? Well, those are just scaling terms. And this brings me to my
 favorite expression of the problem. As we mean subtracted x, we can write:
 
-$y= \beta _{0} + \rho (x - \bar{x}) \frac{\sigma _{y}}{\sigma _{x}$
+$y= \beta _{0} + \rho (x - \bar{x}) \frac{\sigma _{y}}{\sigma _{x}}$
+
+which is :
+
+$y= \beta _{0} + \rho x_{z} \sigma _{y}$
+
+and as the intercept absorbs the mean:
 
 $y= \bar{y} + \rho x_{z} \sigma _{y}$
 
-x_{z}  - how many standard deviation x is away from its mean
-\rho - strength of relationship between x and y
-\sigma _{y} - y's standard deviation
+$x_{z}$  - how many standard deviation x is away from its mean
 
-So lets intrepret this symbol for symbol. We are saying y equals $\bar{y}$ plus the how much x has deviated times $\rho$ 
+$\rho$ - strength of relationship between x and y
+
+$\sigma _{y}$ - y's standard deviation
+
+Lets see what $\rho x_{z}$ represent: $x_{z}$ represents how much x has moved away from its standard deviation so $\rho x_{z}$ represents how much y has moved away from its standard deviation.
+Then $\rho x_{z} \sigma _{y}$ represents the total magnitude change in y from its mean.
+The $sigma _{y}$ is essentially a scaling term to unnormalise our measures.
+
+Thus we see that linear regression is modelling the relation between the variances between variables. The mean of variable and its standard deviation are only shifting and scaling factors. 
+
+
 
 So essentially we are modelling how the variances in x affect y. 
 
