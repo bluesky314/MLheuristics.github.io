@@ -124,27 +124,28 @@ Now $y_{i}$ can be written in terms of the true parameters we are trying to appr
 
 So 
 
-$$\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)(\beta_{0}^p+\beta_{1}^p x_i+\epsilon_i)}{S_{xx}}
-
-\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)(\beta_{1}^p x_i)+\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}
+$$\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)(\beta_{0}^p+\beta_{1}^p x_i+\epsilon_i)}{S_{xx}}$$
 
 
-\hat{\beta}_{1}=\frac{S_{xx}\beta_{1}^p+\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}
+$$\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)(\beta_{1}^p x_i)+\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}$$
 
 
-\hat{\beta}_{1}=\beta_{1}^p+\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}$$
+$$\hat{\beta}_{1}=\frac{S_{xx}\beta_{1}^p+\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}$$
+
+
+$$\hat{\beta}_{1}=\beta_{1}^p+\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}$$
 
 We want the variance in $\beta$ as that gives us a measure of uncertainty over our regressed value.
 
-$$V(\hat{\beta}_{1})=V(\beta_{1}^p)+V(\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}})
+$$V(\hat{\beta}_{1})=V(\beta_{1}^p)+V(\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}})$$
 
 
-V(\hat{\beta}_{1})=\frac{1}{S_{xx}^2}V(\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i)
+$$V(\hat{\beta}_{1})=\frac{1}{S_{xx}^2}V(\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i)$$
 
 
-V(\hat{\beta}_{1})=\frac{1}{S_{xx}^2}\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)^2V(\epsilon_i)
+$$V(\hat{\beta}_{1})=\frac{1}{S_{xx}^2}\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)^2V(\epsilon_i)$$
 
-V(\hat{\beta}_{1})=\frac{1}{S_{xx}}V(\epsilon_i)$$
+$$V(\hat{\beta}_{1})=\frac{1}{S_{xx}}V(\epsilon_i)$$
 
 
 
