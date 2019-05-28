@@ -5,7 +5,7 @@ title: Coming Soon Intutions from Linear Regression
 Insights from linear regression to carry forward
 
 ---
-
+$Y=\beta_{0}+\beta_{1} X+\epsilon$
 I will not attempt to reinvent the wheel and explain linear regression analysis from scratch but rather summarise certain results
 and highlight insights that one can carry forward in their study of machine learning. I will also list some references that one should
 read if one does not already know the material. Understanding linearity greatly helps when dealing with the non-linear.
@@ -41,6 +41,13 @@ The need for these is that we not only want our model to do well, but also the i
 I will just briefly touch upon a few assumptions:
 
 Multi-colinearity: https://stats.stackexchange.com/questions/1149/is-there-an-intuitive-explanation-why-multicollinearity-is-a-problem-in-linear-r
+
+When two variables co-occur very frequently, it is difficult to disentangle one's effects from the other. Remember we want a regression model where the paramater estimates represent true relationships in the real world. Multi-colinearity leads to the case where our output Y is stable and optimal but the paramter estimates are incorrect. This leads to incorrect inferences about the effects of the variables.
+
+Say each of X1 and X2 has some information about Y. The more correlated X1 and X2 are with each other, the more the information content about Y from X1 and X2 are similar or overlapping, to the point that for perfectly correlated X1 and X2, it really is the same information content. If we now put X1 and X2 in the same regression model to explain Y, the model tries to "apportion" the information that (X1,X2) contains about Y to each of X1 and X2, in a somewhat arbitrary manner. There is no really good way to apportion this, since any split of the information still leads to keeping the total information from (X1,X2) in the mode.
+
+Imagine we have two vectors pointing in almost the same direction with some small angle between them. To get to a far away point I could use one alot and add a tiny bit of the other or vice versa or use approximately half of each. As there are multiple ways to reach our point, how much of each to take is not clear.
+
 
 Omitted variable bias - 
 https://statisticsbyjim.com/regression/confounding-variables-bias/
@@ -106,7 +113,44 @@ Thus we see that linear regression is modelling the relation between the varianc
 
 So essentially we are modelling how the variances in x affect y. 
 
-Lets interpret this 
+## Hypothesis Testing
+
+$$\hat{\beta}_{1}=\frac{Cov(X,Y)}{S_{xx}}$$
+
+
+$$\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)y_{i}}{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)^{2}}$$
+
+Now $y_{i}$ can be written in terms of the true parameters we are trying to approximatate: Now $$y_{i} = \beta_{0}^p+\beta_{1}^p x_i+\epsilon$$ This is a very critical step as we now connect the true paramaters with our estimated ones.
+
+So 
+
+$$\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)(\beta_{0}^p+\beta_{1}^p x_i+\epsilon_i)}{S_{xx}}
+
+\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)(\beta_{1}^p x_i)+\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}
+
+
+\hat{\beta}_{1}=\frac{S_{xx}\beta_{1}^p+\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}
+
+
+\hat{\beta}_{1}=\beta_{1}^p+\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}$$
+
+We want the variance in $\beta$ as that gives us a measure of uncertainty over our regressed value.
+
+$$V(\hat{\beta}_{1})=V(\beta_{1}^p)+V(\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}})
+
+
+V(\hat{\beta}_{1})=\frac{1}{S_{xx}^2}V(\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i)
+
+
+V(\hat{\beta}_{1})=\frac{1}{S_{xx}^2}\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)^2V(\epsilon_i)
+
+V(\hat{\beta}_{1})=\frac{1}{S_{xx}}V(\epsilon_i)$$
 
 
 
+
+
+
+\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)(\beta_{0}^p+\beta_{1}^p x_i+\epsilon_i)}{S_{xx}}
+
+\hat{\beta}_{1}=\frac{\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)(\beta_{1}^p x_i)+\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)\epsilon_i}{S_{xx}}
