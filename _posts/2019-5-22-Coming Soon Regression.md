@@ -154,7 +154,7 @@ This expression is quite insightful. It says that the only reason our estimated 
  
 </div>
  <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Linear-reg/straightline.jpg?raw=true" width="450" height="366" >
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Linear-reg/staightline.jpg?raw=true" width="450" height="366" >
     <center> Parameter distribution</center>
 </div>
 From the first graph we see that no matter what chuck on x values we take we will get the exact same slope. But in the second, due the uneven presence of noise, we will get slightly different values of the slope. The presence of noise is the fundamanetal cause of uncertainty in paramaters.
