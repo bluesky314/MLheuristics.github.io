@@ -26,7 +26,7 @@ Assumptions of OLS
 Our objective for linear regression is to estimate some paramaters $\beta$ of the model which represent the importance of effect of a variable on our target.  OLS is guarentted to be the best minimum variance unbiased estimator of $\beta$ given its assumptions. 
 
  <div id="container">
-    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Linear-reg/BLUE.png?raw=true" width="900" height="366" >
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Linear-reg/BLUE.png?raw=true" width="450" height="366" >
     <center> Parameter distribution</center>
 </div>
  
@@ -147,6 +147,16 @@ $$V(\hat{\beta}_{1})=\frac{1}{S_{xx}^2}\sum_{i=1}^{n}\left(x_{i}-\overline{x}\ri
 
 $$V(\hat{\beta}_{1})=\frac{1}{S_{xx}}V(\epsilon_i)$$
 
+This expression is quite insightful. It says that the only reason our estimated $\beta$ varies is due to $V(\epsilon_i)$ being non-zero. I.e the reason why we get different estimates for $\beta$ from samples in the population is due the presence of random noise. Each sample has a different amount of noise which shifts our estimates. We also see that a way todecrease the variance in our estimate is the increase the variance in our $x$ values i.e take samples from a wide range. 
+ <div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Linear-reg/noiseline.png?raw=true" width="450" height="366" >
+    <center> Parameter distribution</center>
+</div>
+ <div id="container">
+    <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/Linear-reg/straightline.png?raw=true" width="450" height="366" >
+    <center> Parameter distribution</center>
+</div>
+From the first graph we see that no matter what chuck on x values we take we will get the exact same slope. But in the second, due the uneven presence of noise, we will get slightly different values of the slope. The presence of noise is the fundamanetal cause of uncertainty in paramaters.
 
 
 
