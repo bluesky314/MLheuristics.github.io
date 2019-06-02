@@ -160,9 +160,9 @@ This expression is quite insightful. It says that the only reason our estimated 
 From the first graph we see that no matter what chuck on x values we take we will get the exact same slope. But in the second, due the uneven presence of noise, we will get slightly different values of the slope. The presence of noise is the fundamanetal cause of uncertainty in paramaters.
 
 
-We assume $\beta$ follows a normal distribution as $\hat{\beta}_{1}\sim N(\beta_{1}^p,V(\hat{\beta}_{1}))$
-As we only have one sample we do not know V(\hat{\beta}_{1}), to adjust for our ignorance we will do two things:
-1) Use the sample variance of residuals to approximate $V(\epsilon_i)$ 
+We assume $\beta$ follows a normal distribution as $$\hat{\beta}_{1}\sim N(\beta_{1}^p,V(\hat{\beta}_{1}))$$
+As we only have one sample we do not know $$V(\hat{\beta}_{1})$$, to adjust for our ignorance we will do two things:
+1) Use the sample variance of residuals to approximate $$V(\epsilon_i)$$ 
 So $$V(\hat{\beta}_{1})\approx \frac{1}{S_{xx}}\frac{\sum \epsilon^{2}_i}{N}$$
 
 2) Instead of using the normal distribution, we will use the t-distribution which is much wider and accounts for more uncertainty
