@@ -5,8 +5,7 @@ title: Comming Soon Guessing the Central Limit Theorem
 
 Making the foundations of the Guassian Distribution more intuitive
 
-Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it 
-out of a magic hat. 
+Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it out of a magic hat. In this blog we will show why the Guassian has some very natural properties and why it is critical is describing noisy or random phonemon and observations like like the one it was discovered to understand(access? better word)
 
 Here we will take part in function finding. Narrowing down the possible functions via figuring out properties that our function must obey. Perhaps an easier way to know the prevelance of the Gaussian is to identify some key properties and once we see a situation where we must have those, we can guess its the Guassian.
 I guarentee you after this( and some of your own thought) you will walk away finding the foundations of the Guassian more intuitive
@@ -58,9 +57,16 @@ $P(X=x)=\binom{N}{x} 1/2^N$
 We can plot this for different values of N and see which x's are most likley. Keep in mind x is the number of heads here. So if x=10 is most likley with N=25 it means 10 heads and 15 tails are the most likley outcome.
 
 
-We see that the most likley number is N/2( N/2 corrosponds to the case of N/2 heads and N/2 tails and winning of 0). And values away from that becomes less and less likley. The relationship is strictly monotonic is the left and right regions. This is a key point we will exploit later. You can pause and think why this would be the case.
+We see that the most likley number is N/2( remember N/2 corrosponds to the case of N/2 heads and N/2 tails and winning of 0). And values away from that becomes less and less likley. The relationship is strictly monotonic is the left and right regions. This is a key point we will exploit later. You can pause and think why this would be the case.
 
-This is the case becuase the $\binom{N}{x}$ term is maximized in our binomial distribution at x=N/2. If you remember this term is added in the bernoulli to count the number of ways an outcome can now occour. So if N=4 the possible pairs are (1,1),(1,-1),(-1,1) and (-1,-1) but (1,-1) is the same as (-1,1) as we dont care about ordering so this gets accounted in the factor $\binom{2}{1}=2$. And this is true for large numbers as well. So the reason why N/2 is most likley or a winning of 0 is most likley is because in N tosses the number of *ways I can sum +1 and -1 to equal 0 is more than the number of ways I can use them to get any other number* and *ways I can sum +1 and -1 to equal +1 is more than the number of ways I can use them to get +2*. But anyways I hope it was already quite intutive to you from the setting of the game that a winning of 0 was most likley small winnings/losses were more likley than large winnings/losses
+This is the case becuase the $\binom{N}{x}$ term is maximized in our binomial distribution at x=N/2. If you remember this term is added in the bernoulli to count the number of ways an outcome can now occour. So if N=4 the possible pairs are (1,1),(1,-1),(-1,1) and (-1,-1) but (1,-1) is the same as (-1,1) as we dont care about ordering so this gets accounted in the factor $\binom{2}{1}=2$. And this is true for large numbers as well. So the reason why N/2 is most likley or a winning of 0 is most likley is because in N tosses the number of *ways I can sum +1 and -1 to equal 0 is more than the number of ways I can use them to get any other number* and *ways I can sum +1 and -1 to equal +1 is more than the number of ways I can use them to get +2*. But anyways I hope it was already quite intutive to you from the setting of the game that a winning of 0 was most likley small winnings/losses were more likley than large winnings/losses, we have just verified this mathematically and made clear nearby cases such as +2 and +1. 
+
+In the example of N=50, 25 corrosponds to the case of 0 winnings, 24 of 1$ loss and 26 of 1$ profit. Due to the symmetry 24 and 26 have equal likleyhood we are equally likley to loose an amount as we are to gain it. 
+The plot of this would look like:[bin of N=50 but with winnings on x-axis]
+
+-mention limiting case of binomail is normal
+
+--Quote from statistical rethinking about normal
 
 
 Or in other worlds : large deviations are less likely than smaller ones. 
