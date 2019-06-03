@@ -26,7 +26,7 @@ We can think of probability operations as counting operations i.e each multiplic
     <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/count2.png?raw=true" width="600" height="30" >
 </div>
 
-I will denote blue marbles as B and black as B. Say we draw 3 balls randomly for the bag.
+I will denote blue marbles as B and white as W. Say we draw 3 balls randomly for the bag.
 
 If we want the probability of observing a BWB from any one of the options we make a tree diagram of the possibilities and count the ways our desired outcome is possible. The more ways an option has, the higher its probability. We can do so for each option and see which has the highest chance. Another way of saying this is that suppose A and B can both individually cause C. Then if A causes C in many more ways than B, observing C makes A more plausible than B. 
 
