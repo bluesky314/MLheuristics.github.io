@@ -67,6 +67,26 @@ The plot of this would look like:[bin of N=50 but with winnings on x-axis]
 -plot expected value plot of this
 
 - consider these +1, -1 as errors and we are not infinitely adding them
+
+
+We have the case of Normal like curves for single cases of uniform and binomial. Let's get a little furthur. First, lets restate our defination of the mean. When thinking about the mean, it helps greatly to consider the pracitical reason why its invention was necessary.
+
+Our first defination of the mean stated "the mean is the number around which the deviations are perfectly symetrical and cancel each other out". But the deviations won't always be symetrical for non-uniform distributions. 
+
+
+$$\frac{\sum x_i}{N}=\mu$$
+$$\sum x_i=N\mu$$
+$$\sum x_i-N\mu=0$$
+$$\sum (x_i-\mu)=0$$
+
+From this we can see that the mean is the number from which all the negative deviations and positive deviations sum to 0. 
+
+Consider the set (1,1,1,1,99). The mean here is 20.6 and the $d_i's$ are -19.6 for the ones and +78.4 for 99. If we add all the x's expressed as $x_i + d_i$ we would get 5(20.6)-4(19.60)+78.4=5(20.6)
+The mean is the value from which the magnitute of deviations to the left and right sum to 0. 
+$\sum(x_i - \mu )=0$
+
+If every x_i has the same probability but if x_i has some other distribution like there are 98% 1's and 2's and 2% 99's then sums of the deviations of 1's and 2's should cancel out the deviation of 99's.
+
 -mention limiting case of binomail is normal
 
 --Quote from statistical rethinking about normal
