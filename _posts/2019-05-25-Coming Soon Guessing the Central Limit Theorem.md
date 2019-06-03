@@ -5,7 +5,7 @@ title: Comming Soon Guessing the Central Limit Theorem
 
 Making the foundations of the Guassian Distribution more intuitive
 
-Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it out of a magic hat. In this blog we will show why the Guassian has some very natural properties and why it is critical is describing noisy or random phonemon and observations like like the one it was discovered to understand(access? better word)
+Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it out of a magic hat. In this blog we will show why the Guassian has some very natural properties and why it is critical is describing noisy or random phonemon and observations like like the one it was discovered to understand(access? better word). We want to understand why errors are considered normally distributed in linear regression and other ML algorithms and why the mean is used as a representiative number in many cases. I hope that the connection of random errors to the normal distribution blows your mind!
 
 Here we will take part in function finding. Narrowing down the possible functions via figuring out properties that our function must obey. Perhaps an easier way to know the prevelance of the Gaussian is to identify some key properties and once we see a situation where we must have those, we can guess its the Guassian.
 I guarentee you after this( and some of your own thought) you will walk away finding the foundations of the Guassian more intuitive
@@ -64,6 +64,9 @@ This is the case becuase the $\binom{N}{x}$ term is maximized in our binomial di
 In the example of N=50, 25 corrosponds to the case of 0 winnings, 24 of 1$ loss and 26 of 1$ profit. Due to the symmetry 24 and 26 have equal likleyhood we are equally likley to loose an amount as we are to gain it. 
 The plot of this would look like:[bin of N=50 but with winnings on x-axis]
 
+-plot expected value plot of this
+
+- consider these +1, -1 as errors and we are not infinitely adding them
 -mention limiting case of binomail is normal
 
 --Quote from statistical rethinking about normal
