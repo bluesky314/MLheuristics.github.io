@@ -11,7 +11,7 @@ Here we will take part in function finding. Narrowing down the possible function
 I guarentee you after this( and some of your own thought) you will walk away finding the foundations of the Guassian more intuitive
 
 
-First let's consider X follows a Uniform distribution from 0 to 1 or $X\simU(0,1)$
+First let's consider X follows a Uniform distribution from 0 to 1 or $X\sumU(0,1)$
 
 -pic
 
@@ -32,7 +32,7 @@ We see some nice properties of this distribution:
 2)I am just as likely to get +0.1 as -0.1 or -0.2 as +0.2. For every positive value there is a equal negative value that occurs with the *same probability*(As this is the uniform)
 3)Clearly if I were to sum up all the points in this distribution, I would get 0 due to the symettry
 
-Let's consider a finite number of points 0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1 from X for simplicity. What if I were to change these to our alternate representation and sum them? Let's see what happens:
+Let's consider a finite number of points $0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1$ from X for simplicity. What if I were to change these to our alternate representation and sum them? Let's see what happens:
 $\sum x_i = \sum 0.5 - d_i$
 $\sum x_i = (0.5-0.4) + (0.5-0.3) + (0.5-0.2) + (0.5-0.1) + (0.5-0) + (0.5+0.1) + (0.5+0.2)+ (0.5+0.3) + (0.5+0.4)$
 $\sum x_i = 10*0.5 = 5$
@@ -51,9 +51,10 @@ $$\sum x_i=N\mu$$
 In our case we did:
 
 $\sum x_i = \sum \mu + d_i = \sum \mu +\sum d_i $
+
 $\sum \mu +\sum d_i = \sum \mu +0 = N\mu$
 
-Above we set $\sum d_i$ = 0 which we would expect to be the case, but in the case of random sampling I will not get all the deviations perfectly cancelling out. Most of them would most of the time(by 2)) but not always. 
+Above we set $\sum d_i$ = 0 which in our case is clear, but in the case of random sampling I will not get all the deviations perfectly cancelling out. Most of them would most of the time(by 2)) but not always. 
 Simulating random points from the uniform gives me:
 
 Which in our form is:
