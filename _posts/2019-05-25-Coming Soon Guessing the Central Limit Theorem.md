@@ -61,6 +61,7 @@ Which in our form is:
 Leading to the sum as ___ or 5 +- 
 [write about sum d_i/N as the thing that is summosed to converge to 0 in the limit, swamping effect]
 
+[We want to reslly understand the connection between the mean and deviations so lets:]
 Let's consider a binomial distribution with p,q
 
 
