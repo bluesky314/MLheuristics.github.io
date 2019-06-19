@@ -11,26 +11,36 @@ Here we will take part in function finding. Narrowing down the possible function
 I guarentee you after this( and some of your own thought) you will walk away finding the foundations of the Guassian more intuitive
 
 
-First let's consider X follows a Uniform distribution from 0 to 1 or $X\sumU(0,1)$
+First let's consider X follows a Uniform distribution from 0 to 1 or 
+$X\sim U(a,b)$
+$X\sim U(0,1)$
 
--pic
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/uniform2.png?raw=true" width="850" height="300" >
 
-We know the mean of this distribution or the expected value is equal to 1/2. But what does 1/2 really represent? 
+We know the mean or the expected value of this distribution is equal to 1/2. But what does 1/2 really represent? 
  If we were to sample a few or even alot of points and take their average, there is no guarentee we would the exact expected value.
-Thus the common defination of the expected value says that if we were to sample N number of $x_i's$ then in the limit as N tends to infinity the expected value would *converge*, not equal,to 1/2: 
+Thus the common defination of the expected value says that if we were to sample N values of $x_i's$, then in the limit as N tends to infinity the expected value would *converge*, not equal,to 1/2: 
  $lim_{N\mapsto \infty} \frac{\sum_i^Nx_i}{N}\mapsto 1/2$
  
 Let's play around with this. Every point in X can be represented as how much it deviates from 1/2: $1/2 + d_i$. Points to the left have a negative deviation and the right have posistive ones.
 E.g)
+
 0.6 = 0.5 + 0.1
+
 0.4 = 0.5 - 0.1
 
-The plot of the deviations $d_i$ would look like:
+
+As the uniform is symteric around its mean you can image what the distribution of deviations would look like. The plot of the distribution of deviations $d_i$ is:
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/uniformdeviation3.png?raw=true" width="850" height="300" >
 
 We see some nice properties of this distribution:
+
 1) The distribution is symettric about 0
-2)I am just as likely to get +0.1 as -0.1 or -0.2 as +0.2. For every positive value there is a equal negative value that occurs with the *same probability*(As this is the uniform)
-3)Clearly if I were to sum up all the points in this distribution, I would get 0 due to the symettry
+
+2)I am just as likely to get +0.1 as -0.1 or -0.2 as +0.2. For every positive value there is a equal negative value that occurs with the *same probability*(Due to symettriry)
+
+3)Clearly if I were to sum up all the points in this distribution, I would get 0 (again due to the symettry)
 
 Let's consider a finite number of points $0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1$ from X for simplicity. What if I were to change these to our alternate representation and sum them? Let's see what happens:
 $\sum x_i = \sum 0.5 - d_i$
@@ -38,7 +48,7 @@ $\sum x_i = (0.5-0.4) + (0.5-0.3) + (0.5-0.2) + (0.5-0.1) + (0.5-0) + (0.5+0.1) 
 $\sum x_i = 10*0.5 = 5$
 
 With our transformation $x_i=1/2+d_i$ you can see that every $d_i$ above 0.5 would cancel with every below. 
-You can imagine this same result if I were to to it for the entire distribution and not just our discrete points. All the deviations would cancel each other out and I would be left with N times 1/2. (Keep in mind here we are summing the entire distribution and not randomly sampling with replacement and summing).
+You can imagine this same result if I were to to it for the entire distribution and not just our discrete points. All the deviations would cancel each other out and I would be left with N times 1/2. (Keep in mind here we just summing the entire distribution and sampling and summing).
 
 From this we get our first new defination of the mean: the mean is the number around which the deviations are perfectly symetrical and cancel each other out when summed.
 
@@ -48,13 +58,15 @@ $$\frac{\sum x_i}{N}=\mu$$
 
 $$\sum x_i=N\mu$$
 
-In our case we did:
+We got the same thing when we summed our 10 points above. In our case we did:
 
-$\sum x_i = \sum \mu + d_i = \sum \mu +\sum d_i $
+$\sum x_i = \sum (\mu + d_i) = \sum \mu +\sum d_i $
+
+And then using $\sum d_i$ = 0$
 
 $\sum \mu +\sum d_i = \sum \mu +0 = N\mu$
 
-Above we set $\sum d_i$ = 0 which in our case is clear, but in the case of random sampling I will not get all the deviations perfectly cancelling out. Most of them would most of the time(by 2)) but not always. 
+$\sum d_i$ = 0 is visually appreant in the case of summing the whole distribution, but in the case of random sampling I will not get all the deviations perfectly cancelling out. We would expect most of them to, using 2) above, but it won't be perfect. 
 Simulating random points from the uniform gives me:
 
 Which in our form is:
