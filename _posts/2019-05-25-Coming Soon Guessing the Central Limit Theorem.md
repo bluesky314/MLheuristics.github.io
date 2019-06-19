@@ -3,6 +3,12 @@ layout: post
 title: Comming Soon Guessing the Central Limit Theorem
 ---
 
+[
+CLT:The central limit theorem states that the distribution of sample means approximates a normal distribution as the sample size gets larger (assuming that all samples are identical in size), regardless of population distribution shape.
+
+We say the distribution of total deviations in normal. And this implies ^
+]
+
 Making the foundations of the Guassian Distribution more intuitive
 
 Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it out of a magic hat. In this blog we will show why the Guassian has some very natural properties and why it is critical is describing noisy or random phonemon and observations like like the one it was discovered to understand(access? better word). We want to understand why errors are considered normally distributed in linear regression and other ML algorithms and why the mean is used as a representiative number in many cases. I hope that the connection of random errors to the normal distribution blows your mind!
@@ -62,13 +68,19 @@ We got the same thing when we summed our 10 points above. In our case we did:
 
 $\sum x_i = \sum (\mu + d_i) = \sum \mu +\sum d_i $
 
-And then using $\sum d_i$ = 0$
+And then using $\sum d_i = 0$
 
 $\sum \mu +\sum d_i = \sum \mu +0 = N\mu$
 
 $\sum d_i$ = 0 is visually appreant in the case of summing the whole distribution, but in the case of random sampling I will not get all the deviations perfectly cancelling out. We would expect most of them to, using 2) above, but it won't be perfect. 
 Simulating random points from the uniform gives me:
-
+a=np.random.uniform(size=10)
+array([0.80714911, 0.34312811, 0.51680355, 0.73050447, 0.53303526,
+       0.03949276, 0.28161832, 0.46822593, 0.0068999 , 0.8281418 ])
+       
+np.sum(a)
+4.5549992045609695
+5-0.5 so the deviations in this case are 0.5..
 Which in our form is:
 
 Leading to the sum as ___ or 5 +- 
