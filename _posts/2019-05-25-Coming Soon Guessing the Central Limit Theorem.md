@@ -108,20 +108,23 @@ Let's rewrite the mean formulae with this insight:
 
 $$\frac{\sum x_i}{N}=\mu$$
 
-$$\frac{\sum (\mu + d_i)}{N}=\mu$$
+$$\frac{\sum (\bar{x} + d_i)}{N}=\mu$$  (where $\bar{x}$ is the mean of the collected observations)
 
-$$\frac{\sum \mu +sum d_i}{N}=\mu$$
+$$\frac{\sum \bar{x} +sum d_i}{N}=\mu$$
 
 If we were taking large amount of samples we would expect the positive and negative deviations to almost cancel each other out in the long run so $sum d_i \approx 0 $
 
-$$\frac{\sum \mu}{N} \approx \mu$$
+$$\frac{\sum \bar{x}}{N} \approx \mu$$
 
-And as $\mu$ is a constant $\sum \mu = N\mu$ giving 
+And as $\bar{x}$ is a constant $\sum \bar{x} = N\\bar{x} giving 
 
-$$ \ mu \approx \mu$$
+$$ \bar{x} \approx \mu$$
 
-This is saying taking a large number of samples, we expect the sample mean to be a very good approximate of the true mean beacuase we expect the deviations around the mean to cancel each other out. When the deviations cancel each other out, we are left with the only consistent signal in the distribution which happens to be the mean. This idea of thinking in terms of how the sample mean would deviate from the true mean will provide us critical insight into the guassian distribution. In the case of the uniform it was quite straight forward, in the case of the gamma if the sample has frequencies that concur with the true frequencies given by the analytical distribution then we expect the smaller deviations occuring in their larger frequency to cancel out the larger ones occuring in their smaller frequency leaving only the mean as a consistent source of signal in the summation term. 
+This is saying taking a large number of samples, we expect the sample mean to be a very good approximate of the true mean beacuase we expect the deviations around the mean to cancel each other out. When the deviations cancel each other out, we are left with the only consistent signal in the distribution which happens to be the mean. This idea of thinking in terms of how the sample mean would deviate from the true mean will provide us critical insight into the guassian distribution. In the case of the uniform it was quite straight forward, in the case of the gamma if the sample has frequencies that concur with the true frequencies given by the analytical distribution then we expect the smaller deviations occuring in their larger frequency to cancel out the larger ones occuring in their smaller frequency leaving only the mean as a consistent source of signal in the summation term.  
 
+Thus he concluded by saying, "If observations of all events be continued for the entire infinity, it will be noticed that everything in the world is governed by precise ratios and a constant law of change." This idea was quickly extended as it was noticed that not only did things converge on an expected average, but the probability of variation away from averages also follow a familiar, underlying shape, or distribution.
+
+In the real world we see that not only do things follow patters, but even their deviations from those patters follow patterns themselves. This will motivate us to study the approximation $$ \bar{x} \approx \mu$$ and how well the sample mean approximates the true mean and what is the pattern within its deviation. 
 
 
 
