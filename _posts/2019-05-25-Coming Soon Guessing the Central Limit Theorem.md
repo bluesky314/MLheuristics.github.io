@@ -110,9 +110,9 @@ $$\frac{\sum x_i}{N}=\mu$$
 
 $$\frac{\sum (\bar{x} + d_i)}{N}=\mu$$  (where $\bar{x}$ is the mean of the collected observations)
 
-$$\frac{\sum \bar{x} +sum d_i}{N}=\mu$$
+$$\frac{\sum \bar{x} + \sum d_i}{N}=\mu$$
 
-If we were taking large amount of samples we would expect the positive and negative deviations to almost cancel each other out in the long run so $sum d_i \approx 0 $
+If we were taking large amount of samples we would expect the positive and negative deviations to almost cancel each other out in the long run so $\sum d_i \approx 0 $
 
 $$\frac{\sum \bar{x}}{N} \approx \mu$$
 
