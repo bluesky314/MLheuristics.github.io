@@ -104,11 +104,11 @@ Now lets see the mean subtracted version
 
 If we sum all values of x for this distribution we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. So once again, the mean is the point around which the positive and negative deviations cancel out. 
 
-Let's rewrite the mean formulae with this insight:
+Let's rewrite the mean formulae with this insight. We will write each $x_i$ as how it deviates from the sample mean as only then will $\sum d_i \approx 0 $
 
 $$\frac{\sum x_i}{N}=\mu$$
 
-$$\frac{\sum (\bar{x} + d_i)}{N}=\mu$$  (where $\bar{x}$ is the mean of the collected observations)
+$$\frac{\sum (\bar{x} + d_i)}{N}=\mu$$  
 
 $$\frac{\sum \bar{x} + \sum d_i}{N}=\mu$$
 
@@ -116,7 +116,7 @@ If we were taking large amount of samples we would expect the positive and negat
 
 $$\frac{\sum \bar{x}}{N} \approx \mu$$
 
-And as $\bar{x}$ is a constant $\sum \bar{x} = N\\bar{x} giving 
+And as $\bar{x}$ is a constant $\sum \bar{x} = N\bar{x}$ giving 
 
 $$ \bar{x} \approx \mu$$
 
