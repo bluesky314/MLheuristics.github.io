@@ -124,7 +124,7 @@ This is saying taking a large number of samples, we expect the sample mean to be
 
 Thus he concluded by saying, "If observations of all events be continued for the entire infinity, it will be noticed that everything in the world is governed by precise ratios and a constant law of change." This idea was quickly extended as it was noticed that not only did things converge on an expected average, but the probability of variation away from averages also follow a familiar, underlying shape, or distribution.
 
-In the real world we see that not only do things follow patters, but even their deviations from those patters follow patterns themselves. This will motivate us to study the approximation $$ \bar{x} \approx \mu$$ and how well the sample mean approximates the true mean and what is the pattern within its deviation. 
+In the real world we see that not only do things follow patters, but even deviations from those patters follow patterns themselves. This will motivate us to study the approximation $$ \bar{x} \approx \mu$$.
 
 
 
