@@ -58,7 +58,7 @@ You can imagine this same result if I were to to it for the entire distribution 
 
 From this we get our first new defination of the mean: the mean is the number around which the deviations are perfectly symetrical and cancel each other out when summed.
 
-This is conveyed in the mean formula as well:
+This is conveyed in the mean formula as well: (we will be seeing this formulae from many different angles in this blog)
 
 $$\frac{\sum x_i}{N}=\mu$$
 
@@ -72,19 +72,58 @@ And then using $\sum d_i = 0$
 
 $\sum \mu +\sum d_i = \sum \mu +0 = N\mu$
 
-$\sum d_i$ = 0 is visually appreant in the case of summing the whole distribution, but in the case of random sampling I will not get all the deviations perfectly cancelling out. We would expect most of them to, using 2) above, but it won't be perfect. 
+$\sum d_i$ = 0 is visually appreant in the case of summing the whole distribution, but in the case of random sampling I will not get all the deviations perfectly cancelling out. We would expect most of them to, using 2) above, but it won't be perfect. But the idea is that given a lot of obervations we would very well approximate $\sum x_i$ by $N\mu$ as we would expect all the positive and negative deviations to cancel each other out.
+
 Simulating random points from the uniform gives me:
+
 a=np.random.uniform(size=10)
+
 array([0.80714911, 0.34312811, 0.51680355, 0.73050447, 0.53303526,
        0.03949276, 0.28161832, 0.46822593, 0.0068999 , 0.8281418 ])
        
+
 np.sum(a)
+
 4.5549992045609695
+
 5-0.5 so the deviations in this case are 0.5..
 Which in our form is:
 
 Leading to the sum as ___ or 5 +- 
 [write about sum d_i/N as the thing that is summosed to converge to 0 in the limit, swamping effect]
+
+
+Let's see if idea holds for non-symetrric distributions
+Consider this gamma distribution. The red and blue line mark the occourance of the mean when x=0.76 with a probability of 1.11e-07
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/Gammadist.png?raw=true" width="850" height="300" >
+
+Now lets see the mean subtracted version
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/Gammamean.png?raw=true" width="850" height="300" >
+
+If we sum all values of x for this distribution we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. So once again, the mean is the point around which the positive and negative deviations cancel out. 
+
+Let's rewrite the mean formulae with this insight:
+
+$$\frac{\sum x_i}{N}=\mu$$
+
+$$\frac{\sum (\mu + d_i)}{N}=\mu$$
+
+$$\frac{\sum \mu +sum d_i}{N}=\mu$$
+
+If we were taking large amount of samples we would expect the positive and negative deviations to almost cancel each other out in the long run so $sum d_i \approx 0 $
+
+$$\frac{\sum \mu}{N} \approx \mu$$
+
+And as $\mu$ is a constant $\sum \mu = N\mu$ giving 
+
+$$ \ mu \approx \mu$$
+
+This is saying taking a large number of samples, we expect the sample mean to be a very good approximate of the true mean beacuase we expect the deviations around the mean to cancel each other out. When the deviations cancel each other out, we are left with the only consistent signal in the distribution which happens to be the mean. This idea of thinking in terms of how the sample mean would deviate from the true mean will provide us critical insight into the guassian distribution. In the case of the uniform it was quite straight forward, in the case of the gamma if the sample has frequencies that concur with the true frequencies given by the analytical distribution then we expect the smaller deviations occuring in their larger frequency to cancel out the larger ones occuring in their smaller frequency leaving only the mean as a consistent source of signal in the summation term. 
+
+
+
 
 [We want to reslly understand the connection between the mean and deviations so lets:]
 Let's consider a binomial distribution with p,q
@@ -92,9 +131,6 @@ Let's consider a binomial distribution with p,q
 
 
 
-
-
-This defination is very tidy for our uniform case and we will soon extend this to the case of other non-uniform distributions.
 But before lets consider another simple game. This game is coin tossing and if the coin is heads I win 1$ and if tails I loss 1$
 Statisitcs will tell you E(X) = (1/2)(1) + (1/2)(-1) = 0
 
