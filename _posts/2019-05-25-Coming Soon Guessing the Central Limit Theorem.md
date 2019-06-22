@@ -60,19 +60,19 @@ From this we get our first new defination of the mean: the mean is the number ar
 
 This is conveyed in the mean formula as well: (we will be seeing this formulae from many different angles in this blog)
 
-$$\frac{\sum x_i}{N}=\mu$$
+$$\frac{\sum x_i}{N}=\bar{x}$$
 
-$$\sum x_i=N\mu$$
+$$\sum x_i=N\bar{x}$$
 
 We got the same thing when we summed our 10 points above. In our case we did:
 
-$\sum x_i = \sum (\mu + d_i) = \sum \mu +\sum d_i $
+$\sum x_i = \sum (\bar{x} + d_i) = \sum \bar{x} +\sum d_i $
 
 And then using $\sum d_i = 0$
 
-$\sum \mu +\sum d_i = \sum \mu +0 = N\mu$
+$\sum \bar{x} +\sum d_i = \sum \bar{x} +0 = N\bar{x}$
 
-$\sum d_i$ = 0 is visually appreant in the case of summing the whole distribution, but in the case of random sampling I will not get all the deviations perfectly cancelling out. We would expect most of them to, using 2) above, but it won't be perfect. But the idea is that given a lot of obervations we would very well approximate $\sum x_i$ by $N\mu$ as we would expect all the positive and negative deviations to cancel each other out.
+$\sum d_i$ = 0 is visually appreant in the case of summing the whole distribution, but in the case of random sampling I will not get all the deviations perfectly cancelling out. We would expect most of them to, using 2) above, but it won't be perfect. But the idea is that given a lot of obervations we would very well approximate $\sum x_i$ by $N\bar{x}$ as we would expect all the positive and negative deviations to cancel each other out.
 
 Simulating random points from the uniform gives me:
 
@@ -94,17 +94,25 @@ Leading to the sum as ___ or 5 +-
 
 
 Let's see if idea holds for non-symetrric distributions
-Consider this gamma distribution. The red and blue line mark the occourance of the mean when x=0.76 with a probability of 1.11e-07
+Consider this skewed Beta distribution distribution. The red and blue line mark the occourance of the mean when x=0.9 with a probability mass of 4
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/Gammadist.png?raw=true" width="850" height="300" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/BetaDist.png?raw=true" width="850" height="300" >
 
 Now lets see the mean subtracted version
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/Gammamean.png?raw=true" width="850" height="300" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/BetaDistMeanN.png?raw=true" width="850" height="300" >
 
 If we sum all values of x for this distribution we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. So once again, the mean is the point around which the positive and negative deviations cancel out. 
 
-Let's rewrite the mean formulae with this insight. We will write each $x_i$ as how it deviates from the sample mean as only then will $\sum d_i \approx 0 $
+Let's rewrite the mean formulae with this insight. We will now consider a very very large number of sample so that 
+
+1) $\sum d_i \approx 0 $
+
+2) So that we equate this to the true population mean $\mu$ as the defination states:
+
+$lim_{N\mapsto \infty} \frac{\sum_i^Nx_i}{N}\mapsto \mu$
+
+We will write each $x_i$ as how it deviates from the sample mean. Why the sample mean? Well if we were doing an experiment then we dont know the true mean, we only know the sample mean and from above we know that $\sum d_i \approx 0 $ only when we take the mean of the points under consideration.
 
 $$\frac{\sum x_i}{N}=\mu$$
 
@@ -120,7 +128,8 @@ And as $\bar{x}$ is a constant $\sum \bar{x} = N\bar{x}$ giving
 
 $$ \bar{x} \approx \mu$$
 
-This is saying taking a large number of samples, we expect the sample mean to be a very good approximate of the true mean beacuase we expect the deviations around the mean to cancel each other out. When the deviations cancel each other out, we are left with the only consistent signal in the distribution which happens to be the mean. This idea of thinking in terms of how the sample mean would deviate from the true mean will provide us critical insight into the guassian distribution. In the case of the uniform it was quite straight forward, in the case of the gamma if the sample has frequencies that concur with the true frequencies given by the analytical distribution then we expect the smaller deviations occuring in their larger frequency to cancel out the larger ones occuring in their smaller frequency leaving only the mean as a consistent source of signal in the summation term.  
+This is saying taking a large number of samples, we expect the sample mean to be a very good approximate of the true mean beacuase we expect the deviations around the mean to cancel each other out. When the deviations cancel each other out, we are left with the only consistent signal in the distribution which happens to be the mean. (think about it using the experession
+$\frac{\sum (\bar{x} + d_i)}{N}$, if the $d_i$s keep cancelling each other they will get swamped by the every growing N)This idea of thinking in terms of how the sample mean would deviate from the true mean will provide us critical insight into the guassian distribution. In the case of the uniform it was quite straight forward, in the case of the gamma if the sample has frequencies that concur with the true frequencies given by the analytical distribution then we expect the smaller deviations occuring in their larger frequency to cancel out the larger ones occuring in their smaller frequency leaving only the mean as a consistent source of signal in the summation term.  
 
 Thus he concluded by saying, "If observations of all events be continued for the entire infinity, it will be noticed that everything in the world is governed by precise ratios and a constant law of change." This idea was quickly extended as it was noticed that not only did things converge on an expected average, but the probability of variation away from averages also follow a familiar, underlying shape, or distribution.
 
