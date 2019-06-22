@@ -147,7 +147,7 @@ It’s hard to say where any individual person will end up, but you can say with
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/REthinkingField.png?raw=true" width="850" height="300" >
 
-We will simulate a very similar example to this image, but remember our aim is to describe real processes and not cute mathematical abstractions, but the fact is that the additive behavior of deviations that we have been describing occurs alot in nature. And it is this process of addition that leads to the shape of the bell curve. And if you can understand things about how this addition occurs, then you will understand why the bell curve is the way it is. We are trying to realize things about this bell curve by studying the additions that caused it.
+We will simulate a very similar example to this image, but remember our aim is to describe real processes and not cute mathematical abstractions, but the fact is that the additive behavior of deviations that we have been describing occurs alot in nature. And it is this process of addition that leads to the shape of the bell curve. And if you can understand things about how this addition occurs, then you will understand why the bell curve is the way it is. We are trying to realize things about this bell curve by studying the additions that caused it, and luckily the additions are way more simple to understand that looking at the bell curve directly.
 
 
 [We want to reslly understand the connection between the mean and deviations so lets:]
