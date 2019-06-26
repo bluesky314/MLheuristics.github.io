@@ -181,7 +181,11 @@ $P(X=x)=\binom{N}{x} 1/2^N$
 
 We can plot this for different values of N and see which x's are most likley. Keep in mind x is the total number of heads observed. So if x=10 is most likley with N=25 it means 10 heads and 15 tails are the most likley outcome.
 
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/Binomials.png?raw=true" width="350" height="350" >
+
 We can now also see our expected value plot. 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/ExcepctedProfit.png?raw=true" width="350" height="350" >
 
 
 
