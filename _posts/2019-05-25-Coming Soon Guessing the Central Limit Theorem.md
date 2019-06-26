@@ -56,7 +56,7 @@ $\sum x_i = 10*0.5 = 5$
 With our transformation $x_i=1/2+d_i$ you can see that every $d_i$ above 0.5 would cancel with every below. 
 You can imagine this same result if I were to to it for the entire distribution and not just our discrete points. All the deviations would cancel each other out and I would be left with N times 1/2. (Keep in mind here we just summing the entire distribution and sampling and summing).
 
-From this we get our first new defination of the mean: the mean is the number around which the deviations are perfectly symetrical and cancel each other out when summed.
+From this we get our first new defination of the mean: the mean is the number around which the deviations tend to cancel each other out when summed.
 
 This is conveyed in the mean formula as well: (we will be seeing this formulae from many different angles in this blog)
 
