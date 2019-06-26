@@ -179,17 +179,14 @@ $P(X=x)=\binom{N}{x} (1/2)^x(1/2)^{N-x}$
 
 $P(X=x)=\binom{N}{x} 1/2^N$
 
-We can plot this for different values of N and see which x's are most likley. Keep in mind x is the total number of heads observed. So if x=10 is most likley with N=25 it means 10 heads and 15 tails are the most likley outcome.
+We can plot this for different values of N and see the probability distribution of. Keep in mind x is the total number of heads observed. So if x=10 turns out to be most likley with N=25 it means that in 25 tosses 10 heads and 15 tails are the most likley outcome. (play around with code)
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/Binomials.png?raw=true" width="600" height="350" >
 
-We can now also see our expected value plot. 
+If I get more heads than tails i.e if $n>N/2$ we have more heads and make a profit and vice verse. The profit we make is proportional to the number of heads and vice versa. We can calculate the profit on each of the outcomes and plot the expected values.
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/ExcepctedProfit.png?raw=true" width="600" height="350" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/ExcepctedProfit.png?raw=true" width="625" height="375" >
 
-
-
-If $n>N/2$ we have more heads and make a profit and vice verse. The profit we make is proportional to the number of heads and vice versa. We see that the farther we are from the mean profit of 0, the less chance of occurance.
 
 We see that the most likley number is N/2 (remember N/2 corrosponds to the case of N/2 heads and N/2 tails and winning of 0). And values away from that becomes less and less likley. The relationship is strictly monotonic in the left and right regions. This is a key point we will exploit later. #You can pause and think why this would be the case.
 
