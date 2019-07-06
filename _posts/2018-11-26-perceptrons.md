@@ -12,7 +12,7 @@ In this post we shall understand how neural networks or Multi-Layer Perceptrons(
 
 **The Single Perceptron:**
 
-A single perceptron is just a weighted linear combination of input features. Suppose we have inputs $$x_{1}, x_{2}......x_{n}$$ and corresponding weights $$w_{1}, w_{2}......w_{n}$$. Then the dot product of these two vectors represented by: 
+A single perceptron is just a weighted linear combination of input features. Suppose we have inputs $$x_{1}, x_{2}......x_{n}$$ and corresponding weights $$w_{1}, w_{2}......w_{n}$$. Then the dot product of these two vectors can be represented by: 
 
 $$\sum\limits_{i=0}^{n}{x_{i}w_{i}}+b$$ 
 
