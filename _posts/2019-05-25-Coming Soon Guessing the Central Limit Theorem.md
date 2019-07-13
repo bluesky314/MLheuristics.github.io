@@ -214,7 +214,15 @@ So the distribution is symettric. We summarise this as:
 B)For any real winning $a$ the likelihood of winning a and −a are equal.
 
 
-Errors:
+## Random Errors:
+
+Imagine you are Carl Friedrich Gauss out in the woods with you telescope trying to measure the distance between Earth and [Ceres](https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)) 
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/AstronomyGaussAnimation.jpg?raw=true" width="600" height="350" >
+
+You simply wanted to find out this distance but every time you record a measurement, you get a slightly different value.  Sometimes its really different from the rest and sometimes it almost the same. You have no idea what to do or which one to consider as the true value. This was the case with much of astronomy in the 1800s. So which one of these measurements should you take to be the true value for your very important calculations? # pause and appreciate this dilemma  
+
+Well, lets first ask why we are getting different values in the first place.
 
 - consider these +1, -1 as errors and we are not infinitely adding them
 
