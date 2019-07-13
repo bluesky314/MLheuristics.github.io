@@ -147,7 +147,7 @@ It’s hard to say where any individual person will end up, but you can say with
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/REthinkingField.png?raw=true" width="850" height="300" >
 
-We will simulate a very similar example to this image, but remember our aim is to describe real processes and not cute mathematical abstractions, but the fact is that the additive behavior of deviations that we have been describing occurs alot in nature. And it is this process of addition that leads to the shape of the bell curve. And if you can understand things about how this addition occurs, then you will understand why the bell curve is the way it is. We are trying to realize things about this bell curve by studying the additions that caused it, and luckily the additions are way more simple to understand that looking at the bell curve directly. Usually the fact that the CLT applies to *any* distribution is lauded and called a marvel but when we saw that even the deviations of non-symmetric distributions cancel each other we already proved this trival fact. 
+We will simulate a very similar example to this image, but remember our aim is to describe real processes and not cute mathematical abstractions. But the fact is that the additive behavior of deviations that we have been describing occurs alot in nature and it is this process of addition that leads to the shape of the bell curve. And if you can understand things about how this addition occurs, then you will understand why the bell curve is the way it is. We are trying to realize things about this bell curve by studying the additions that caused it, and luckily the additions are way more simple to understand that looking at the bell curve directly. Usually the fact that the CLT applies to *any* distribution is lauded and called a marvel but when we saw that even the deviations of non-symmetric distributions cancel each other we already proved this trival fact. 
 
 -- statesmenrts about considering x-di makes it independant of distribution, how CLT is about deviations and not true values in the dist. My CLT implies CLT
 
@@ -159,17 +159,20 @@ Let's consider a binomial distribution with p,q
 -- We give this example of coin toss and show how it is equivalent to error obersvation around 0(Gauss and astromical measurement). this example will provide a base to undertand the distribution of errors
 -- consider an illuminating example
 
-But before lets consider another simple game. This game is coin tossing and if the coin is heads I win 1$ and if tails I loss 1$
-Statisitcs will tell you 
-$E(X) = \sum xp(x) = (1/2)(1) + (1/2)(-1) = 0 $
+The next example is identical to how we can treat errors in the random world: as a fluctuion acting on the true signal. We will use the very practial(and discrete) example of a coin tossing game and later connect this this to the continous(and overwhelming) case of random errors. In this game if the coin is heads I win 1$$ and if tails I loss 1$$
 
-Which is saying in the log run sum +1 -1 +1 +1 -1 +1 +1 -1 +1 +1 -1 +1 -1 ..... all +1s will cancel -1s. Consider 10 trials, in the optimal senerio there would be equal number of +1 or -1 so our net winning would be 0. However in the real world we could have got 6 heads and 4 tails or 7 heads and 3 tails. If N=100 our potential winnings would range from +100 to -100. But +100 seems pretty rare right? I would have to get all heads for that. I bet you that's its more rare than +50. Can you think why this would be the case?
+
+The expected value of the game can be computed as :
+$E(X) = \sum xp(x) $
+$E(X) = (1/2)(1) + (1/2)(-1) = 0 $
+
+Which is saying in the long run sum of +1's and -1's(+1 -1 +1 +1 -1 +1 +1 -1 +1 +1 -1 +1 -1 .....), all +1s will cancel the -1s. Consider 10 trials, in the expected senerio there would be equal number of +1 or -1 so our net winning would be 0. However in the real world we could have got 6 heads and 4 tails or 7 heads and 3 tails. If N=100 our potential winnings would range from +100 to -100. But +100 seems pretty rare right? I would have to get all heads for that. I bet you that's its more rare than +50. Can you think why this would be the case?
 
 What about for smaller values? Is +2 more rare than +1? or -3 than -2? This is a good time to use some of our previous work and think about this.
 
-What we want to argue here is that +2 is less likely than +1 and -2 is less likely than -1. The farther the winning is away from the expected value or 0, the less likley it is. And since we this can be expressed as a binomial distribution we are in good luck. 
+What we want to argue here is that +2 is less likely than +1 and -2 is less likely than -1. The farther the winning is away from the expected value of 0, the less likley it is. And since this game can can be expressed as a binomial distribution we are in good luck.
 
-We can model a single toin coss as a Bernoulli distribution and a set of tosses as a Binomial distribution 
+We can model a single toin coss as a Bernoulli distribution and a set of tosses as a Binomial distribution with $N$ as the number of tosses:
 
 $X \sim  Bn(p=1/2,N)$
 
@@ -179,29 +182,34 @@ $P(X=x)=\binom{N}{x} (1/2)^x(1/2)^{N-x}$
 
 $P(X=x)=\binom{N}{x} 1/2^N$
 
-We can plot this for different values of N and see the probability distribution of. Keep in mind x is the total number of heads observed. So if x=10 turns out to be most likley with N=25 it means that in 25 tosses 10 heads and 15 tails are the most likley outcome. (play around with code)
+
+We can plot this for different values of $N$ and see the probability distribution of how many heads we get. If $x$ is the total number of heads observed then $N-x$ is the total number of tails. We can now visualise how likely different pair are and see if we observe any pattern. 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/Binomials.png?raw=true" width="600" height="350" >
 
-If I get more heads than tails i.e if $n>N/2$ we have more heads and make a profit and vice verse. The profit we make is proportional to the number of heads and vice versa. We can calculate the profit on each of the outcomes and plot the expected values.
+We see that in all the cases, the shape of the distribution follows a familar pattern. Let's plot the expected winning distribution as well. If I get more heads than tails i.e if $x>N/2$ I make a profit and vice verse. The profit we make is proportional to the number of heads and vice versa. At $x=N/2$, we have 0 profit. The next plot should not suprise you.
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/ExcepctedProfit.png?raw=true" width="625" height="375" >
 
 
-We see that the most likley number is N/2 (remember N/2 corrosponds to the case of N/2 heads and N/2 tails and winning of 0). And values away from that becomes less and less likley. The relationship is strictly monotonic in the left and right regions. This is a key point we will exploit later. #You can pause and think why this would be the case.
+We see that the most likley number is $N/2$ (remember $N/2$ corrosponds to the case of equal heads and tails and winning of 0). And values away from that becomes less and less likley. The relationship is strictly monotonic in the left and right regions. This is a key point we will exploit later. #You can pause and think why this would be the case.
 
-This is the case becuase the $\binom{N}{x}$ term is maximized in our binomial distribution at x=N/2. If you remember this term gets added when we go from bernoulli to binomial to count the number of ways an outcome can now occour. So if N=4 the possible pairs are (1,1),(1,-1),(-1,1) and (-1,-1) but observing (1,-1) is the same as (-1,1) for us as we dont care about ordering so this gets accounted in the factor $\binom{2}{1}=2$. And this is true for large numbers as well. So the reason why N/2 is most likley number of heads or why a winning of 0 is most likley is because in N tosses the number of *ways I can sum +1 and -1 to equal 0 is more than the number of ways I can use them to get any other number* and *ways I can sum +1 and -1 to equal +1 is more than the number of ways I can use them to get +2*.(Think about how this is implied in $P(X=x)=\binom{N}{x} 1/2^N$ and the plots when N is fixed, the only variable is the counting term)But anyways I hope it was already quite intutive to you from the setting of the game that small winnings/losses were more likley than large winnings/losses, we have just shown this is a result of counting operations. 
+As the quote stated earlier "there are so many more possible ways to realize a sequence of positive negative steps that sums to zero", now remember zero meant the expected value in all our cases as we mean subtracted the distribution. In this case the mean is really zero so we already satisfy this condition. In this example $\binom{N}{x}$ term is maximized in our binomial distribution at $x=N/2$(which is the same as expected winning of zero). If you remember this term gets added when we go from Bernoulli to Binomial to count the number of ways an outcome can now occour. So if $N=4$ the possible pairs are $(1,1),(1,-1),(-1,1)$ and $(-1,-1)$ but observing $(1,-1)$ is the same as $(-1,1)$ for us as we dont care about ordering so this gets accounted in the factor $\binom{2}{1}=2$. And this is true for large numbers as well. So the reason why $N/2$ is most likley number of heads or why a winning of 0 is most likley is because in N tosses the number of *ways I can sum +1 and -1 to equal 0 is more than the number of ways I can use them to get any other number* and *ways I can sum +1 and -1 to equal +1 is more than the number of ways I can use them to get +2*.(Think about how this is implied in $P(X=x)=\binom{N}{x} 1/2^N$ when $N$ is fixed, the only variable is the counting term)But anyways I hope it was already quite intutive to you from the setting of the game that small winnings/losses were more likley than large winnings/losses, we have just shown this is a result of counting operations. 
 
 We will summarise this important result, which we will later see applying to measurement errors, as :
 
 A) Small winnings are more likely than larger winnings
+
 or
+
 A) Values close to the mean are more likely than those furthur away
 
-In the example of N=50, 25 corrosponds to the case of 0 winnings, 24 of -1$ profit and 26 of 1$ profit. Due to the symmetry of the counting factor 
+In the example of $N=50$, $x=24$ corrosponds to to -1$ profit and $x=26$ to 1$ profit. Due to the symmetry of the counting factor : 
 $\binom{50}{24} = \binom{50}{26}$
 
-24 and 26 have equal likleyhood. We summarise this as :
+Or generally $\binom{N}{x} = \binom{N}{N-x}$
+
+So the distribution is symettric. We summarise this as:
 
 B)For any real winning $a$ the likelihood of winning a and −a are equal.
 
