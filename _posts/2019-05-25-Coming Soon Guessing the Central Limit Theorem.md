@@ -213,6 +213,8 @@ So the distribution is symettric. We summarise this as:
 
 B)For any real winning $a$ the likelihood of winning a and −a are equal.
 
+ 
+
 
 ## Random Errors:
 
@@ -222,12 +224,14 @@ Imagine you are Carl Friedrich Gauss out in the woods with you telescope trying 
 
 You simply wanted to find out this distance but every time you record a measurement, you get a slightly different value.  Sometimes its really different from the rest and sometimes it almost the same. You have no idea what to do or which one to consider as the true value. This was the case with much of astronomy in the 1800s. So which one of these measurements should you take to be the true value for your very important calculations? # pause and appreciate this dilemma  
 
-Well, lets first ask why we are getting different values in the first place. It should be noted that your telescope is extremely sensetive to slight changes.  
+Well, lets first ask why we are getting different values in the first place. Your telescope is extremely sensetive to slight changes in movement. 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/StarAngleDifference.jpeg?raw=true" width="600" height="350" >
 --slight change to angle
 
-There are various sources that could be the case for different measurments. The instruments I'm using could be a bit wobbly so each time it is affected by my hand pressure. The wind may also be blowing fast and slow vibrating my instrument. The grass may be uneven chaging my angle very slightly. There could be some instrumental error due to accuracy limits of my telescope. Measurment error in me reading the non-digital(its the 1800s after all) readings and so on and so forth. There could be a finite number of *reasons* for errors indeed, but you will agree that the *forces* causing those errors is infinite. So the level of wind at any point is a cause of a very large number of particles and their interactions. A few of these forces may influence the wind in the one direction and a few in the other. 
+There are various sources that could be the case for different measurments like The instruments I'm using could be a bit wobbly so each time it is affected by my hand pressure. The wind may also be blowing fast and slow vibrating my instrument. The grass may be uneven chaging my angle very slightly. There could be some instrumental error due to accuracy limits of my telescope. Measurment error in me reading the non-digital(its the 1800s after all) readings and so on and so forth. There could be a finite number of *reasons* for errors indeed, but you will agree that the *forces* causing those errors is infinite. So the level of wind at any point is a cause of a very large number of particles and their interactions. A few of these forces may influence the wind in the one direction and a few in the other. 
+
+Consider an unbiased error, an error that that has a chance of increasing or decreasing you measurment equally. If 
 
 These forces have no rhyme or reason to favor your measurement in any direction. They are random or unbiased.
 
