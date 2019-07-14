@@ -1,15 +1,12 @@
 ---
 layout: post
-title: Comming Soon Guessing the Central Limit Theorem
+title: 90% Complete -- Guessing the Central Limit Theorem
 ---
 
-[
-CLT:The central limit theorem states that the distribution of sample means approximates a normal distribution as the sample size gets larger (assuming that all samples are identical in size), regardless of population distribution shape.
-
-We say the distribution of total deviations in normal. And this implies ^
-]
 
 Making the foundations of the Guassian Distribution more intuitive
+
+--Warning - typos ahead----
 
 Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it out of a magic hat. In this blog we will show why the Guassian has some very natural properties and why it is critical is describing noisy or random phonemon and observations like like the one it was discovered to understand(access? better word). We want to understand why errors are considered normally distributed in linear regression and other ML algorithms and why the mean is used as a representiative number in many cases. I hope that the connection of random errors to the normal distribution blows your mind!
 
@@ -213,12 +210,34 @@ So the distribution is symettric. We summarise this as:
 
 B)For any real winning $a$ the likelihood of winning a and −a are equal.
 
- 
+
+In a way we can consider zero to be the true signal of the game. Its the real expected value in the long run and +1's and -1's are noisy signals which cancel each other out. If you're not convinced with the statment keep reading.
+
+Consider a very small extension of the above experiment and then we can move onto errors. What if I won 51 at every heads and 49 at every tails. What would be my average winning?
+
+Lets write the above game in terms of deviations as we did before
+$\sum x_i = \sum (\bar{x} + d_i) = \sum \bar{x} +\sum d_i $
+
+$$\frac{\sum x_i}{N}=\frac{\sum (\bar{x} + d_i)}{N}=\frac{\sum (50 \pm 1)}{N}$$
+
+=\frac{\sum 50}{N} + \frac{ \pm 1}{N}
+
+= 50 + \frac{+1 -1 +1 -1 +1 -1 +1 -1  +1 -1 +1 -1  ....}{N}
+
+Notice how the second term is exactly like our first game! A winning of +1 and -1's around 0 is now a winning of +1 and -1's around 50. This shows more clearly the statement that the mean, 50, is the only consistent source of signal in game while +1 and -1's are random fluctuations than act upon it. 
+
+
+The graph of this is 
+
+
+Or
+
+Great job getting this far! Now I would like to c 
 
 
 ## Random Errors:
 
-Imagine you are Carl Friedrich Gauss out in the woods with you telescope trying to measure the distance between Earth and [Ceres](https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)) 
+Imagine you are Carl Friedrich Gauss out in the woods with you telescope trying to measure the distance between Earth and [Ceres](https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)):
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/AstronomyGaussAnimation.jpg?raw=true" width="600" height="350" >
 
@@ -229,7 +248,22 @@ Well, lets first ask why we are getting different values in the first place. You
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/StarAngleDifference.jpeg?raw=true" width="600" height="350" >
 --slight change to angle
 
-There are various sources that could be the case for different measurments like The instruments I'm using could be a bit wobbly so each time it is affected by my hand pressure. The wind may also be blowing fast and slow vibrating my instrument. The grass may be uneven chaging my angle very slightly. There could be some instrumental error due to accuracy limits of my telescope. Measurment error in me reading the non-digital(its the 1800s after all) readings and so on and so forth. There could be a finite number of *reasons* for errors indeed, but you will agree that the *forces* causing those errors is infinite. So the level of wind at any point is a cause of a very large number of particles and their interactions. A few of these forces may influence the wind in the one direction and a few in the other. 
+There are various sources that could be the case for different measurments like the telescope being wobbly, wind moving the telescope, uneven surface, instrumental error, measurement reading error and so on and so forth.
+
+There could be a finite number of *classes* for errors, but you will agree that the *forces* causing those errors is infinite. 
+So there are a gazillion air particles acting on the telescope vibrating it very slightly. These particles are unbiased, meaning they have no special preference to increase or decrease you measurment. Your telescope is equally likely to be tilted left or right. Each particle adds a unit of force in some direction and particles on one side of the telescope cancel the effects of particles on the other. Does any of this sound familiar? 
+
+This is exactly the situation we had earlier with the coin tossing example. Except here the coins are particles, heads are particles pushing us to the right and if we are being pushed more to the right than left then our movement is a postive unit in the right direction. If the errors caused by the wind were truly random fluctuations then their expected movement on the telescope is zero because they have no preference in which direction to push(think maximum entropy). If there is a preferance, then it is a source of systematic, and not random, error.
+
+Now if we strip all causes of error to their individual units of forces, each having no preferace into which direction to push the telescope, then we have a case of infinite elements each with equal probability of heads or tails .... I equal probability  mean pushing the telescope to the right or left. This is essentially a binomial distribution with $N=\infty$ which decreases from it's expected value in the characteristic way shown above. But now that there are so many errors, this curve's range on the x-axis is much much broader than shown above, leading to vastly different values at each observation.
+
+
+
+
+
+So the level of wind at any point is a cause of a very large number of particles and their interactions. A few of these forces may influence the wind in the one direction and a few in the other. 
+
+I'm using could be a bit wobbly so each time it is affected by my hand pressure. The wind may also be blowing fast and slow vibrating my instrument. The grass may be uneven chaging my angle very slightly. There could be some instrumental error due to accuracy limits of my telescope. Measurment error in me reading the non-digital(its the 1800s after all) readings and so on and so forth. 
 
 Consider an unbiased error, an error that that has a chance of increasing or decreasing you measurment equally. If 
 
@@ -273,7 +307,11 @@ Or in other worlds : large deviations are less likely than smaller ones.
 
 
 
+[
+CLT:The central limit theorem states that the distribution of sample means approximates a normal distribution as the sample size gets larger (assuming that all samples are identical in size), regardless of population distribution shape.
 
+We say the distribution of total deviations in normal. And this implies ^
+]
 
 
 
