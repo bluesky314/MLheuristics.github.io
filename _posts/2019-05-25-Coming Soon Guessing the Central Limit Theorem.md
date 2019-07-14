@@ -216,13 +216,12 @@ In a way we can consider zero to be the true signal of the game. Its the real ex
 Consider a very small extension of the above experiment and then we can move onto errors. What if I won 51 at every heads and 49 at every tails. What would be my average winning?
 
 Lets write the above game in terms of deviations as we did before
-$\sum x_i = \sum (\bar{x} + d_i) = \sum \bar{x} +\sum d_i $
 
 $$\frac{\sum x_i}{N}=\frac{\sum (\bar{x} + d_i)}{N}=\frac{\sum (50 \pm 1)}{N}$$
 
-=\frac{\sum 50}{N} + \frac{ \pm 1}{N}
+$=\frac{\sum 50}{N} + \frac{ \pm 1}{N}$
 
-= 50 + \frac{+1 -1 +1 -1 +1 -1 +1 -1  +1 -1 +1 -1  ....}{N}
+$ = 50 + \frac{+1 -1 +1 -1 +1 -1 +1 -1  +1 -1 +1 -1  ....}{N}$
 
 Notice how the second term is exactly like our first game! A winning of +1 and -1's around 0 is now a winning of +1 and -1's around 50. This shows more clearly the statement that the mean, 50, is the only consistent source of signal in game while +1 and -1's are random fluctuations than act upon it. 
 
