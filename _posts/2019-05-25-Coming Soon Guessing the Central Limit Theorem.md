@@ -254,7 +254,10 @@ So there are a gazillion air particles acting on the telescope vibrating it very
 
 This is exactly the situation we had earlier with the coin tossing example. Except here the coins are particles, heads are particles pushing us to the right and if we are being pushed more to the right than left then our movement is a postive unit in the right direction. If the errors caused by the wind were truly random fluctuations then their expected movement on the telescope is zero because they have no preference in which direction to push(think maximum entropy). If there is a preferance, then it is a source of systematic, and not random, error.
 
-Now if we strip all causes of error to their individual units of forces, each having no preferace into which direction to push the telescope, then we have a case of infinite elements each with equal probability of heads or tails .... I equal probability  mean pushing the telescope to the right or left. This is essentially a binomial distribution with $N=\infty$ which decreases from it's expected value in the characteristic way shown above. But now that there are so many errors, this curve's range on the x-axis is much much broader than shown above, leading to vastly different values at each observation.
+Now if we strip all causes of error to their individual units of forces, each having no preferace into which direction to push the telescope, then we have a case of infinite elements each with equal probability of heads or tails .... I mean equal probability of pushing the telescope to the right or left. This is essentially a binomial distribution with $N=\infty$ which decreases from it's expected value in the characteristic way shown above. But now that there are so many errors, this curve's range on the x-axis is much much broader than shown above, leading to vastly different values at each observation.
+
+
+This is just assuming we can only move right or left, but if we could also move up and down or other angles, then you could imagine we would have similar looking curve but in higher dimensions.
 
 
 
