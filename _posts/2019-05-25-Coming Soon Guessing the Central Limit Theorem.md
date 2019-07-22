@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 90% Complete -- Guessing the Central Limit Theorem
+title: Guessing the Central Limit Theorem -- 90% Complete
 ---
 
 
