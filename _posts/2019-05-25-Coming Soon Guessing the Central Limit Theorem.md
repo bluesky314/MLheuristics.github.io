@@ -18,14 +18,14 @@ First let's consider X follows a Uniform distribution from 0 to 1 or
 $X\sim U(a,b)$
 $X\sim U(0,1)$
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/uniform2.png?raw=true" width="850" height="300" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/uniform2.png?raw=true" width="850" height="350" >
 
-We know the mean or the expected value of this distribution is equal to 1/2. But what does 1/2 really represent? 
- If we were to sample a few or even alot of points and take their average, there is no guarentee we would the exact expected value.
-Thus the common defination of the expected value says that if we were to sample N values of $x_i's$, then in the limit as N tends to infinity the expected value would *converge*, not equal,to 1/2: 
+We know the mean or the expected value of this distribution is equal to $1/2$. But what does $1/2$ really represent? 
+ If we were to sample a few or even a lot of points then there is guarentee that their average would be our theoretical expercted value.
+The defination of the expected value says that if we were to sample $N$ points, each $x_i$, then in the limit as $N$ tends to infinity the average would *converge* to the expected value. Stated succinctly as : 
  $lim_{N\mapsto \infty} \frac{\sum_i^Nx_i}{N}\mapsto 1/2$
  
-Let's play around with this. Every point in X can be represented as how much it deviates from 1/2: $1/2 + d_i$. Points to the left have a negative deviation and the right have posistive ones.
+Let's play around with this. Every point in X can be represented as how much it deviates from the excepted value as  $1/2 + d_i$. Points to the left have a negative deviation and the right have posistive ones.
 E.g)
 
 0.6 = 0.5 + 0.1
@@ -35,17 +35,17 @@ E.g)
 
 As the uniform is symteric around its mean you can image what the distribution of deviations would look like. The plot of the distribution of deviations $d_i$ is:
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/uniformdeviation3.png?raw=true" width="850" height="300" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/uniformdeviation3.png?raw=true" width="850" height="350" >
 
 We see some nice properties of this distribution:
 
 1) The distribution is symettric about 0
 
-2)I am just as likely to get +0.1 as -0.1 or -0.2 as +0.2. For every positive value there is a equal negative value that occurs with the *same probability*(Due to symettriry)
+2)I am just as likely to get +0.1 as -0.1 or -0.2 as +0.2. For every positive value there is a equal negative value that occurs with the *same probability* 
 
-3)Clearly if I were to sum up all the points in this distribution, I would get 0 (again due to the symettry)
+3)If I were to sum up all the points in this distribution, I would get 0 (again due to the symettry around 0)
 
-Let's consider a finite number of points $0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1$ from X for simplicity. What if I were to change these to our alternate representation and sum them? Let's see what happens:
+Let's consider the equally spread and finite number of points $0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1$ from X for demonstration. What if I were to change these to our alternate representation and sum them? Let's see what happens:
 $\sum x_i = \sum 0.5 - d_i$
 $\sum x_i = (0.5-0.4) + (0.5-0.3) + (0.5-0.2) + (0.5-0.1) + (0.5-0) + (0.5+0.1) + (0.5+0.2)+ (0.5+0.3) + (0.5+0.4)$
 $\sum x_i = 10*0.5 = 5$
@@ -53,15 +53,17 @@ $\sum x_i = 10*0.5 = 5$
 With our transformation $x_i=1/2+d_i$ you can see that every $d_i$ above 0.5 would cancel with every below. 
 You can imagine this same result if I were to to it for the entire distribution and not just our discrete points. All the deviations would cancel each other out and I would be left with N times 1/2. (Keep in mind here we just summing the entire distribution and sampling and summing).
 
-From this we get our first new defination of the mean: the mean is the number around which the deviations tend to cancel each other out when summed.
+From this we get our first defination of the mean: the mean is the number around which the deviations cancel each other out when summed.
 
-This is conveyed in the mean formula as well: (we will be seeing this formulae from many different angles in this blog)
+We will see that this holds for non-symettric distirbutions as well. This is useful because if my deviations were some random errors, then on summing them they would disappear. But more about that later.
+
+The above is conveyed in the mean formula as well: (we will be seeing this formulae from many different angles in this blog)
 
 $$\frac{\sum x_i}{N}=\bar{x}$$
 
 $$\sum x_i=N\bar{x}$$
 
-We got the same thing when we summed our 10 points above. In our case we did:
+This says something very similar about not needing to know every value to get the sum, although abit idealistically. We got the same thing when we summed our 10 points above. In our case we did:
 
 $\sum x_i = \sum (\bar{x} + d_i) = \sum \bar{x} +\sum d_i $
 
@@ -69,7 +71,7 @@ And then using $\sum d_i = 0$
 
 $\sum \bar{x} +\sum d_i = \sum \bar{x} +0 = N\bar{x}$
 
-$\sum d_i$ = 0 is visually appreant in the case of summing the whole distribution, but in the case of random sampling I will not get all the deviations perfectly cancelling out. We would expect most of them to, using 2) above, but it won't be perfect. But the idea is that given a lot of obervations we would very well approximate $\sum x_i$ by $N\bar{x}$ as we would expect all the positive and negative deviations to cancel each other out.
+$\sum d_i$ = 0 is visually appreant in our case of summing the whole distribution, but in random sampling all deviations may not perfectly cancel out. We would expect most of them to, using observation 2 above, but it won't be perfect. The idea that remains is that given a lot of obervations we would very well approximate $\sum x_i$ by $N\bar{x}$ as we would expect all the positive and negative deviations to cancel each other out. This idea of thinking about the deviations will be useful later on.
 
 Simulating random points from the uniform gives me:
 
@@ -91,15 +93,15 @@ Leading to the sum as ___ or 5 +-
 
 
 Let's see if idea holds for non-symetrric distributions
-Consider this skewed Beta distribution distribution. The red and blue line mark the occourance of the mean when x=0.9 with a probability mass of 4
+Consider this skewed Beta distribution. The red and blue line mark the mean at x=0.9 with a probability mass of 4
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/BetaDist.png?raw=true" width="850" height="300" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/BetaDist.png?raw=true" width="850" height="350" >
 
 Now lets see the mean subtracted version
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/BetaDistMeanN.png?raw=true" width="850" height="300" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/BetaDistMeanN.png?raw=true" width="850" height="350" >
 
-If we sum all values of x for this distribution we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. So once again, the mean is the point around which the positive and negative deviations cancel out. 
+If we sum all values of our deviations we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. If expected winnings of a game are 10\$, and I subtract 10\$ from each game, then I expect to win 10-10=0\$ per game($E[X-E[X]]=E[X]-E[X]=0$). So once again, the mean is the point around which the positive and negative deviations cancel out. 
 
 Let's rewrite the mean formulae with this insight. We will now consider a very very large number of sample so that 
 
