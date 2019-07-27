@@ -5,9 +5,7 @@ title: Guessing the Central Limit Theorem -- 90% Complete
 
 
 Making the foundations of the Guassian Distribution more intuitive
-$\$\$\$\$$
-
-$ \$ $
+ 
 --Warning - typos ahead----
 
 Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it out of a magic hat. In this blog we will show why the Guassian has some very natural properties and why it is critical is describing noisy or random phonemon and observations like like the one it was discovered to understand(access? better word). We want to understand why errors are considered normally distributed in linear regression and other ML algorithms and why the mean is used as a representiative number in many cases. I hope that the connection of random errors to the normal distribution blows your mind!
@@ -103,7 +101,7 @@ Now lets see the mean subtracted version
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/BetaDistMeanN.png?raw=true" width="850" height="350" >
 
-If we sum all values of our deviations we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. If expected winnings of a game are 10\$, and I subtract 10\$ from each game, then I expect to win 10-10=0\$ per game($E[X-E[X]]=E[X]-E[X]=0$). So once again, the mean is the point around which the positive and negative deviations cancel out. 
+If we sum all values of our deviations we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. If expected winnings of a game are 10$ \$ $, and I subtract 10$ \$ $ from each game, then I expect to win 10-10=0$ \$ $ per game($E[X-E[X]]=E[X]-E[X]=0). So once again, the mean is the point around which the positive and negative deviations cancel out. 
 
 Let's rewrite the mean formulae with this insight. We will now consider a very very large number of sample so that 
 
@@ -113,8 +111,9 @@ Let's rewrite the mean formulae with this insight. We will now consider a very v
 
 $lim_{N\mapsto \infty} \frac{\sum_i^Nx_i}{N}\mapsto \mu$
 
-We will write each $x_i$ as how it deviates from the sample mean. Why the sample mean? Well if we were doing an experiment then we dont know the true mean, we only know the sample mean and from above we know that $\sum d_i \approx 0 $ only when we take the mean of the points under consideration.
+We will write each $x_i$ as how it deviates from the sample mean. Why the sample mean? If we were doing an experiment then we dont know the true mean, we only know the sample mean and the deviations around this sum to 0. However the deviations from the true mean  from above we know that $\sum d_i \approx 0 $ only when we take the mean of the points under consideration.
 
+We will express each x as some deviation from the true mean: x_i=\mu + d_i. Earlier we represented each point as a deviation from the sample mean and those deviations summed to 0. But here \sum d_i won't be exactly zero due to the randomness of sampling. (out sample is a approxiamtion of the true frequencies)
 $$\frac{\sum x_i}{N}=\mu$$
 
 $$\frac{\sum (\bar{x} + d_i)}{N}=\mu$$  
