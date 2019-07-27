@@ -5,7 +5,9 @@ title: Guessing the Central Limit Theorem -- 90% Complete
 
 
 Making the foundations of the Guassian Distribution more intuitive
+$\$\$\$\$$
 
+$ \$ $
 --Warning - typos ahead----
 
 Perhaps the one topic in all statistics that is as prevalent as it is shrouded in mystery. Your professors and seniors failed to explain it and great textbooks introduce by pulling it out of a magic hat. In this blog we will show why the Guassian has some very natural properties and why it is critical is describing noisy or random phonemon and observations like like the one it was discovered to understand(access? better word). We want to understand why errors are considered normally distributed in linear regression and other ML algorithms and why the mean is used as a representiative number in many cases. I hope that the connection of random errors to the normal distribution blows your mind!
