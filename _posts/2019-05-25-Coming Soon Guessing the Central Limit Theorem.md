@@ -101,7 +101,7 @@ Now lets see the mean subtracted version
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/gaussian/BetaDistMeanN.png?raw=true" width="850" height="350" >
 
-If we sum all values of our deviations we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. If expected winnings of a game are 10$ \$ $, and I subtract 10$ \$ $ from each game, then I expect to win 10-10=0$ \$ $ per game($E[X-E[X]]=E[X]-E[X]=0). So once again, the mean is the point around which the positive and negative deviations cancel out. 
+If we sum all values of our deviations we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. If expected winnings of a game are 10$ \$ $, and I subtract 10$ \$ $ from each game, then I expect to win 10-10=0$ \$ $ per game($E[X-E[X]]=E[X]-E[X]=0$). So once again, the mean is the point around which the positive and negative deviations cancel out. 
 
 Let's rewrite the mean formulae with this insight. We will now consider a very very large number of sample so that 
 
