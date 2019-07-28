@@ -103,6 +103,8 @@ Now lets see the mean subtracted version
 
 If we sum all values of our deviations we do in fact get 0. Thats because there are a few large deviations to the right but many smaller deviations to the left. When we sum them, the smaller values occour with a much higher frequency so they are able to cancel the larger values. If expected winnings of a game are 10$ \$ $, and I subtract 10$ \$ $ from each game, then I expect to win 10-10=0$ \$ $ per game($E[X-E[X]]=E[X]-E[X]=0$). So once again, the mean is the point around which the positive and negative deviations cancel out. 
 
+--- I want this idea to stick that the sample mean in a sample has deviations sum zero. Now lets 
+
 Let's rewrite the mean formulae with this insight. We will now consider a very very large number of sample so that 
 
 1) $\sum d_i \approx 0 $
@@ -111,7 +113,7 @@ Let's rewrite the mean formulae with this insight. We will now consider a very v
 
 $lim_{N\mapsto \infty} \frac{\sum_i^Nx_i}{N}\mapsto \mu$
 
-We will write each $x_i$ as how it deviates from the sample mean. Why the sample mean? If we were doing an experiment then we dont know the true mean, we only know the sample mean and the deviations around this sum to 0. However the deviations from the true mean  from above we know that $\sum d_i \approx 0 $ only when we take the mean of the points under consideration.
+We will write each $x_i$ as how it deviates from the sample mean as before. We use the sample mean as we generally don't know the true mean but we do know the deviations around the true mean approximately sum to 0. This small deviation becomes part of the sample mean so it is a slightly biased estimate of the true mean. So x bar and mu differ slightly. Thus x bar - di is really like mu-di+error So we are considering the sample mean as the true mean then $\sum d_i \approx 0 $ only when we take the mean of the points under consideration.
 
 We will express each x as some deviation from the true mean: x_i=\mu + d_i. Earlier we represented each point as a deviation from the sample mean and those deviations summed to 0. But here \sum d_i won't be exactly zero due to the randomness of sampling. (out sample is a approxiamtion of the true frequencies)
 $$\frac{\sum x_i}{N}=\mu$$
