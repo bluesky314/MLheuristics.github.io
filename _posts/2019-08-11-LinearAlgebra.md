@@ -2,10 +2,9 @@
 layout: post
 title: Linear Algebra Done Right
 ---
-Linear Algebra Done Right
+Personal Notes from Linear Algebra Done Right by Sheldon Axler
 
 ---
-
 
 
 The special thing about linearity is homogeneity i.e if I can prove something in one region of space then it must be true in all regions. This is as try for numeric relationships as 
