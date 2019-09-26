@@ -23,7 +23,6 @@ A subset U of V is called a subspace of V if U is also a vector space (using the
 > $0∈U$
 > - closed under addition
 > u, v ∈ U implies u + v ∈ U ; 
-
 > - closed under scalar multiplication
 > a∈F and u∈U implies au∈U  
 
