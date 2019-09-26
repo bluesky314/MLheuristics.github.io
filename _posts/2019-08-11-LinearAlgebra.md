@@ -14,8 +14,9 @@ Rules defining a vector space:
 
 Pvectoraxioms.png
 
-
+```javascript
 A subset U of V is called a subspace of V if U is also a vector space (using the same addition and scalar multiplication as on V ).
+```
 
 If U is a subset of V,then to check that U is a subspace of V we need only check that U satisfies the following:
 - additive identity
