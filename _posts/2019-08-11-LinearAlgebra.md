@@ -139,64 +139,76 @@ Injective is one-one. Let a and b be some points in space. If T(a) = T(b) then T
 Pabsub
 Thus all vectors a-b go to 0. So we colapse one dimension by placing this vector at every point in space. However if a-b=0 then T must be injective.
 
-For T ∈ L(V,W), the range of T, denoted rangeT, is the subset of
-W consisting of those vectors that are of the form Tv for some v ∈ V :
-rangeT ={Tv :v ∈V}.
+**Range of a Transform**
+
+> For T ∈ L(V,W), the range of T, denoted rangeT, is the subset of
+> W consisting of those vectors that are of the form Tv for some v ∈ V :
+> rangeT ={Tv :v ∈V}.
 
 RangeT is the output space of T.
 
 Both the range space and the null space form a subspace.
-A linear map T : V → W is called surjective if its range equals W . The output space is spanned by Tv.
+> A linear map T : V → W is called surjective if its range equals W . The output space is spanned by Tv.
 
 
-3.4 Rank-Nullity Theorem: If V is finite dimensional and T ∈ L(V,W), then range T is a finite-dimensional subspace of W and
-dimV =dimnullT +dimrangeT.
+**Rank-Nullity Theorem**
+
+> 3.4 Rank-Nullity Theorem: If $V$ is finite dimensional and $T ∈ L(V,W)$, then range $T$ is a finite-dimensional subspace of $W$ and
+$dimV =dimnullT +dimrangeT$.
 
 
-A simple extension of the above ideas. Let dimV = n. Let dim nullT = k. Let B be some basis s.t the nullspace are elements of the basis. Excluding the null space we have n-k independant vectors left in V. Each is a one-dimensional subspace which is mapped by T
-to another one-dimensional subspaces. So the output dimensional space is now n-k.
+A simple extension of the above ideas leads to the rank-nullity theorem. Let $dimV = n$. Let $dim nullT = k$. Let B be some basis s.t the nullspace are elements of the basis. Excluding the null space we have $n-k$ independant vectors left in $V$. Each is a one-dimensional subspace which is mapped by $T$
+to another one-dimensional subspaces. So the output dimensional space is now $n-k$
 Thus all vectors in the basis either are part of the null space or mapped to one-dimensional output spaces.
-Hence dimV =dimnullT +dimrangeT
+Hence $dimV = dimnullT +dimrangeT$
 
 Now we come to some interesting cases of the above theorem. 
-3.5 Let T ∈ L(V,W). If V and W are finite-dimensional vector spaces such that dim V > dim W , then no linear map from V to W is injective.
-Proof: dimV =dimnullT +dimrangeT
-       dimnullT=dimV-dimrangeT
-       as dimV>dimrangeT
-       dimnullT>0
+
+> 3.5 Let $T ∈ L(V,W)$. If $V$ and $W$ are finite-dimensional vector spaces such that $dim V > dim W $, then no linear map from $V$ to$ W$ is injective.
+
+Proof: $dimV =dimnullT +dimrangeT$
+       $dimnullT=dimV-dimrangeT$
+       as $dimV>dimrangeT$
+       $dimnullT>0$
        
-       Thus by 3.2, the map is not injective.
-       If V is being pushed to a span a smaller space and a one-dimensional subspace can only map to another one-dimensional subspace, some of its subspaces must be taken to 0.
+Thus by 3.2, the map is not injective.
+If $V$ is being pushed to a span a smaller space and a one-dimensional subspace can only map to another one-dimensional subspace, some of its subspaces must be taken to 0.
        
-3.6 Let T ∈ L(V,W). If V and W are finite-dimensional vector spaces such that dim V < dim W , then no linear map from V to W is surjective.
-Proof: dimrangeT =dimV −dimnullT ≤ dim V< dim W 
-Since one-dimensional subspace can only map to another one-dimensional subspace. We don't have enought subspaces in V to map W.
+> 3.6 Let $T ∈ L(V,W)$. If $V$ and $W$ are finite-dimensional vector spaces such that $dim V < dim W$ , then no linear map from $V$ to $W$ is surjective.
+
+Proof: $dimrangeT =dimV −dimnullT ≤ dim V< dim W $
+Since one-dimensional subspace can only map to another one-dimensional subspace. We don't have enought subspaces in $V$ to map W.
 
 3.5 and 3.6 can be applied to know if systems of linear equations have solutions or not. 
 Phomoeq1
 Phomoeq2
-In this case if n>k i.e more variables than equations then we are projecting from a bigger to smaller space. If this transform spans the space then we would have a solution but it may not.
-If k>n, then we may have a solution if $c_1.......c_n$ belong to rangeT but the transform does not span the possible range space so there may not be one.
 
-Matrices
+In this case if $n>k$ i.e more variables than equations then we are projecting from a bigger to smaller space. If this transform spans the space then we would have a solution but it may not.
+If$ k>n$, then we may have a solution if $c_1.......c_n$ belong to rangeT but the transform does not span the possible range space so there may not be one.
+
+## **Linear Maps as Matrices**
+
 Matrices are representations of linear maps in rectangular array form. A matrix $M T,(v_1,...,v_n),(w_1,...,w_m) $ takes elements in the basis $v_1.......v_n$ to a output space with basis $w_1.....w_m$.
 Matrices obey the linear notions vector addition and scalar multiplication and are a vector space themselves.
 A composition of two linear maps is easy to find out. Matrix Multiplcation is defined the way it is so compositions of matrices, which are really compositions of linear transforms, behave as they should.
 
-Invertibility
+**Invertibility**
 
-3.17 Proposition: A linear map is invertible if and only if it is injec- tive and surjective.
+> 3.17 Proposition: A linear map is invertible if and only if it is injective and surjective.
 
-Two vector spaces are called isomorphic if there is an invertible linear map from one vector space onto the other one. As abstract vector spaces, two isomorphic spaces have the 
+Two vector spaces are called *isomorphic* if there is an invertible linear map from one vector space onto the other one. As abstract vector spaces, two isomorphic spaces have the 
 same properties. From this viewpoint, you can think of an invertible linear map as a relabeling of the elements of a vector space.
+
 Isomorphism exists between two same dimensional spaces and allows us to reason about one through the other. A basis transformation is an isomorphism as it is
 just a relabeling of the same space with different basis vectors. Thus if we know how these bases vectors corrospond, then knowing something about one allows us insight into the other due to the corrospondece being homogenous across the entire space.
 Linear maps from $V$ to $V$ are called operators and have some useful properties.
 
-3.21 Theorem: Suppose V is finite dimensional. If T ∈ L(V,V), then the following are equivalent:
-- T is invertible
-- T is injective
-- T is surjective
+> 3.21 Theorem: Suppose V is finite dimensional. If T ∈ L(V,V), then the following are equivalent:
+> - T is invertible
+> - T is injective
+> - T is surjective
+
+
 Operators also have the propoerty that if $v_1....v_n$ is a basis and T is any of the above then $T(v_1)....T(v_n)$ is linearly independant.
 Proof
 $a_1v_1....a_nv_n=0$ only for $a_1=a_2=...=a_n=0$
