@@ -166,17 +166,24 @@ Now we come to some interesting cases of the above theorem.
 
 > 3.5 Let $T ∈ L(V,W)$. If $V$ and $W$ are finite-dimensional vector spaces such that $dim V > dim W $, then no linear map from $V$ to$ W$ is injective.
 
-Proof: $dimV =dimnullT +dimrangeT$
-       $dimnullT=dimV-dimrangeT$
-       as $dimV>dimrangeT$
-       $dimnullT>0$
+Proof: 
+
+$dimV =dimnullT +dimrangeT$
+
+$dimnullT=dimV-dimrangeT$
+       
+as $dimV>dimrangeT$
+       
+$dimnullT>0$
        
 Thus by 3.2, the map is not injective.
+
+
 If $V$ is being pushed to a span a smaller space and a one-dimensional subspace can only map to another one-dimensional subspace, some of its subspaces must be taken to 0.
        
 > 3.6 Let $T ∈ L(V,W)$. If $V$ and $W$ are finite-dimensional vector spaces such that $dim V < dim W$ , then no linear map from $V$ to $W$ is surjective.
 
-Proof: $dimrangeT =dimV −dimnullT ≤ dim V< dim W $
+Proof: $dimrangeT =dimV − dimnullT ≤ dim V < dim W $
 Since one-dimensional subspace can only map to another one-dimensional subspace. We don't have enought subspaces in $V$ to map W.
 
 3.5 and 3.6 can be applied to know if systems of linear equations have solutions or not. 
@@ -196,7 +203,7 @@ A composition of two linear maps is easy to find out. Matrix Multiplcation is de
 
 > 3.17 Proposition: A linear map is invertible if and only if it is injective and surjective.
 
-Two vector spaces are called *isomorphic* if there is an invertible linear map from one vector space onto the other one. As abstract vector spaces, two isomorphic spaces have the 
+Two vector spaces are called **isomorphic** if there is an invertible linear map from one vector space onto the other one. As abstract vector spaces, two isomorphic spaces have the 
 same properties. From this viewpoint, you can think of an invertible linear map as a relabeling of the elements of a vector space.
 
 Isomorphism exists between two same dimensional spaces and allows us to reason about one through the other. A basis transformation is an isomorphism as it is
@@ -217,10 +224,11 @@ then $T(b_1v_1......b_nv_n)=0$
 but as T is surjective this means it is injective and as it is true for  $b_1=b_2=...=b_n=0$, it can only be true for this case.
 
  
-Ch 5 Eigenvalues and Eigenvectors
+## **Ch 5 Eigenvalues and Eigenvectors**
 
-Invariant subspace
-Suppose $T \in \mathcal{L}(V)$ A subspace U of V is called invariant under T if $u \in U$ implies $Tu \in U$
+**Invariant subspaces**
+
+> Suppose $T \in \mathcal{L}(V)$ A subspace U of V is called invariant under T if $u \in U$ implies $Tu \in U$
 
 If the dimension of $U$ is 1, then $T$ just scales $u$ but if dim>1 then $Tu$ could lie anywhere on the plane spanned by members of $U$
 Obviously ${0}$ and $V$ are invariant under an operator. So are $nullT$ and $rangeT$. $0$ is always in a set. Therefore
@@ -228,12 +236,12 @@ If $u \in nullT$, then $Tu = 0$, and hence $Tu \in nullT$. Thus nullT is
 invariant under T.
 If $u \in range T$, then $Tu \in range T$ as $Tu$ always outputs a member of the range(including 0 is a key point). Thus $range T$ is invariant under T.
 
-One dimensional invariant spaces are called eigenvectors and are of the form:
-$T u = λu$
+> One dimensional invariant spaces are called eigenvectors and are of the form:
+> $T u = λu$
 
-The equation Tu = λu is equivalent to (T −λI)u = 0, so λ is an eigenvalue of T if and only if 
-T − λI is not injective. By 3.21, λ is an eigenvalue of T if and only if T − λI is not invertible, and this happens if and 
-only if T − λI is not surjective.
+The equation $Tu = λu$ is equivalent to $(T −λI)u = 0$, so $λ$ is an eigenvalue of $T$ if and only if 
+$T − λI$ is not injective. By 3.21, $λ$ is an eigenvalue of $T $if and only if $T − λI$ is not invertible, and this happens if and 
+only if $T − λI$ is not surjective.
 
 The next theorem states eigenvectors must be linearly indepdant.
 PeigenLI
