@@ -14,41 +14,51 @@ Rules defining a vector space:
 
 Pvectoraxioms.png
 
-```
-A subset U of V is called a subspace of V if U is also a vector space (using the same addition and scalar multiplication as on V ).
-```
+
+> A subset U of V is called a subspace of V if U is also a vector space (using the same addition and scalar multiplication as > on V ).
+
+
+**Conditions of a Subspace**
 
 > If U is a subset of V,then to check that U is a subspace of V we need only check that U satisfies the following:
 > - additive identity
 > $0∈U$
 > - closed under addition
-> u, v ∈ U implies u + v ∈ U ; 
+> $u, v ∈ U$ implies $u + v ∈ U$ ; 
 > - closed under scalar multiplication
-> a∈F and u∈U implies au∈U  
+> $a∈F$ and $u∈U$ implies au∈U  
 
-The union of two subspaces is not always a vector space. If x-axis and y-axis are subspaces. Their union includes both (3,0) and (0,5), whose sum, (3,5), is not in the union.
-The next logical question would be "How do I then define the joining of two spaces?". 
+**Joining spaces - Direct Sum**
+
+The union of two subspaces is not always a vector space. 
+
+E.g) If x-axis and y-axis are thhe subspaces then their union includes both (3,0) and (0,5), whose sum, (3,5), is not in the union.
+
+The next logical question would be *"How do I then define the joining of two spaces?"* 
 The answer lies in the direct sum. The idea is to fill the caused by the addition operation. Put elements which stop the union of spaces to be a space by putting elements required into the collection by considering additions over the spaces as well.  
 
 Pdirectsum
 
-A direct sum does consider additions of the space to belong to their direct sum. A vector field can be thus decomposed into a number of direct sum elements and each element
-can be looked at under closer observation. Direct sum implies that the only way to write 0 is by taking all $u_i's$ to equal 0. The intersections of all the 
+A direct sum does consider additions of the space to belong to their direct sum, unlike the example above. A vector field can be thus decomposed into a number of direct sum elements and each element can be looked at under closer observation. 
+
+Direct sum implies that the only way to write 0 is by taking all $u_i's$ to equal 0. The intersections of all the 
 spaces $U_i's$ is the null set. Refer to the proof of these in the book. A basis spanning a space can be thought of a direct sum. Additions are required and every point is uniquely reached. 
-The two properties of direct sums are V=U+W and U intersection W ={0}
+
+The two properties of direct sums are *V=U+W and U intersection W ={0}*
 
 
 
-Ch2
-Finite Dimensional Vector Spaces - Basis , Span and Dimension
 
-A linear combination of a list $v_1....v_m$ of vectors in V is a vector of
-the form
-$a_1v_1 +....+ a_mv_m$
-where $a_1.....a_m belong F$.
-The set of all linear combinations of a set of vectors is called its span.
+## **Ch2 Finite Dimensional Vector Spaces - Basis , Span and Dimension**
 
-Linear independace is defined 
+> A linear combination of a list $v_1....v_m$ of vectors in V is a vector of
+> the form
+> $a_1v_1 +....+ a_mv_m$
+> where $a_1.....a_m$ belong $F$.
+> The set of all linear combinations of a set of vectors is called its span.
+
+**Linear independace** is defined 
+
 PLinearIndep
 
 We see that any point being a unique sum is equivalent to saying 0 is a unique sum. The only way to reach a point should be through a unique combinations of vectors.
@@ -59,28 +69,35 @@ Thus if I can get to 0 in more than one way, I can get a midpoint in the path in
 This condition is called linear independance. Linear independace maens that as no vector can be written as a sum of the others it provides a new component that the others need to get
 to some point. If they above condition is not true, it means that the vectors can add in a distructive manner, but this wont be the case each vector has unique a component others can't get to.
 
-A basis of V is a list of vectors in V that is linearly independent and spans V. Every spanning list can be reduced to a basis by removing linearly dependant vectors iteratively. Likewise, any linearly indepant list of vectors can be extended to a basis
-of the vector space by addition of linearly independant vectors. These two notions are used in many proofs. 2.13 says that if U is a subspace of V, then U can be extended to V through a direct some with some W. Here we use the fact that
-other linearly independant vectors can be added to U to form a spanning set of V.
-A key point is that if I have a set of linearly independent vectors equal to the dimension of the space then it must be a basis.
-This works both ways.
-Suppose V is finite-dimensional. Then every linearly independent list of vectors in V with length dim V is a basis of V.
+> A basis of V is a list of vectors in V that is linearly independent and spans V. 
 
-Dimension
+> Every spanning list can be reduced to a basis by removing linearly dependant vectors iteratively. Likewise, any linearly indepant list of vectors can be extended to a basis of the vector space by addition of linearly independant vectors. 
+
+These two notions are used in many proofs. 
+
+> 2.13 says that if U is a subspace of V, then U can be extended to V through a direct some with some W. Here we use the fact that other linearly independant vectors can be added to U to form a spanning set of V.
+
+A key point is that if I have a set of linearly independent vectors equal to the dimension of the space then it must be a basis. This works the other way as well:
+> Suppose V is finite-dimensional. Then every linearly independent list of vectors in V with length dim V is a basis of V.
+
+**Dimension**
 
 A reasonable definition should force the dimension of $F^n$ to equal $n$. Homewever, finite-dimensional vector space in general have many different bases
 This definition makes sense only if all bases in a given vector space have the same length. Fortunately that turns out to be the case.
 
-2.14 Theorem: Any two bases of a finite-dimensional vector space have the same length.
+> 2.14 Theorem: Any two bases of a finite-dimensional vector space have the same length.
+
 My Proof: Let U and W be two different sized bases of V. Pick the one containing the smaller number of elements, say $n$. As U is a spanning list any vector is W can be expressed as a linear combinations of U's.
 Express the first $n$ vectors in W as a combintion of U's. This is necessarily a spanning list as it is equal to U. Thus W cannot be longer than U. 
 
-From this an important Proposition arises: 2.16) If V is finite dimensional, then every spanning list of vectors in V with length dimV is a basis of V
-2.17) If V is finite dimensional, then every linearly independent list of vectors in V with length dim V is a basis of V .
+From this an important Proposition arises: 
+> 2.16) If V is finite dimensional, then every spanning list of vectors in V with length dimV is a basis of V
 
-2.18) Dimension of a Sum: 
-If U1 and U2 are subspaces of a finite-dimensional vector space, then
-dim(U1 +U2)=dimU1 +dimU2 −dim(U1 ∩U2).
+> 2.17) If V is finite dimensional, then every linearly independent list of vectors in V with length dim V is a basis of V .
+
+> 2.18) Dimension of a Sum: 
+> If U1 and U2 are subspaces of a finite-dimensional vector space, then
+> dim(U1 +U2)=dimU1 +dimU2 −dim(U1 ∩U2).
 This formula for the dimension of the sum of two subspaces is analogous to a familiar counting formulae.
 
 Try proving the following:
@@ -98,7 +115,7 @@ then the number of elements in the set equals the sum of the number of elements 
 The difference from sets is that our spaces are closed under addition and multiplication operations. 
 
 
-Ch3 Linear Maps
+## **Ch3 Linear Maps**
 
 PLinearmapdefn
 
@@ -111,12 +128,12 @@ way as this one.
 Comments on composition ST
 
 Null space
-For T ∈ L(V,W), the null space of T, denoted nullT, is the subset of V consisting of those vectors that T maps to 0:
-nullT ={v ∈V :Tv =0}.
-If T ∈ L(V,W), then nullT is a subspace of V.
+> For T ∈ L(V,W), the null space of T, denoted nullT, is the subset of V consisting of those vectors that T maps to 0:
+> nullT ={v ∈V :Tv =0}.
+> If T ∈ L(V,W), then nullT is a subspace of V.
 
 A linear map T: V → W is called injective if whenever u,v ∈ V and Tu = Tv, we have u = v.
-3.2 Proposition: Let T ∈ L(V , W ). Then T is injective if and only if null T = {0}.
+> 3.2 Proposition: Let T ∈ L(V , W ). Then T is injective if and only if null T = {0}.
 
 Injective is one-one. Let a and b be some points in space. If T(a) = T(b) then T(a-b)=0. This means the line between a and b is squased to 0.
 Pabsub
