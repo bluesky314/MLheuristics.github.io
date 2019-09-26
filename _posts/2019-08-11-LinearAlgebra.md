@@ -18,27 +18,26 @@ Pvectoraxioms.png
 A subset U of V is called a subspace of V if U is also a vector space (using the same addition and scalar multiplication as on V ).
 ```
 
-{ If U is a subset of V,then to check that U is a subspace of V we need only check that U satisfies the following:
-- additive identity
-$0∈U$
-- closed under addition
-u, v ∈ U implies u + v ∈ U ; 
+> If U is a subset of V,then to check that U is a subspace of V we need only check that U satisfies the following:
+> - additive identity
+> $0∈U$
+> - closed under addition
+> u, v ∈ U implies u + v ∈ U ; 
 
-- closed under scalar multiplication
-a∈F and u∈U implies au∈U }
+> - closed under scalar multiplication
+> a∈F and u∈U implies au∈U  
 
-== The union of two subspaces is not always a vector space. If x-axis and y-axis are subspaces. Their union includes both (3,0) and (0,5), whose sum, (3,5), is not in the union.
+The union of two subspaces is not always a vector space. If x-axis and y-axis are subspaces. Their union includes both (3,0) and (0,5), whose sum, (3,5), is not in the union.
 The next logical question would be "How do I then define the joining of two spaces?". 
-The answer lies in the direct sum. The idea is to fill the caused by the addition operation. Put elements which stop the union of spaces to be a space by putting elements required into the collection by considering additions over the spaces as well. ==
+The answer lies in the direct sum. The idea is to fill the caused by the addition operation. Put elements which stop the union of spaces to be a space by putting elements required into the collection by considering additions over the spaces as well.  
 
 Pdirectsum
 
-::: warning
-*A direct sum does consider additions of the space to belong to their direct sum. A vector field can be thus decomposed into a number of direct sum elements and each element
+A direct sum does consider additions of the space to belong to their direct sum. A vector field can be thus decomposed into a number of direct sum elements and each element
 can be looked at under closer observation. Direct sum implies that the only way to write 0 is by taking all $u_i's$ to equal 0. The intersections of all the 
 spaces $U_i's$ is the null set. Refer to the proof of these in the book. A basis spanning a space can be thought of a direct sum. Additions are required and every point is uniquely reached. 
-The two properties of direct sums are V=U+W and U intersection W ={0}*
-:::
+The two properties of direct sums are V=U+W and U intersection W ={0}
+
 
 
 Ch2
