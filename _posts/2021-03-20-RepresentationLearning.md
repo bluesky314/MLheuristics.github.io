@@ -39,7 +39,6 @@ We will gives more examples of computer vision in this talk but also see similar
 
 &nbsp;
 
-&nbsp;
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/RepLearning/IntroWhyRep.png?raw=true" >
 
@@ -69,6 +68,7 @@ That is one of our main task with neural networks, to transform our input space 
 There is also the our friend the Curse of Dimensionality. If you think about the possible number of images, its huge. There are billions and gazillions of images possible and there's no way they were going to see all of them in a data set. We have to look at very few images and generalise to the rest. We may look at less than 1% or 0.01 % of natural images, yet they are expected to do well on all of them. In order to do this, we have to learn to exploit certain consistencies that occur within this data type to better design our learning algorithms. 
 
 
+&nbsp;
 
 
 <font size="6"> How CNNs learn representations </font> 
@@ -116,7 +116,7 @@ Stationary features are repeating features. In these examples it is very obvious
 
 Lastly we can recursively decompose each of these images into smaller concepts. glass->windows->building, leaf->flowers->forest, beak->duck->toy shop?
 
-
+&nbsp;
 
 
 <font size="6"> Other domain areas </font> 
@@ -128,7 +128,7 @@ These three properties don’t just occurred in images, they are prevalent in la
 Think and have fun with these properties, they are more prevalent than you may realise! The world is compositional folks.
 
 
-
+&nbsp;
 
 
 <font size="6"> Design Implications to CNNs </font> 
@@ -140,7 +140,7 @@ Now that we understand these higher level assumptions, lets see how they influen
 In order to learn Stationary features we must learn representations which are robust to various transformation and deformations so we do data augmentation to facilitate the learning of such robust filters to generalise to the larger image space. Finally for Hierarchical feature we simply stack many layers to exploit compositional nature of our data. This design helps us overcome curse of dimensionality by using(or exploiting) Locality, Stationary, Hierarchical properties as natural priors in an end-end learnable fashion.
 
 
-
+&nbsp;
 
 
 <font size="6"> Learning to Represent </font> 
@@ -160,7 +160,7 @@ CNN = Representation Learning + Reasoning
 Representation Learning = Shared + Specialised Layers
 
 
-
+&nbsp;
 
 <font size="6"> Deep Learning is Representation Learning </font> 
 
