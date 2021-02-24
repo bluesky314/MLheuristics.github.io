@@ -19,7 +19,7 @@ The slides to the talk along with all references can be found [here](https://doc
 
 ---
 
-<font size="6">  **What are Representations?** </font> 
+<font size="6">  What are Representations? </font> 
 
 Representations are concepts. We would like to take in some data in the form of images, text, speech, actions, sensor information or anything really and we want to learn really good concept from them. These concepts are very useful because if we learn good concepts we can ask really good questions about data that we’ve never seen.
 
@@ -35,7 +35,7 @@ We will gives more examples of computer vision in this talk but also see similar
 
 
 
-**Why do we need representations?**
+<font size="6"> Why do we need representations? </font> 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/RepLearning/IntroWhyRep.png?raw=true" >
 
@@ -65,7 +65,7 @@ That is one of our main task with neural networks, to transform our input space 
 There is also the our friend the Curse of Dimensionality. If you think about the possible number of images, its huge. There are billions and gazillions of images possible and there's no way they were going to see all of them in a data set. We have to look at very few images and generalise to the rest. We may look at less than 1% or 0.01 % of natural images, yet they are expected to do well on all of them. In order to do this, we have to learn to exploit certain consistencies that occur within this data type to better design our learning algorithms. 
 
 
-**How CNNs learn representations**
+<font size="6"> How CNNs learn representations </font> 
 
 Let's about the philosophy of CNNs and how they approach the two problems introduced above: the space not being ordered and the curse of dimensionality. CNNs add certain priors which make reasoning over this high dimensional data easier. 
 
@@ -81,15 +81,15 @@ The three key assumptions are Locality, Stationary and Hierarchical. Lets use ex
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/RepLearning/atcod.png?raw=true" >
 
 - **Locality**
-- 
+ 
 CNNs assume that features are local. A bird in an image can occur in many different locations, but we don't have to have a different detector for each of those birds. We can just use one detector and apply it to different parts of the image. Objects can appear anywhere and we do not want to link concepts directly to their position. We want to learn features independent of position. These are called spatially independent features. We evaluate things locally, only gradually increasing our receptive field size to look at the bigger picture. What this implies is that patterns exist locally and we just need to look within a local neighbourhood to understand what is present there. 
 
 - **Stationary**
-- 
+ 
 There are many patterns that will be repeating throughout natural image space. For example, a dog or a face will occur within millions and gazillions of images so we actually don't need to look at all the possible face images to understand the concept of a face. We can just be look at a thousand and because this this feature is repeating we will capture it in all the million images we haven't seen. Stationary means that feature or representations are repetitive.
 
 - **Hierarchical**
-- 
+
 Hierarchical means that concepts are compositional like we spoke about earlier. We could take a large idea like a human body and break the human body into smaller concepts like hands, face and so on. Then we can take one of these concepts, like a face, and break it down to even smaller concepts like eyes, nose and so on. Then we can again take one of these, like eyes, and break It down further to oval, circle, edges etc. Conversely, we can take small structures and concepts and progressively build them into bigger and richer concepts. 
 
 
@@ -108,7 +108,7 @@ Stationary features are repeating features. In these examples it is very obvious
 
 Lastly we can recursively decompose each of these images into smaller concepts. glass->windows->building, leaf->flowers->forest, beak->duck->toy shop?
 
-**Other domain areas**
+<font size="6"> Other domain areas </font> 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/RepLearning/CoolEg2.png?raw=true" >
 
@@ -117,7 +117,7 @@ These three properties don’t just occurred in images, they are prevalent in la
 Think and have fun with these properties, they are more prevalent than you may realise! The world is compositional folks.
 
 
-**Design Implications to CNNs**
+<font size="6"> Design Implications to CNNs </font> 
 
 Now that we understand these higher level assumptions, lets see how they influence the design of deep neural networks.The Locality assumption directly leads to the concept of weight sharing in CNNs where a filters scans an image for local pattern detection. 
 
@@ -125,7 +125,7 @@ Now that we understand these higher level assumptions, lets see how they influen
 
 In order to learn Stationary features we must learn representations which are robust to various transformation and deformations so we do data augmentation to facilitate the learning of such robust filters to generalise to the larger image space. Finally for Hierarchical feature we simply stack many layers to exploit compositional nature of our data. This design helps us overcome curse of dimensionality by using(or exploiting) Locality, Stationary, Hierarchical properties as natural priors in an end-end learnable fashion.
 
-**Learning to Represent**
+<font size="6"> Learning to Represent </font> 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/RepLearning/Rep3.png?raw=true" >
 
@@ -143,7 +143,7 @@ Representation Learning = Shared + Specialised Layers
 
 
 
-**Deep Learning is Representation Learning**
+<font size="6"> Deep Learning is Representation Learning**
 
 The main point is that in representation learning we are going to take in some raw information like image, text,etc and and turn it into some conceptual features features and then reason over those features. That is what deep learning is. It is representation learning. It is how do we learn good representation over unstructured data. 
 
@@ -177,7 +177,7 @@ A similar pattern in segmentation: classical CV vs FCN: 11% and FCN vs DeepLabV3
 Likewise for object detection. A huge jump within DL methods. 
 
 
-There is much to innovation left for representation learning within in deep learning, today we have attention and transformers slowly taking over the world of vision. But all of them exploit the priors listed here to overcome the curse of dimensionality to learn the best representation they can. For a similar blog post by me please [see](https://bluesky314.github.io/perceptrons/) and do check out the references in the slides for further readings. Thanks for reading.
+The history of deep learning is how can we design our networks to better learn representations and there is much to innovation left for representation learning within in deep learning, today we have attention and transformers slowly taking over the world of vision. But all of them exploit the priors listed here to overcome the curse of dimensionality to learn the best representation they can. For a similar blog post by me please [see](https://bluesky314.github.io/perceptrons/) and do check out the references in the slides for further readings. Thanks for reading.
 
 
 
