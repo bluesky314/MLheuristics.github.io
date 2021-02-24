@@ -65,7 +65,10 @@ That is one of our main task with neural networks, to transform our input space 
 There is also the our friend the Curse of Dimensionality. If you think about the possible number of images, its huge. There are billions and gazillions of images possible and there's no way they were going to see all of them in a data set. We have to look at very few images and generalise to the rest. We may look at less than 1% or 0.01 % of natural images, yet they are expected to do well on all of them. In order to do this, we have to learn to exploit certain consistencies that occur within this data type to better design our learning algorithms. 
 
 
+
+
 <font size="6"> How CNNs learn representations </font> 
+
 
 Let's about the philosophy of CNNs and how they approach the two problems introduced above: the space not being ordered and the curse of dimensionality. CNNs add certain priors which make reasoning over this high dimensional data easier. 
 
@@ -93,6 +96,7 @@ There are many patterns that will be repeating throughout natural image space. F
 Hierarchical means that concepts are compositional like we spoke about earlier. We could take a large idea like a human body and break the human body into smaller concepts like hands, face and so on. Then we can take one of these concepts, like a face, and break it down to even smaller concepts like eyes, nose and so on. Then we can again take one of these, like eyes, and break It down further to oval, circle, edges etc. Conversely, we can take small structures and concepts and progressively build them into bigger and richer concepts. 
 
 
+
 Let's look at some examples at demonstrate these assumptions. 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/RepLearning/Locality.png?raw=true" >
@@ -108,6 +112,9 @@ Stationary features are repeating features. In these examples it is very obvious
 
 Lastly we can recursively decompose each of these images into smaller concepts. glass->windows->building, leaf->flowers->forest, beak->duck->toy shop?
 
+
+
+
 <font size="6"> Other domain areas </font> 
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/RepLearning/CoolEg2.png?raw=true" >
@@ -117,6 +124,9 @@ These three properties don’t just occurred in images, they are prevalent in la
 Think and have fun with these properties, they are more prevalent than you may realise! The world is compositional folks.
 
 
+
+
+
 <font size="6"> Design Implications to CNNs </font> 
 
 Now that we understand these higher level assumptions, lets see how they influence the design of deep neural networks.The Locality assumption directly leads to the concept of weight sharing in CNNs where a filters scans an image for local pattern detection. 
@@ -124,6 +134,10 @@ Now that we understand these higher level assumptions, lets see how they influen
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/RepLearning/Compostional1.png?raw=true" >
 
 In order to learn Stationary features we must learn representations which are robust to various transformation and deformations so we do data augmentation to facilitate the learning of such robust filters to generalise to the larger image space. Finally for Hierarchical feature we simply stack many layers to exploit compositional nature of our data. This design helps us overcome curse of dimensionality by using(or exploiting) Locality, Stationary, Hierarchical properties as natural priors in an end-end learnable fashion.
+
+
+
+
 
 <font size="6"> Learning to Represent </font> 
 
@@ -143,7 +157,8 @@ Representation Learning = Shared + Specialised Layers
 
 
 
-<font size="6"> Deep Learning is Representation Learning**
+
+<font size="6"> Deep Learning is Representation Learning </font> 
 
 The main point is that in representation learning we are going to take in some raw information like image, text,etc and and turn it into some conceptual features features and then reason over those features. That is what deep learning is. It is representation learning. It is how do we learn good representation over unstructured data. 
 
