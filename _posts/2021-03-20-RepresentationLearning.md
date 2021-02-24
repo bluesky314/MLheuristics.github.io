@@ -19,7 +19,7 @@ The slides to the talk along with all references can be found [here](https://doc
 
 ---
 
-**What are Representations?**
+<font size="6">  **What are Representations?** </font> 
 
 Representations are concepts. We would like to take in some data in the form of images, text, speech, actions, sensor information or anything really and we want to learn really good concept from them. These concepts are very useful because if we learn good concepts we can ask really good questions about data that we’ve never seen.
 
@@ -177,7 +177,7 @@ A similar pattern in segmentation: classical CV vs FCN: 11% and FCN vs DeepLabV3
 Likewise for object detection. A huge jump within DL methods. 
 
 
-There is much to innovation on for representation learning within in deep learning, today we have attention and transformers slowly taking over the world of vision. But all of them exploit the priors listed here to overcome the curse of dimensionality to learn the best representation they can. For a similar blog post by me please [see](https://bluesky314.github.io/perceptrons/) and do check out the references in the slides for further readings. Thanks for reading.
+There is much to innovation left for representation learning within in deep learning, today we have attention and transformers slowly taking over the world of vision. But all of them exploit the priors listed here to overcome the curse of dimensionality to learn the best representation they can. For a similar blog post by me please [see](https://bluesky314.github.io/perceptrons/) and do check out the references in the slides for further readings. Thanks for reading.
 
 
 
