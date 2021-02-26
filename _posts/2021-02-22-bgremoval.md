@@ -45,4 +45,4 @@ Profile and Passport Pictures: Create stunning profile pictures in a click. Skip
 Logos/Signature/Graphics: Works on graphic arts and signatures 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/graphic.png?raw=true" >
 
-logo im
+logo  
