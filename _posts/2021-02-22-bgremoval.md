@@ -33,11 +33,11 @@ Ecommerce: Get your product images ready instantly for any eCommerce platform
 
 
 Media/Creative: Unfold your creative edge and make stunning content
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/media.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/media.jpg?raw=true" >
 
 
 Profile and Passport Pictures: Create stunning profile pictures in a click. Skip the line and create passport photos anywhere.
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/profilepic.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/profilepic.jpg?raw=true" >
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/passport.jpg?raw=true" >
 
