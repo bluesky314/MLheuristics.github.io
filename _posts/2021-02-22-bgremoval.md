@@ -49,6 +49,9 @@ We elaborate more on these challenges in the new section. Here we present some a
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/sig.jpg?raw=true" >
 
+---
+
+
  
 **Section 2: Why is it hard?**
 
