@@ -77,7 +77,7 @@ In such a case we create a transparency mask like that shown below for proper ex
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/hairalpha.jpg?raw=true" >
 
 
-The masks created must have a high level of accuracy as image created from background removal are often used for ecommerce or media purposes where humans would be seeing them. Lets talk about three factors that impact the realism of compositions: color decontamination, small gaps and fg/bg blending.
+The masks created must have a high level of accuracy as image created from background removal are often used for ecommerce or media purposes where humans would be seeing them. Lets talk about three factors that impact the realism of compositions: color decontamination, small gaps and Alpha blending.
 
 **Color decontamination**
 
@@ -94,3 +94,15 @@ As can be seen in the third column, the first algorithm slightly over estimates 
 Even small errors in the mask, such as missing tiny gaps can cause large/obvious visual dispecency when composing on a new background as shown above. If any of the tiny gaps are left out then the compose still contains the white wall color from the previous background making it look unrealistic.  
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/smallgaps.jpg?raw=true" width="450" height="570" >
+
+**Alpha blending**
+
+Lets look at a sample of how our transparency masks promote realistic composition. Our transparency mask indicates for every point how much of the foreground and background colours should be present. For certain points we would have a blend of foreground and background colours like 60% foreground and 40% background. This mixing creates a realistic blend that seems more appealing to the eye. Transition regions like these around the borders also prevents compositions from being jaggy and creates smooth transition that is more natural.
+
+Below is an example of brown hair extracted as c) and we try to compose with a colourful background a) for illustration. The new bg is multiplied with the inverted mask and blended with the hair to yield a mixture of the two. As can be seen the colors blend.
+
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/compositionzoom.png?raw=true" >
+
+
+In conclusion we see that background removal is a delicate process that requires transparency prediction to get right. Using the map generated in the removal process we are able to extract the subject and create a realistic blend with a new background. We hope you now have a deeper appreciation of background removal and its applications.
+
