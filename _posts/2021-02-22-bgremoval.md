@@ -7,12 +7,12 @@ A friendly introduction to Background Removal and thoughts that went into creati
 ---
 
 
-<font size="4">Section 1: Introduction. What is background removal?</font> 
+<font size="4"> Section 1: Introduction. What is background removal? </font> 
 
 Background removal the process of selecting the foreground subject in an image and erasing the background so that the foreground subject can be placed on a completely different background. This is done with help of a mask produced in the removal process as shown below. Placing the subject on a new background is called composition. 
 
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/intro.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/intro.jpg?raw=true" >
 
 As the human eye is very sensitive to discrepancies in images ,delicate care must be taken so that the composition of the extracted subject on a new background looks realistic. This can be tricky for delicate structures like hair and fur. Composition allows us to reuse images by putting them on formal or creative backgrounds. There are two major challenges to creating a completely automated system that can do background removal: 
 
@@ -24,12 +24,12 @@ We elaborate more on these challenges in the new section. Here we present some a
 
 Reusing photoshoots: Get more out of our existing content
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/model.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/model.jpg?raw=true" >
 
 Ecommerce: Get your product images ready instantly for any eCommerce platform
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/shirt.png?raw=true" >
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/shoe.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/shirt.jpg?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/shoe.jpg?raw=true" >
 
 
 Media/Creative: Unfold your creative edge and make stunning content
@@ -39,10 +39,11 @@ Media/Creative: Unfold your creative edge and make stunning content
 Profile and Passport Pictures: Create stunning profile pictures in a click. Skip the line and create passport photos anywhere.
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/profilepic.png?raw=true" >
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/passport.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/passport.jpg?raw=true" >
 
 
 Logos/Signature/Graphics: Works on graphic arts and signatures 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/graphic.png?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/sig.jpg?raw=true" >
 
-logo  
+ 
