@@ -90,4 +90,4 @@ As can be seen in the third column, the first algorithm slightly over estimates 
 
 Even small errors in the mask, such as missing tiny gaps can cause large/obvious visual dispecency when composing on a new background as shown above. If any of the tiny gaps are left out then the compose still contains the white wall color from the previous background making it look unrealistic.  
 
-<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/smallgaps.jpg?raw=true" >
+<img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/smallgaps.jpg?raw=true" width="150" height="200" >
