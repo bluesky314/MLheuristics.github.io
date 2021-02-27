@@ -2,7 +2,7 @@
 layout: post
 title: A friendly introduction to Background Removal
 ---
-A friendly introduction to Background Removal and thoughts that went into creating Erase.BG
+A friendly introduction to Background Removal and some of it's challenges.
 
 ---
 
