@@ -2,7 +2,7 @@
 layout: post
 title: A friendly introduction to Background Removal
 ---
-A friendly introduction to Background Removal and some of it's challenges.
+A friendly introduction to Background Removal and some of it's challenges. The tech used in [EraseBG](https://erase.bg) 
 
 ---
 
@@ -122,5 +122,5 @@ Below, in c) is a small patch of brown hair extracted from the stuffed toy above
 
 &nbsp;
 
-In conclusion we saw that background removal is a delicate process that requires transparency prediction to get right. Using the map generated in the removal process we are able to extract the subject and compose to a new background. We spoke of three important considerations that affect realism of the compositions and the level of accuracy and detail expected from algorithms that attempt to produce these masks. We hope enjoyed reading this article and now have a deeper appreciation of background removal and its many applications.
+In conclusion we saw that background removal is a delicate process that requires transparency prediction to get right. Using the map generated in the removal process we are able to extract the subject and compose to a new background. We spoke of three important considerations that affect realism of the compositions and the level of accuracy and detail expected from algorithms that attempt to produce these masks. We hope enjoyed reading this article and now have a deeper appreciation of background removal and its many applications. To see all this in action try out our background remover [EraseBG](https://erase.bg). Offical upgraded launch date 10th March.
 
