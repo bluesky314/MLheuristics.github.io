@@ -11,7 +11,7 @@ This blog covers a talk I gave on Representation Learning for Visual Application
 
 The workshop included a talk and a coding session. The coding assignment and it’s solution notebook can be found here: [https://github.com/OxML2020/practicals](https://github.com/OxML2020/practicals)
 
-More about program [https://www.oxfordml.school/](https://www.oxfordml.school/)
+More about program [https://www.oxfordml.school/oxml2020](https://www.oxfordml.school/oxml2020)
 
 The slides to the talk along with all references can be found [here](https://docs.google.com/presentation/d/1ybIi-Rk8yLy63ReW6VuQmysllvf24rGWD4i1mZSg9xY/edit?usp=sharing). The references are not linked here in this post but are in the slides and they are some great ones so do check them out.
 
