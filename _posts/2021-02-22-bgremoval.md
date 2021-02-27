@@ -115,5 +115,7 @@ Below, in c) is a small patch of brown hair extracted from the stuffed toy above
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/compositionzoom.png?raw=true" >
 - Taken from Computer Vision and Algorithms and Applications by Richard Szeliski
 
+&nbsp;
+
 In conclusion we see that background removal is a delicate process that requires transparency prediction to get right. Using the map generated in the removal process we are able to extract the subject and compose to a new background. We spoke of three important considerations that affect realism of the compositions and the level of accuracy and detail expected from algorithms that attempt to produce these masks. We hope enjoyed reading this article and now have a deeper appreciation of background removal and its many applications.
 
