@@ -22,7 +22,7 @@ As the human eye is very sensitive to discrepancies in images ,delicate care mus
 
 2) Predicting an accurate mask: The mask must exactly cover only the subject area. Moreover, many structures like fur and human hair have delicate semi-transparent and intricate structures which must be handled with care so that precise extraction and realistic composition can be done.
 
-<font size="4"> Applications </font> 
+## Applications
 
 
 We elaborate more on these challenges in the next section. Let's look at some applications first:
