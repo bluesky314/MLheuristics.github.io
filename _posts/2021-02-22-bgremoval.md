@@ -25,7 +25,7 @@ As the human eye is very sensitive to discrepancies in images ,delicate care mus
 ## Applications
 
 
-We elaborate more on these challenges in the next section. Let's look at some applications first:
+We elaborate more on these challenges and show examples in the next section. Let's look at some applications first:
 
 **Reusing photoshoots:** Get more out of our existing content
 
@@ -105,7 +105,7 @@ The third column zooms in on a small patch on the right hand side of the toy and
 
 **Small Gaps**
 
-Even small errors in the mask, such as missing tiny gaps, can cause obvious visual discrepancies when composing on a new background. Below we see the original image on the top and masks produced by two algorithms below. A range of errors in the first mask can be seen. Large gaps like, the one near the shoulder, are obviously visible when the subject is placed on the green background but so are the tiny ones around and within the curly hair. If these gaps are left out then parts of the old background are placed on the new one making the image look synthetic.
+Even small errors in the mask, such as missing tiny gaps, can cause obvious visual discrepancies when composing on a new background. Below we see the original image on the top and masks produced by two algorithms on the right. A range of errors in the first mask can be seen. Large gaps like, the one near the shoulder, are obviously visible when the subject is placed on the green background but so are the tiny ones around and within the curly hair. If these gaps are left out then parts of the old background are placed on the new one making the image look synthetic.
 
 <img src="https://github.com/bluesky314/bluesky314.github.io/blob/master/images/bgremoval/smallgapsv2.jpg?raw=true" width="800" height="500" >
 
