@@ -143,7 +143,9 @@ Amplitude envelope (AE): max amplitude value
     - ![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FDeepLearning%2Fbee3svo0ty.png?alt=media&token=86253d30-d616-4e9b-a6cf-fdd1bcd6d5d9)
     
     
-We can use this to detect onset of some musical note or classify music geners
+We can use this to detect onset of some musical note or classify music generes
+
+
 Root-mean-square energy (RMS): sum of square values
     - $$R M S_{t}=\sqrt{\frac{1}{K} \cdot \sum_{k=t \cdot K}^{(t+1) \cdot K-1} s(k)^{2}}$$
     - Less sensitive to outliers
