@@ -3,7 +3,7 @@ layout: post
 title:  Business Model Innovation
 ---
 
-Business Model Innovation: The hidden backbone behind Technological Innovations
+Business Model Innovation: The hidden backbone of technological innovations
 
 ---
 
@@ -43,7 +43,7 @@ These companies innovated or followed unconventional business models that were s
 
 **Companies like Amazon, Uber, Netflix and Spotify which were largely distribution platforms did not have any innovative technology which was not available to others at the time, rather it was their innovative business model that was able to leverage existing technology to make itself a success.** Because of the access to users that technology provides, various business models that didn't make sense before can earn huge revenue.
 
-It may look like these companies were destined to succeed because of their technology, but decisions in how they structured their business and growth models were crucial to their success. Google wasn't the first search engineer , Facebook wasn't the first social media and Netflix wasn't the first internet media company. The key take away is that these companies succeed because of a coupling of technological and business model innovations. **Don't just bet on innovative tech solutions, but also on innovate business models that leverage technology.**
+It may look like these companies were destined to succeed because of their technology, but decisions in how they structured their business and growth models were crucial to their success. Google wasn't the first search engineer , Facebook wasn't the first social media and Netflix wasn't the first internet media company. The key take away is that these companies succeed because of a coupling of technological and business model innovations. **Don't just bet on innovative tech solutions, but also on innovate business models that leverage technology effectively.**
 
 
 
