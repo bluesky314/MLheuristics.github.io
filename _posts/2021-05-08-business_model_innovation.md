@@ -9,7 +9,9 @@ Business Model Innovation: The hidden backbone of technological innovations
 
 
 
-It's tempting to hail the success of most of the large tech companies of our time to be purely due to their technological innovations. The truth is that those technological innovations were almost always coupled with innovations in business models to product the successful companies we see today like Google, Facebook, AirBnB and so on. Without these business model innovations it would not have been possible to for these tech companies to reach the massive scale and growth trajectories that they did that far exceed those in other industries. Some of these business have pioneered growth models, which seem obvious today but were very non-obvious at that time. 
+It's tempting to hail the success of most of the large tech companies of our time to be purely due to their technological innovations. **The truth is that those technological innovations were almost always coupled with innovations in business models to product the successful companies we see today.** These are the likes of Google, Facebook, AirBnB and so on. **Without these business model innovations it would not have been possible to for these tech companies to reach the massive scale and growth trajectories that they did that.** These growth trajectories far exceed those in other industries however tech companies are mostly known for their innovative tech instead of business strategy. Some of these business have pioneered growth models, which seem obvious today but were very non-obvious at that time. 
+
+Let's look at some examples before returning to a general discussion:
 
 Google's decision to monitize personalised banners rather than ranking websites who paid them higher, as all other search engines did at the time, allowed them to keep their search completely organic and high quality which massively increased their value to users. This in turn increased the number of users which in turn sky rocketed the revenue from the banner ads.  Google was also able to leverage its scale to deliver personalised ads, which would not have been possible otherwise.
 
@@ -47,4 +49,4 @@ It may look like these companies were destined to succeed because of their techn
 
 
 
-Interested learning more on how tech companies achive lightning fast scaling? Read [Blitzscaling: The Lightning-Fast Path to Building Massively: The Lightning-Fast Path to Building Massively Valuable Companies](https://www.amazon.in/Blitzscaling-Lightning-Fast-Path-Building-Massively/dp/0008303630/ref=sr_1_1?dchild=1&keywords=blitzscaling&qid=1620482398&sr=8-1)
+Interested learning more on how tech companies achive lightning fast scaling? Read [Blitzscaling: The Lightning-Fast Path to Building Massively Valuable Companies](https://www.amazon.in/Blitzscaling-Lightning-Fast-Path-Building-Massively/dp/0008303630/ref=sr_1_1?dchild=1&keywords=blitzscaling&qid=1620482398&sr=8-1)
