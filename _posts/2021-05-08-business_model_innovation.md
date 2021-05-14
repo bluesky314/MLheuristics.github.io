@@ -49,4 +49,4 @@ It may look like these companies were destined to succeed because of their techn
 
 
 
-Interested learning more on how tech companies achive lightning fast scaling? Read [Blitzscaling: The Lightning-Fast Path to Building Massively Valuable Companies](https://www.amazon.in/Blitzscaling-Lightning-Fast-Path-Building-Massively/dp/0008303630/ref=sr_1_1?dchild=1&keywords=blitzscaling&qid=1620482398&sr=8-1)
+Interested in learning more on how tech companies achive lightning fast scaling? Read [Blitzscaling: The Lightning-Fast Path to Building Massively Valuable Companies](https://www.amazon.in/Blitzscaling-Lightning-Fast-Path-Building-Massively/dp/0008303630/ref=sr_1_1?dchild=1&keywords=blitzscaling&qid=1620482398&sr=8-1)
